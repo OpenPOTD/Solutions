@@ -1,0 +1,39 @@
+\SSbreak\\
+\emph{Source: \Csmc, 2020 Q24}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 65}\\
+\emph{Date: 2020-12-02}\\
+\SSbreak
+
+\SSpsetQ{
+    In the diagram below, \(M\) is the mid-point of \(PQ\). The line \(PS\) bisects \(\angle RPQ\) and intersects \(RQ\) at \(S\). The line \(ST\) is parallel to \(PR\) and intersects \(PQ\) at \(T\). The length of \(PQ\) is 12, and the length of \(MT\) is 1. The angle \(SQT\) is \(120^{\circ}\). What is the value of \(100SQ\)?
+}\bigskip
+
+\begin{figure}[h!]
+    \centering
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    \clip(-0.5,-0.5) rectangle (6.5,4);
+    \draw [line width=0.8pt] (0,0.)-- (6,3.46);
+    \draw [line width=0.8pt] (6,3.46)-- (4.,0.);
+    \draw [line width=0.8pt] (4,0)-- (0,0);
+    \draw [line width=0.8pt] (2.54,0)-- (4.73,1.26);
+    \draw [line width=0.8pt] (0,0)-- (4.73,1.26);
+    \begin{scriptsize}
+    \draw[color=black] (0,-0.2) node {$P$};
+    \draw[color=black] (4,-0.2) node {$Q$};
+    \draw[color=black] (6.1,3.6) node {$R$};
+    \draw[color=black] (2,-0.2) node {$M$};
+    \draw [fill=black] (2,0) circle (0.75pt);
+    \draw[color=black] (4.95,1.35) node {$S$};
+    \draw[color=black] (2.5,-0.2) node {$T$};
+    \draw[color=black] (3.78,0.25) node {$120^{\circ}$};
+    \end{scriptsize}
+    \end{tikzpicture}
+\end{figure}
+
+\begin{solution}\hfil\medskip
+    
+We proceed by angle chase. Let \(\angle RPQ=2\theta\). Then \(\angle STQ =2\theta\), so \(\angle QST=60-2\theta\). Also since \(\angle RPS=\theta\) (because \(PS\) bisects \(\angle RPQ\)), and \(\angle QRP=60-2\theta\) we have \(\angle PSR=120+\theta\) which implies that \(\angle TSQ=\theta\). Therefore \(\triangle PTS\) is an isosceles triangle. Hence \(\abs{TS}=\abs{PT}=7\). Suppose now that \(\abs{SQ}=x\) for \(x>0\). Then by the cosine rule on \(\triangle TQS\) we have \(7^2=5^2+x^2-2(5)(x)\cos(120)\). This gives us \(x^2+5x-24=0\), and so \(x=-8\) or \(x=3\), with the latter being the only valid answer. Thus our final answer is \(\{100\cdot 3\}=\fbox{300}\).
+\end{solution}\bigskip
+
+

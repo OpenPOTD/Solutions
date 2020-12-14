@@ -1,0 +1,22 @@
+\SSbreak\\
+\emph{Source: \Csmc, 2015 Q23}\\
+\emph{Proposer: Unknown}\\
+\emph{Problem ID: 27}\\
+\emph{Date: 2020-11-04}\\
+\SSbreak
+
+\SSpsetQ{
+    Given four different non-zero digits, it is possible to form 24 different numbers containing each of these four digits. 
+    What is the largest prime factor of the sum of the 24 numbers?
+}\bigskip
+
+\begin{solution}\hfil\medskip 
+
+    Say the digits are $a$, $b$, $c$, and $d$. For each digit, it appears in the units place 6 times,
+     the tens place 6 times, the hundreds place 6 times, and the thousands place 6 times. \\
+
+    Hence the sum of the 24 numbers is $6666(a+b+c+d) = 2 \cdot 3 \cdot 11 \cdot 101 (a+b+c+d)$.
+     Since $a+b+c+d < 40$, it cannot have any prime factors larger than 101. \\
+
+    The largest prime factor of the sum of the 24 numbers is thus $\boxed{101}$. 
+\end{solution}\bigskip

@@ -1,0 +1,47 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 67}\\
+\emph{Date: 2020-12-04}\\
+\SSbreak
+
+\SSpsetQ{
+  For a triangle \(ABC\), given \(\angle BAC=30\) and \(BC=10\), let  \(H\) denote the orthocentre of \(ABC\) what is the value of \(\abs{AH}^2\)?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+  Consider the general case, let \(\angle CAB =\theta\), and additionally let \(\angle CAA'=\alpha\):
+
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    \clip(-1.,-1.) rectangle (11.,10.);
+    \draw[line width=0.4pt] (7.367431796305403,4.573018976310393) -- (7.118235629475714,4.429563217942272) -- (7.261691387843834,4.180367051112583) -- (7.510887554673523,4.323822809480704) -- cycle; 
+    \draw[line width=0.4pt] (4.842284745538277,0.28753831774492744) -- (4.554746427793349,0.2875383177449275) -- (4.554746427793349,0.) -- (4.842284745538277,0.) -- cycle; 
+    \draw [shift={(4.842284745538277,8.9594372901555)},line width=0.4pt] (0,0) -- (-90.:0.6099608829852312) arc (-90.:-60.072083917200075:0.6099608829852312) -- cycle;
+    \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (0.:0.6099608829852312) arc (0.:29.92791608279994:0.6099608829852312) -- cycle;
+    \draw [line width=0.4pt] (0.,0.)-- (4.842284745538277,8.9594372901555);
+    \draw [line width=0.4pt] (4.842284745538277,8.9594372901555)-- (10.,0.);
+    \draw [line width=0.4pt] (10.,0.)-- (0.,0.);
+    \draw [line width=0.4pt] (4.842284745538277,8.9594372901555)-- (4.842284745538277,0.);
+    \draw [line width=0.4pt] (0.,0.)-- (7.510887554673523,4.323822809480704);
+    \draw [line width=0.4pt,dash pattern=on 5pt off 5pt] (2.2606916502128467,4.18284469766526)-- (10.,0.);
+    \begin{scriptsize}
+    \draw[color=black] (-0.4109789181995478,0.1779865330449812) node {$B$};
+    \draw[color=black] (10.141344357444952,0.21865059191066316) node {$C$};
+    \draw[color=black] (4.7736885871749175,9.307067748390585) node {$A$};
+    \draw[color=black] (4.855016704906281,-0.18798999674615663) node {$A'$};
+    \draw[color=black] (5.0176729403690095,2.4958378883888543) node {$H$};
+    \draw [fill=black] (7.510887554673523,4.323822809480704) circle (0.5pt);
+    \draw[color=black] (7.721832854936868,4.529040831672953) node {$B'$};
+    \draw[color=black] (1.07,0.9302716220600978) node {$\frac{\pi}{2} -\theta$};
+    \draw[color=black] (5.1,8.229470188450014) node {$\alpha$};
+    \draw[color=black] (1,0.2999787096420271) node {$\alpha$};
+    \draw[color=black] (1.9678685254428536,4.386716625643066) node {$C'$};
+    \end{scriptsize}
+    \end{tikzpicture}
+\end{figure}
+
+We have \(\tan(\theta)=\frac{BB'}{AB}\) and \(\cos\alpha=\frac{AB'}{AH}=\frac{BB'}{10}\), hence, \(AH=10\cdot\frac{AB'}{BB'}\). And so \(AH=\frac{10}{\tan(\theta)}\). It is given in the question that \(\theta=30^{\circ}\), so we have \(AH=10\sqrt{3}\), thus our answer is \(AH^2=\fbox{300}\)
+\end{solution}\bigskip

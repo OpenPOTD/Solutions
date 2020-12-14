@@ -1,0 +1,32 @@
+\SSbreak\\
+\emph{Source: \Cimom, 2015 Q1}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 47}\\
+\emph{Date: 2020-11-16}\\
+\SSbreak
+     
+\SSpsetQ{
+    Consider the sequence \(5,\ 55,\ 555,\ 5555,\ldots\)\medskip
+
+    How many digits does the smallest number in the sequence have which is divisible by 495?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    We require the term to be divisible by \(5\cdot9\cdot 11\).
+    Hence we need only consider the sequence \(1,\ 11,\ 111\,\ldots\) with respect to \(9\cdot11\).
+    Clearly for odd numbered terms in the sequence, 11 does not divide into it, by the well-known divisibility rule for 11.
+    Therefore, we require an even numbered term in the sequence, which is divisible by 9.
+    We know 9 divides a number iff its digital sum is also divisible by 9.
+    Hence, the smallest such will be the 18th term in the sequence, which will naturally have \fbox{18} digits. 
+\end{solution}\bigskip
+
+\begin{solution}[Write up by \Paiya]\hfil\medskip
+     
+    Each of these numbers can be written as \(5\cdot1\ldots1,\)whee there are \(n\) total ones.
+    This can be rewritten as \(5\cdot(10^{n-1}+10^{n-2}+\cdots+10^0)=\frac{5}{9}(10^n-1)\).
+    Note that \(495=9\cdot11\cdot5\) so we want \(9|\frac{10^n-1}{9}\) and \(10^n\equiv1\mod{11}\).
+    From the congruence \(\mod{11}\) we see that \(n\) must be even.
+    Note that \(10^n-1=9\ldots9\), where there are \(n\) total nines; if \(n\) is a multiple of 9 then \(\frac{10^n-1}{9}=1\ldots1\) where there are \(n\) total ones; this is a multiple of 9.
+    Since \(n\) must be even, the smallest such \(n\) is \fbox{18}.
+\end{solution}

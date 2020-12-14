@@ -1,0 +1,46 @@
+\SSbreak\\   
+\emph{Source: \Cmat, 2014 Q6}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 56}\\
+\emph{Date: 2020-11-24}\\
+\SSbreak
+
+\SSpsetQ{
+    CircleThm plays two rounds of a deduction game with Wen and Tan. In each round, CircleThm picks two integers \(x\) and \(y\) so that \(1\leq x\leq y\). He then whispers the sum of the two chosen integers to Wen, and the product of the two integers to Tan. Neither Wen nor Tan knows what CircleThm told the other. In the game, Tan and Wen must try to work out what the numbers \(x\) and \(y\) are using logical deductions.\medskip
+
+    In the first round, suppose the product of the two chosen numbers, \(x_1\) and \(y_1\) is 8. \medskip
+
+    Tan says \emph{"I don't know what \(x_1\) and \(y_1\) are"}
+ 
+    Wen then says \emph{"I already knew that"}
+ 
+    Tan then says \emph{"I now know \(x_1\) and \(y_1\)"}\medskip
+ 
+    In the second round, suppose the sum of the two chosen numbers \(x_2\) and \(y_2\) is 5.\medskip
+ 
+    Tan says \emph{"I don't know what \(x_2\) and \(y_2\) are"}
+ 
+    Wen then says \emph{"I don't know what \(x_2\) and \(y_2\) are"}
+ 
+    Tan then says \emph{"I don't know what \(x_2\) and \(y_2\) are"}
+ 
+    Wen then says "\emph{I now know what \(x_2\) and \(y_2\) are"}\medskip
+ 
+    What is \((x_1x_2+y_1y_2)^3\)?
+}\bigskip
+
+\begin{solution}\hfil\medskip 
+ 
+    The first thing to observe is that Tan can only immediately deduce the values of \(\{x,y\}\) if, and only if, the prime factorisation of that number is unique - i.e. \(xy\) is prime.\\
+    If the product of $\{x_1,y_1\}$ is 8, then the decomposition can be either $\{1,8\}$ or $\{2,4\}$. 
+    However, if the decomposition was $\{2,4\}$, then Wen would have a sum of 6, so from their point of view the decomposition could potentially have been $\{1,5\}$, in which case Wen would have known that Tan would have known the decomposition as well - as the only way to achieve a product of 5 is from $\{1,5\}$. 
+    Therefore the decomposition must have been $\{1,8\}$.
+     
+    For the second part, the decomposition's allowed are $\{1,4\}$ and $\{2,3\}$. 
+    Assume that it is $\{1,4\}$. 
+    Then, Tan only knows the product is 4, which mean Tan believes the decomposition is either $\{1,4\}$ or $\{2,2\}$. 
+    If the decomposition was indeed $\{2,2\}$, then Wen would know that the sum is also 4, and thus that Wen would think that Tan sees a composition of $\{1,3\}$ or $\{2,2\}$. 
+    Tan's first statement would show Wen that the decomposition was not $\{1,3\}$ (as then Tan would instantly know the decomposition)- in which Wen should know that the decomposition is $\{2,2\}$. 
+    By Wen's first statement Tan then should know by their second statement that the decomposition is $\{1,4\}$; by Tan saying in their second statement that they don't know what the decomposition is, Wen then knows it must be $\{2,3\}$. 
+    Thus the solution is \((1\cdot2+8\cdot3)^3 =\fbox{17576}\)
+\end{solution}

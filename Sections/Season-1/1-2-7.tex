@@ -1,0 +1,30 @@
+\SSbreak\\
+\emph{Source: \Csmo, Open Section Round 2, 2004 Q2}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 35}\\
+\emph{Date: 2020-11-09}\\
+\SSbreak
+
+\SSpsetQ{
+    Find the number of ordered pairs \( (a, b) \) of integers, where \( 1 \leq a, b \leq 2004 \), 
+    such that \[ x^2+ax+b = 167y \] has integer solutions in \( x \) and \( y \).\\
+    
+    \textit{Note: You are allowed a four-function calculator. }
+}\bigskip
+
+\begin{solution}\hfil\medskip 
+
+    Note that 167 is prime. So 
+    
+    \begin{align*}
+        x^2 + ax + b &\equiv 0 \pmod{167} \\
+        \iff (x + \frac a2)^2 - \frac{a^2}{4} + b &\equiv 0 \pmod{167}\\
+        \iff (2x + a)^2 - a^2 + 4b &\equiv 0 \pmod{167}
+    \end{align*}
+
+    So $a^2 - 4b$ is a quadratic residue mod $167$. 
+    Because $167$ is an odd prime, there are exactly $\frac{167+1}{2}=84$ such quadratic residues. 
+    This means that for each choice of $a$, for which there are $2004$, there are $84$ choices of $b$ between 1 and 167. 
+    Since $2004 = 12 \cdot 167$, there are $12 \cdot 84$ choices of $b$ in total. \\
+    So the answer is $2004 \cdot 12 \cdot 84 = \boxed{2020032}$. 
+\end{solution}\bigskip

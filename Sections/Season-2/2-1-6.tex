@@ -1,0 +1,34 @@
+\SSbreak\\
+\emph{Source: AMOC 2019 December School Prep Problems C5}\\
+\emph{Proposer: \Pchris}\\
+\emph{Problem ID: 54}\\
+\emph{Date: 2020-11-22}\\
+\SSbreak
+
+\SSpsetQ{
+    MODSbot is trying to get rich by scamming MODS members out of their money, so it's devised a chess game on a \(2020\times2020\) chessboard for unsuspecting people to attempt before they can enter \textbf{.19's EPIC QoTD Party}. Suppose Brainy, Ishan, Nyxto, Adam, Bubble, Sharky and Christopher all get scammed by MODSbot, that is, MODSbot plays the chess game against all 7 at the same time on different boards.\bigskip
+
+    The group decide to pool together their money which comes to a total of \(4.20\) BTC, and to play, they'll need to buy \(n\) batches of slippery rooks from MODSbot. A batch of slippery rooks contains one white and four black rooks, and each batch is sold at a price equivalent to \(0.069\) BTC per rook. Once the batches of rooks have been bought, the group may choose to distribute them in a way which allows all members to beat the game.\bigskip
+   
+    In the game, only one white rook may be placed on the board, and we define how slippery rooks move as follows: it slips along the row or column it's moved along and comes to rest on an empty square because it is obstructed by either the edge of the board or another rook. Initially, MODSbot places the rooks on the board randomly, and marks a square red. Then the person being scammed can choose any rook on each turn and move as allowed, and attempt to place the white rook on the red square in a finite number of moves.\bigskip
+   
+    The amount of money they  have left over after buying the smallest \(n\) batches rooks to guarantee that they all succeed in beating MODSbots game is \(k\) BTC. What is the value of \(1000k\)?}
+
+\begin{solution} [Write up by ChristopherPi]\hfil\medskip
+
+    Consider simply the case of one person. We prove that three rooks are required, one white and two black.\\
+    
+    First we show that two are not enough: simply place the two rooks at corners of the board and mark any square not on the side of the board. It’s clear that neither rook can ever move to a square not on the side of the board. 
+    Now we show three are enough.\\
+    
+    Suppose square \((a, b)\) is marked, where \((1, 1)\) is the bottom left corner and \((2020, 2020)\) is the top right corner.
+    Trivially one can move the black rooks to \((1, 1)\) and \((2, 1)\) and the white rook to \((2020, 2020)\). 
+    Next, simply “loop” the black rooks as follows: take the rook further left, and move it up, right, down and left such that it moves to the right of the rook originally on its right, and repeat until you place a black rook at \((a - 1, 1)\). Now if \(b\) is odd, move the white rook to \((a, 1)\) and the black rook at \((a - 2, 1)\) to \((2020, 2020)\); if it’s even, loop the leftmost black rook one more time to place it at \((a, 1)\).\\
+    
+    Now move the rook at \((a - 1, 1)\) to \((a - 1, 2020)\), and move the rook at \((2020, 2020)\) left then down to \((a, 2)\). Next we describe another “looping” procedure: take the rook with first coordinate a and smaller second coordinate, and move it right, up, left and down, so it now has first coordinate a and second coordinate larger than the other rook with first coordinate a. Repeat this until you place a rook at \((a, b)\) - since the colour of the rook placed at \((a, 1)\) is dependent on the parity of b, this ensures that the rook placed at \((a, b)\) must be a white rook.\\
+    
+    This procedure won’t work if either of \((a, b)\) is 1 or 2020, or both of \(a\) and \(b\) are either 2 or 2019. 
+    In the first case, rotate the board such that \(a = 1\). Now place a black rook at \((2020, 2020)\). If \(b\) is odd, place the white rook at \((1, 1)\) and the other black rook at \((2, 1)\); else place the other black rook at \((1, 1)\) and the white rook at \((2, 1)\). Now use the first looping procedure until the white rook is placed at \((1, b)\) as required - since the position of the white rook depends on the parity of \(b\) this is certain to work. In the second case, rotate the board such that \((a, b) = (2, 2)\). Now you can trivially move the white rook to \((1, 1)\) and the black rooks to \((2, 1)\) and \((1, 2020)\). Now move the white rook up, right, up, left and down to place it at \((2, 2)\) as required.\\
+    
+    This shows that three is sufficient for one person. Hence the group must buy 7 batches because each of them needs a white rook, and one batch contains one white rook. Therefore, the answer is \(1000(4.2-7\cdot5\cdot0.069)=\fbox{1785}\).
+\end{solution}

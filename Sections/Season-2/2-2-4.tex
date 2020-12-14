@@ -1,0 +1,25 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 58}\\
+\emph{Date: 2020-11-27}\\
+\SSbreak
+
+\SSpsetQ{
+    Let \(x_1,x_2,x_3,x_4\) be integers such that \(1\leq x_1,x_2,x_3,x_4\leq9\).\medskip
+
+    How many solutions are there to \(x_1+x_2+x_3+x_4=26\)?\bigskip
+    
+    \begin{center}
+        \emph{(A four-function calculator may be used)}
+    \end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    This problem is a piece of PiE! The total number of possible solutions without restriction is going to be \(\binom{26-1}{4-1}=\binom{25}{3}\), and we now must subtract all the solutions which do not fit the restriction on \(x_i\). 
+    The number of solutions such that one of the \(x_i\)'s is greater than 9 is going to be \(\binom{26-1-9}{3}\). 
+    Similarly the number of solutions that two of the integers is going to be greater than 9 is going to be \(\binom{26-9-9-1}{3}=\binom{7}{3}\). 
+    Note that there are no integers such that more than 3 of them are greater than 9 since \(3\cdot9>26\). 
+    Now there are \(\binom{4}{1}\) ways to select the \(x_i\)'s such that one integer is greater than 9, and similarly there are \(\binom{4}{2}\) ways to select two integers greater than 9 in the solution. Hence we have \(\binom{25}{3}-\binom{4}{1}\binom{16}{4}+\binom{4}{2}\binom{7}{3}=\fbox{270}\) possible solutions.
+\end{solution}

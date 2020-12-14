@@ -1,0 +1,32 @@
+\SSbreak\\
+\emph{Source: \Cstepiii, 1996 Q4}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 57}\\
+\emph{Date: 2020-11-25}\\
+\SSbreak
+
+\SSpsetQ{
+    Consider the positive integer \(N\), and let \(\mathcal{Q}(N)\) denote the maximised product of integers that sum to \(N\).\medskip
+
+    What is the sum of the exponents of the prime factorisation of \(\mathcal{Q}(1262)\)?\medskip
+
+    For example: \(\mathcal{Q}(6)=\cdot3^2\), and \(\mathcal{Q}(4)=2^2\), in the respective cases the sum of the exponents is 2, so the answer you would submit is 2. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    Let us work in the general case by first constructing a methodology which maximises product while keeping the sum constant. Consider \(N=n_1+n_2+\cdots+n_k\), and \(P(N)=n_1n_2\cdots n_k\). For any \(n_i\geq 4\), clearly we can replace it with \((n_i-2)+2\), which keeps the sum constant and increases the product (since \(n_i\leq 2(n_i-2)\)). Hence W.O.L.G assume all \(n_i<4\). This means that we can maximise the product of integers that sum to \(N\) by arranging it into some combination of 2's and 3's. If \(N\equiv0\mod{3}\) trivially we set all \(n_i\)'s equal 3. So \(\mathcal{Q}(3k)=3^{\frac{N}{3}}\) for an integer \(k\). In the case of \(N\equiv 1\mod{3}\), consider\(\mathcal{Q}(3k+1)\). We have \(\frac{N}{3}\) 3's in \(n_i\), and then a 1, or \(\frac{N}{3}-1\) 3's, and then a \(2^2\). Clearly in the latter case, the product is maximised. Hence \(\mathcal{Q}(3k+1)=2^2\cdot3^{\frac{N-4}{3}}\). A similar train of thought yields \(\mathcal{Q}(3k+2)=2\cdot3^{\frac{N-2}{3}}\) for \(N\equiv 2\mod{3}\)\medskip
+    
+    Therefore, we have the following result:
+    
+    \begin{equation*}
+        \mathcal{Q}(N)=
+        \begin{cases}
+            3^{\frac{N}{3}}\ &\mathrm{if}\ N \equiv 0 \mod 3\\
+            2^2\cdot3^{\frac{N-4}{3}}\ &\mathrm{if}\ N \equiv 1 \mod 3\\
+            2\cdot3^{\frac{N-2}{3}}\ &\mathrm{if}\ N \equiv 2 \mod 3
+        \end{cases}
+    \end{equation*}
+    
+    Since \(1262\equiv 2\mod 3\), we have \(\mathcal{Q}(1262)=2\cdot3^{\frac{1262-2}{3}}\), hence the sum of the exponents is\(1+420\), so the answer is \fbox{421}.
+\end{solution}\bigskip

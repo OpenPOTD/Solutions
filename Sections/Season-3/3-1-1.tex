@@ -1,0 +1,30 @@
+\SSbreak\\
+\emph{Source: \Cmat, 2020 Q1.D}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 65}\\
+\emph{Date: 2020-12-01}\\
+\SSbreak
+
+\SSpsetQ{
+    The largest value achived by \(3\cos^2x+2\cos x+1\) can be represented as \(\frac{m}{n}\) as a fraction in lowest terms. Find \(m+n\).
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+    We proceed by using the identity \(\cos^2x=1-\sin^2x\):
+
+    \begin{align*}
+        3\cos^2x+2\sin x+1&=3(1-\sin^2x)+2\sin x+1\\
+        &=4+2\sin x-3\sin^2x\\
+    \end{align*}
+
+    This is a quadratic in \(\sin x\), specifically it is a convex parabola. Completing the square gives:
+
+    \begin{equation*}
+        4+2\sin x-3\sin^2x=\frac{13}{3}-3\left(\sin x-\frac{1}{3} \right)^2
+    \end{equation*}
+
+    Since for all values of \(\sin x\ne\frac{1}{3}\), the function \(f(x)=\frac{13}{3}-3\left(\sin x-\frac{1}{3}\right)^2\) is clearly decresaing, we must have a maximum at \(\sin x=\frac{1}{3}\), giving a value of \(\frac{13}{3}\). So the answer is \fbox{16}.
+
+\end{solution}\bigskip
+

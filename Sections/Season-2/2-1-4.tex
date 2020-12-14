@@ -1,0 +1,64 @@
+\SSbreak\\
+\emph{Source: \Cfolk\footnote{This has appeared on a Polish MO, British MO 1966 P4, an 2018 NZ IMO handout, a WOOT handout, to name a few...}}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 53}\\
+\emph{Date: 2020-11-19}\\
+\SSbreak
+
+\SSpsetQ{
+    Points \(A,\ B,\ C,\ D\) are the consecutive vertices of a regular polygon, and the following relation holds:
+
+    \begin{equation*}
+        \frac{1}{AB}=\frac{1}{AC}+\frac{1}{AD}
+    \end{equation*}
+
+    How many sides does this polygon have?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    Drawing out the general shape of an \(n\)-gon - as seen in the figure - and letting \(OA=OB=OC=OD\cdots=1\), and \(\angle MOA=x\). By the sine rule on \(\triangle AMO\), and noting \(AM=\frac{1}{2}AB\), we get \(\frac{1}{AB}=\frac{2}{\sin x}\). By a similar procedure, this time on \(\triangle ACO\), we see \(\frac{1}{AB}=\frac{2}{\sin 2x}\), and again on \(\triangle ADO\), we have \(\frac{1}{AD}=\frac{2}{\sin3x}\). Therefore we have the equality: 
+    
+    \begin{align*}
+        \frac{1}{\sin x}&=\frac{1}{\sin2x}+\frac{1}{\sin3x}
+    \end{align*}
+
+    Simplifying this yields \(\sin x\sin\frac{x}{2}\sin\frac{7x}{2}=0\). However, note that \(x\ne\frac{k\pi}{2},\ \frac{k\pi}{3}\) for \(k\in\mathbb{Z}\), otherwise, we have the issue of dividing by 0. Hence it must be the case that \(\sin\frac{7x}{2}=0\Rightarrow x=\frac{\pi}{7}+\frac{2k\pi}{7}\). Clearly the \(n\)-gon is not a square, so trivially it must be the case that \(x=\frac{\pi}{7}\). Therefore, the polygon must have \fbox{7} sides.
+    
+    \begin{figure}[h!]
+        \centering
+        \scalebox{0.8}{\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+        \clip(-5.5,-5.5) rectangle (5.5,5.5);
+        \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (-67.5:0.3710168360883199) arc (-67.5:-22.5:0.3710168360883199) -- cycle;
+        \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (-22.5:0.3710168360883199) arc (-22.5:22.5:0.3710168360883199) -- cycle;
+        \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (22.5:0.3710168360883199) arc (22.5:67.5:0.3710168360883199) -- cycle;
+        \draw[line width=0.4pt] (3.0808989941467813,-3.0808989941467813) -- (2.895390576102621,-3.2664074121909414) -- (3.080898994146781,-3.4519158302351016) -- (3.266407412190941,-3.2664074121909414) -- cycle; 
+        \draw [line width=0.4pt,] (1.9134171618254487,-4.619397662556435)-- (4.619397662556434,-1.9134171618254485);
+        \draw [line width=0.4pt,dash pattern=on 5pt off 5pt] (4.619397662556434,-1.9134171618254485)-- (4.619397662556434,1.9134171618254485);
+        \draw [line width=0.4pt,dash pattern=on 5pt off 5pt] (4.619397662556434,1.9134171618254485)-- (1.913417161825449,4.619397662556434);
+        \draw [line width=0.4pt,dash pattern=on 5pt off 5pt] (1.913417161825449,4.619397662556434)-- (-1.9134171618254483,4.619397662556434);
+        \draw [line width=0.4pt] (1.9134171618254487,-4.619397662556435)-- (4.619397662556434,1.9134171618254485);
+        \draw [line width=0.4pt] (1.9134171618254487,-4.619397662556435)-- (1.913417161825449,4.619397662556434);
+        \draw [line width=0.4pt] (0.,0.)-- (1.9134171618254487,-4.619397662556435);
+        \draw [line width=0.4pt] (0.,0.)-- (4.619397662556434,-1.9134171618254485);
+        \draw [line width=0.4pt] (0.,0.)-- (4.619397662556434,1.9134171618254485);
+        \draw [line width=0.4pt] (0.,0.)-- (1.913417161825449,4.619397662556434);
+        \draw [line width=0.4pt] (0.,0.)-- (3.266407412190941,-3.2664074121909414);
+        \begin{scriptsize}
+        \draw[color=black] (-0.25016257386958146,3.362996814193775E-4) node {$O$};
+        \draw[color=black] (4.98117481497573,2.078030581776008) node {$C$};
+        \draw[color=black] (1.8275317082250102,-4.934187620293228) node {$A$};
+        \draw[color=black] (5.111030707606642,-2.114459666022001) node {$B$};
+        \draw[color=black] (2.050141809878002,4.916309377851651) node {$D$};
+        \draw[color=black] (-1.9753908616802691,4.9719619032649) node {$E$};
+        \draw[color=black] (3.4971074706224496,-3.394467750526703) node {$M$};
+        \end{scriptsize}
+        \end{tikzpicture}}
+        \caption*{A regular $n$-gon}
+    \end{figure}
+\end{solution}
+
+\begin{solution}[Write up by \Paiya]\hfil\medskip
+
+  Let $d_k$ represent the diagonal from a point to the kth vertex adjacent to it.     For example, $d_1$ is a side of the polygon, $d_2$ is $\overline{AC}, d_3$ is $\overline{AD}$ and note that $d_k = d_{n - k}$ where n is the number of sides of the polygon. Reassign $D$ to be the vertex three vertices away from $A$ but on the opposite side of $B$ and $C;$ in other words, reflect $D$ over $\overline{OA}.$ Then, $AB = BC = d_1, AC = d_2, AD = d_3, BD = d_4,$ and $CD = d_5.$ By Ptolemy's Theorem, we get $$AB \cdot CD + BC \cdot AD = AC \cdot BD \iff d_1\left(d_5 + d_3\right) = d_2d_4.$$ Rearrange our given equation to get $$\dfrac{1}{d_1} = \dfrac{1}{d_2} + \dfrac{1}{d_3} \iff d_1\left(d_2 + d_3\right) = d_2d_3.$$ For both of these equations to be true, we can have $d_5 + d_3 = d_2 + d_3 \iff d_5 = d_2$ and $d_3 = d_4;$ this is true if \(n = \boxed{7}\).
+\end{solution}

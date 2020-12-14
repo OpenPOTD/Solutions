@@ -1,0 +1,44 @@
+\SSbreak\\
+\emph{Source: 2020 December New Zeland Maths Workshop}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 64}\\
+\emph{Date: 2020-12-01}\\
+\SSbreak
+
+\SSpsetQ{
+    Four equilateral triangles are arranged around a square of side length 2020 as shown. What is the area of the shaded region?
+}\bigskip
+
+\begin{figure}[h!]
+    \centering
+    \definecolor{fdeqec}{rgb}{0.9921568627450981,0.8784313725490196,0.9254901960784314}
+    \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1.0cm,y=1.0cm]
+    \clip(-4.1,-4.1) rectangle (4.1,4.1);
+    \fill[line width=2.pt,color=fdeqec,fill=fdeqec,fill opacity=1.0] (0.,4.) -- (-4.,0.) -- (-1.5,1.5) -- cycle;
+    \fill[line width=2.pt,color=fdeqec,fill=fdeqec,fill opacity=1.0] (0.,4.) -- (1.5,1.5) -- (4.,0.) -- cycle;
+    \fill[line width=2.pt,color=fdeqec,fill=fdeqec,fill opacity=1.0] (4.,0.) -- (1.5,-1.5) -- (0.,-4.) -- cycle;
+    \fill[line width=2.pt,color=fdeqec,fill=fdeqec,fill opacity=1.0] (0.,-4.) -- (-4.,0.) -- (-1.5,-1.5) -- cycle;
+    \draw [line width=0.4pt] (0.,4.)-- (4.,0.);
+    \draw [line width=0.4pt] (4.,0.)-- (0.,-4.);
+    \draw [line width=0.4pt] (0.,-4.)-- (-4.,0.);
+    \draw [line width=0.4pt] (-4.,0.)-- (0.,4.);
+    \draw [line width=0.4pt] (-1.5,1.5)-- (1.5,1.5);
+    \draw [line width=0.4pt] (1.5,1.5)-- (1.5,-1.5);
+    \draw [line width=0.4pt] (1.5,-1.5)-- (-1.5,-1.5);
+    \draw [line width=0.4pt] (-1.5,-1.5)-- (-1.5,1.5);
+    \draw [line width=0.4pt] (1.5,1.5)-- (0.,4.);
+    \draw [line width=0.4pt] (1.5,1.5)-- (4.,0.);
+    \draw [line width=0.4pt] (1.5,-1.5)-- (0.,-4.);
+    \draw [line width=0.4pt] (1.5,-1.5)-- (4.,0.);
+    \draw [line width=0.4pt] (-1.5,1.5)-- (0.,4.);
+    \draw [line width=0.4pt] (-1.5,1.5)-- (-4.,0.);
+    \draw [line width=0.4pt] (-1.5,-1.5)-- (-4.,0.);
+    \draw [line width=0.4pt] (-1.5,-1.5)-- (0.,-4.);
+    \end{tikzpicture}
+\end{figure}
+
+\begin{solution}\hfil\medskip
+    
+Since the triangles that share a side with the small square, are equilateral triangle, we know that the sides of said triangles must be of length 2020. Since the isosceles triangles that we want to find the area of share a side with each equalaterial triangle, two of the sides of the isosceles triangle must be of length 2020. Since we want to work out area, it seems to be a good idea to use the sine rule, since we have two of the sides we want to find the largest angle of the isosceles triangle. Since we know that the equilateral triangle has anges of \(60^{\circ}\), the angle we are looking for must be \(360-60-60-90=150^{\circ}\). Hence the area of one of the isosceles triangles is \(\frac{1}{2}\cdot 2020^2\sin(150^{\circ})\). This gives an answer of \(\frac{1}{4}\cdot2020^2\). Since there are four isosceles triangles we must have a total area of \(2020^2\), giving a final answer of \(\fbox{4080400}\).
+\end{solution}\bigskip
+

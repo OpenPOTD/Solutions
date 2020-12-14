@@ -1,0 +1,32 @@
+\SSbreak\\
+\emph{Source: \Chmmt, 2013 C6}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID: 60}\\
+\emph{Date: 2020-11-28}\\
+\SSbreak
+
+\SSpsetQ{
+    Values \( a_1, a_2, \dots, a_{2020} \) are chosen independently and at random from the set \( { 1, 2, \dots, 2020 } \). What is the floor of the expected number of distinct values in the set \( { a_1, a_2, \dots, a_{2020} }\)?\bigskip
+
+    \begin{center}
+        \emph{(A scientific calculator may be used)}
+    \end{center}
+}\bigskip 
+
+\begin{solution}[Write up by \PSlas]\hfil\medskip
+    
+    This problem may look daunting at first, 2020 numbers chosen out of a set of 2020 numbers is quite a handful.
+    We can start the problem by considering a 2020-sided die instead, we are essentially rolling a die 2020 times then looking at the number we get. To simplify things a bit, and to better understand what is going on I tried the problem with a 6-sided die that is rolled 6 times instead.\medskip
+
+    Let us try finding the probability of getting a number apart from 1 after rolling 6 times:
+    \begin{align*}
+        &\mathrm{First roll:}\ \frac{5}{6}\\
+        &\mathrm{Second roll:}\ \frac{5}{6}\cdot\frac{5}{6}\\
+        &\cdots\\
+        &\mathrm{Sixth roll:}\ \left(\frac{5}{6}\right)^6
+    \end{align*}
+
+    Therefore, there probability of getting the number 1 at least once is \(1-\left(\frac{5}{6}\right)^6\). Similarly, for the 2020-sided die we have a \(1-\left(\frac{2019}{2020}\right)^{2020}\) chance of getting 1 at least once. As this probability is the same for all the other numbers from 1 to 2020, we can say that the probability of getting a distinct value at least once is also \(1-\left(\frac{2019}{2020}\right)^{2020}\). Since we are trying to find the number of distinct values obtained from 2020 rolls, we compute the following: \(2020\left(1-\left(\frac{2019}{2020}\right)^{2020}\right)\). This results in our answer of \fbox{1277}.
+
+
+\end{solution}

@@ -1,0 +1,32 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Ptony}\\
+\emph{Problem ID: 22}\\
+\emph{Date: 2020-10-28}\\
+\SSbreak
+
+\SSpsetQ{
+    The ingredients list of a Guava Juice Drink is as follows:
+        \begin{quote}
+            Water (80\%), Guava Juice, Sugar, Fructose (3\%), Sodium Carboxymethyl Cellulose, Citric Acid, Flavour, Vitamin C (0.04\%)
+        \end{quote}
+    Assuming only that the ingredients list is ordered by their constituent percentage in the drink (which are not necessarily distinct), 
+    find the maximum and minimum possible percentage of Guava Juice in the drink. If their difference is \(n\), submit \(100n\).
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    Note there are 2 ingredients between water and fructose, and 3 between fructose and Vitamin C. \\
+
+    For the amount of guava juice to be maximised, everything should be minimised. 
+    In particular, there should be 0.04\% of Sodium Carboxymethyl Cellulose, Citric Acid, and Flavour; and 3\% of Sugar and Fructose. 
+    This gives us a Guava Juice percentage of 13.84\%. \\
+
+    For the amount of guava juice to be minimised, everything else should be maximised. 
+    In particular, there should be 3\% of Sodium Carboxymethyl Cellulose, Citric Acid, and Flavour;
+     and equal amounts of sugar and guava juice. 
+    This gives us a guava juice percentage of 5.48\%. \\
+
+    This gives us $13.84 - 3.98 = 9.86 \%$. 
+    Multiplying this by $100$ gives us $\boxed{986}$. 
+\end{solution}\bigskip

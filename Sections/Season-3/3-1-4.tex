@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: \Cmat, 2020 Q1.I}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 66}\\
+\emph{Date: 2020-12-03}\\
+\SSbreak
+
+\SSpsetQ{
+   In the range \(-9000^{\circ}<x<9000^{\circ}\), how many values of \(x\) are there for which the sum to infinity 
+
+   \begin{equation*}
+     \frac{1}{\tan x}+\frac{1}{\tan^2 x}+\frac{1}{\tan^3 x}+\cdots
+   \end{equation*}
+  equals \(\tan x\)?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+  The given series is geometric in nature and thus we have 
+  
+  \begin{align*}
+    \frac{1}{\tan x-1}&=\tan x\\
+    \tan^2-\tan x-1&=0
+  \end{align*}
+  Therefore \(\tan x =\frac{1\pm \sqrt{5}}{2}\). However, the geometric sequence converges if, and only if, \(\frac{1}{\abs{\tan x}}<1\), which gives us \(\tan x=\frac{1+\sqrt{5}}{2}\). This obviously occures once in the interval \((-90^{\circ},90^{\circ})\). Thus there will be \(\frac{9000+9000}{90+90}=100\) such intervals which contain solutions by enumerating through the periodicity of \(\tan x\), and so there must be \fbox{100} such values of \(x\) which satisfy the given relation. 
+\end{solution}\bigskip

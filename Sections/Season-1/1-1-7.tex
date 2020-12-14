@@ -1,0 +1,46 @@
+\SSbreak\\ 
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pbfan}\\
+\emph{Problem ID: 31}\\
+\emph{Date: 2020-11-02}\\
+\SSbreak
+
+\SSpsetQ{
+    Tan and Wen are writing questions for CCCC at a rate of 1 per minute. Immediately after Tan
+     writes a question, Wen eats his paper with probability \( \frac 17 \), so that Tan must restart.\\
+
+    After an extremely long time (assume infinite), Tony Wang walks in.
+     What is the expected number of questions Tony Wang sees written on Tan's paper?
+}\bigskip 
+
+\begin{solution}\hfil\medskip
+
+    Let $E_n$ be the expected number of questions Tony Wang sees written on Tan's paper after $n$ minutes. \\
+
+    Then the following recurrence holds: 
+    \[E_{n+1} = \frac{6}{7} (E_n+1) + \frac{1}{7} \cdot 0\]
+    because with $\frac{6}{7}$ probability, Tan writes another question without Wen eating it, 
+    and with $\frac{1}{7}$ probability, Wen eats all of Tan's questions. \\
+
+    Claim 1: $E_n < 6 ~\forall n$. 
+
+    \begin{subproof}
+        The proof is by induction. Note $E_0 = 0$. If $E_k < 6$, then 
+        $E_{k+1} = \frac{6}{7} (E_k + 1) < \frac{6}{7} (6 + 1) = 6$. 
+        This completes the proof. 
+    \end{subproof}
+
+    Claim 2: $E_{n+1} > E_n ~\forall n$. 
+
+    \begin{subproof}
+        Note that since $E_k < 6 ~\forall k$, we have 
+        $E_{k+1} = \frac{6}{7} (E_k+1) > \frac{6}{7} (E_k + \frac16 E_k) = E_k$. 
+    \end{subproof}
+
+    Now by the Monotone Bounded Convergence Theorem, the sequence $\left( E_n \right )$ converges to a limit. 
+    Suppose $\lim E_n = L$. Then note $\lim E_{n+1} = L$ since changing the first terms of a sequence does not change the overall convergence. 
+    So since $E_{n+1} = \frac{6}{7} (E_n + 1)$, $\lim E_{n+1} = \lim \frac{6}{7} (E_n+1)$. 
+    So $L = \frac{6}{7}(L + 1)$. \\
+
+    Solving this, we obtain $L = \boxed{6}$. 
+\end{solution}\bigskip

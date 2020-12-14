@@ -1,0 +1,37 @@
+\SSbreak\\
+\emph{Source: \Cbmoo, 2010 P1}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 40}\\
+\emph{Date: 2020-11-17}\\
+\SSbreak
+        
+\SSpsetQ{
+    Brainy has a set of integers, from 1 to \(n\), which he likes to play with.
+	Tony Wang, upon seeing the happiness that this set of integers brings Brainy, decides to steal one of the numbers in it.
+	Suppose the average number of the remaining elements in the set is \(\frac{163}{4}\).
+	What is the sum of the elements in Brainy's set multiplied by the element that Tony stole?
+                
+    \begin{center}
+        \emph{(A four-function calculator may be used)}
+    \end{center}
+}\bigskip
+   
+\begin{solution}\hfil\medskip 
+   
+    We can set up the problem statement as 
+    
+    \begin{equation*}
+        \frac{\frac{n}{2}(n+1)-x}{n-1}=\frac{163}{4}
+    \end{equation*}
+                
+    Where \(x\) is the number Tony has stolen.
+	This simplifies to \(4x=2n^2-161n+163\).
+	Since \(x\) must be a number within the set \(\{1,2,\ldots,n-1,n\}\), we have that \(1\leq x\leq n\Rightarrow 4\leq 2n^2-161n+163\leq4n\).
+	By considering the lower bound, we get $(2n-159)(n-1)\geq 0$.
+	This means that \(n\leq 1\Rightarrow n=1\), or \(n\geq \frac{159}{2}\Rightarrow n\geq 80\).
+	By similar methodology when considering the upper bound, we get \(1\leq n\leq 81\).
+	Thus \(n\in\{1,80,81\}\).
+	Clearly, \(n\ne 1\), so either \(n=80\) or \(n=81\).
+	Notice that if \(n\) is even, then for \(4x=2n^2-161n+163\) the parity of he RHS is Odd, while the LHS is even, thus a contradiction occurs.
+	This means that \(n=81\) and so \(x=61\). Thus the answer is \(\frac{81(82)}{2}\cdot61=\fbox{202581}\).
+\end{solution}\bigskip

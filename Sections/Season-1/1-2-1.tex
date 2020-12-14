@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: \Cbmoo 2018 Q2}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 22}\\
+\emph{Date: 2020-11-03}\\
+\SSbreak
+
+\SSpsetQ{
+    Out of 100 regenerative watermelons, each of six friends eats exactly 75 watermelons. 
+    There are \( n \) watermelons eaten by at least five of the friends. 
+    What is the sum of the largest and smallest possible values of \( n \)?\\
+
+    \textit{Note: The watermelons are regenerative to allow multiple people to eat the same watermelon. 
+    (But the same person cannot eat the same watermelon more than once)}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    Maximum: The maximum is 90. Take the sum over all watermelons of how many times they were eaten. 
+    This is 450, since all $6 \cdot 75 = 450$. Then since $5n \leq 450$, $n \leq 90$. T
+    he construction for the maximum is: staff member $k$ ($k = 1, 2, \cdots, 6$) eats all watermelons from 1 to 90 except those $k \pmod6$. \\
+
+    Minimum: The minimum is 25. We intuit that in the minimum case all the watermelons were either eaten 6 times or 4. 
+    Then $6a + 4b = 450$, and $a + b = 75$. Solving yields $a = 25$ and $b = 75$. \\
+
+    The answer is $25 + 90 = \boxed{115}$. 
+\end{solution}\bigskip

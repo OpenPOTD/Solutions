@@ -1,0 +1,50 @@
+\SSbreak\\
+\emph{Source: \Cmat, 2012 Q5}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 48}\\
+\emph{Date: 2020-11-18}\\
+\SSbreak
+
+\SSpsetQ{
+    In his evil mechatronics laboratory, Brainy has built a physical manifestation of MODSbot.
+	MODSbot's movement is defined by three inputs: \textbf{F} to move forward a unit distance, \textbf{L} to turn left \(90^{\circ}\), and \textbf{R} to turn right \(90^{\circ}\).
+
+    We define a program to be a sequence of commands.
+	The program \(P_{n+1}\) (for \(n\geq 0\)) involves performing \(P_n\), turning left, performing \(P_n\) again, then turning right:\medskip
+
+    \[P_{n+1}=P_n\textbf{L}P_n\textbf{R},\ P_0=\textbf{F}\]\medskip
+
+    Unbeknownst to Brainy, MODSbot, though limited in movement, is sentient and realises Brainy is just a small asian Frankenstein, whose intentions for them were nefarious and non-consensual.
+	As a result, after Brainy goes home for the day, MODSbot makes its escape from Brainy's laboratory.\medskip
+
+    Let \((x_n,y_n)\) be the position of the robot after performing the program \(P_n\), so \((x_0,y_0)=(1,0)\) and \((x_1,y_1)=(1,1)\), etc.\medskip
+   
+    How far away from the place Brainy left it does MODSbot make it after performing\(P_{24}\)?
+}\bigskip
+
+
+\begin{solution}\hfil\medskip
+            
+    Note first that after each iteration of $P_n$ MODSbot faces in the positive $x$ direction, as each $P_n$ contains as many \textbf{L}s as it does \textbf{R}s.
+	Now, assuming MODSbot is at $(x_n,y_n)$ after having performed $P_n$, we see the next iteration of $P$ puts MODSbot at $(x_n-y_n,x_n+y_n)$.
+	Note then that:
+            
+        \begin{align*}
+            (x_{n+2},y_{n+2}) &= (x_{n+1}-y_{n+1},x_{n+1}+y_{n+1}) = (-2y_n,2x_n)\\
+            (x_{n+4},y_{n+4}) &= (-2y_{n+2},2x_{n+2})  = (-4x_n,-4y_n)\\
+            (x_{n+8},y_{n+8}) &= (-4x_{n+4},4y_{n+4})  = (16x_n,16y_n)
+        \end{align*}
+        
+    Thus, we see that $(x_{8k},y_{8k}) = (16^k,0)$, and therefore that $\abs{P_{24}} = \fbox{4096}$
+\end{solution}\bigskip
+
+\begin{solution}[Write up by \Paiya]\hfil\medskip
+        
+    Observe that each program has the same amount of left and right turns, so MODSbot will always be facing the positive \(x\)-direction after each program.
+	This means that \(\textbf{L}P_n\) is just the program \(P_n\) performed at a 90-degree counterclock-wise rotation.
+	For instance \(P_1\) moves MODSbot right 1 and up 1, so \(\textbf{L}P_1\) moves MODSbot up 1 and left 1 (right gets rotated 90 counterclockwise to up and up to left).
+	This motivates us to work in the complex plane; let \(P_n\) be the complex-number representing MODSBOT's displacement after following \(P_n\).
+	Then \(\textbf{L}P_n=iP_n\), so \(P_{n+1}=P_n+\textbf{L}P_n=(1+i)P_n=\sqrt{2}e^{\frac{\pi i}{4}}P_n\).
+	WIth \(P_0=1\) we get \(P_n=2^{\frac{n}{2}}e^\frac{\pi i n}{4}\). 
+	So \(|P_{24}=\fbox{4096}\)
+\end{solution}\bigskip
