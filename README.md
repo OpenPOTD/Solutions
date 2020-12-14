@@ -74,8 +74,8 @@ The best way to contact us is through the [OpenPOTD Discord server](https://disc
 however, you may also contact us through the [discussions tab](https://github.com/OpenPOTD/Solutions/discussions) on Discord.
  Alternatively, you can message any of us on Discord:
 
-> `.19\#9839 (434767660182405131)`
+> .19#9839 (434767660182405131)
 >
-> `brainysmurfs\#2860 (281300961312374785)`
+> brainysmurfs#2860 (281300961312374785)
 >
-> `Angry Any\#4319 (580933385090891797)`
+> Angry Any#4319 (580933385090891797)
