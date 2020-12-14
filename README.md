@@ -8,6 +8,7 @@ Welcome to the OpenPOTD solutions booklet! Here you'll find answers & solutions 
     + [Correcting Mistakes](#correcting-mistakes)
     + [Contributing Solutions](#contributing-solutions)
     + [Problem Proposals](#problem-proposals)
+    + [Feature Suggestions](#feature-suggestions)
   * [Contact Us](#contact-us)
 
 
@@ -67,6 +68,9 @@ they would be greatly appreciated. If you are submitting a non-original problem 
 Please do not use a public medium to submit a problem proposal - messaging one of us on Discord would
  be the preferred method of communication (See [Contact Us](#contact-us)).
 
+### Feature Suggestions 
+
+If you have any ideas when it comes to improving the bot or project, the best place to do that is in the `#Suggestions' channel, or any of the other methods listed in [Contact Us](#contact-us), such as using the GitHub [discussions tab](https://github.com/OpenPOTD/Solutions/discussions).
 
 ## Contact Us 
 
