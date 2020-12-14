@@ -1,0 +1,257 @@
+\ProvidesPackage{preamble}
+ 
+% This preamble is an amalgamation of my (.19's) preamble. As a result it is rather messy due to me copying and pasting extracts. 
+
+\def\SStitle{Questions \& Solutions}
+\def\SSauthor{.19}
+\def\SSauthorr{Brainy}
+\def\SSauthorrr{Yuchan}
+
+% Packages
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\usepackage{amssymb,mathtools,amsthm,thmtools} 
+\usepackage[usenames,svgnames,dvipsnames,table,xcdraw]{xcolor} 
+\usepackage{tikz,pgf,pgfplots, asymptote}
+\usepackage[shortlabels]{enumitem}
+\usepackage[framemethod = tikz]{mdframed} 
+\usepackage{mathrsfs}
+\usepackage{caption}
+\usepackage{multicol}
+\usepackage{xpatch}
+\usepackage{booktabs}
+\usepackage{tocbasic} 
+\usepackage[
+  pdfauthor = {\SSauthor},
+	pdftitle = {\SStitle},
+	pdftex,
+	colorlinks = true
+	]{hyperref}  
+\usepackage[
+	activate={true,nocompatibility},
+	final,
+	tracking= true,
+	kerning = true,
+	spacing = true,
+	factor = 1100,
+	stretch = 10,
+	shrink = 10
+	]{microtype} 
+\usepackage[UKenglish]{datetime}
+\usepackage[headsepline]{scrlayer-scrpage}
+\usepackage[toc,page]{appendix}
+\usepackage{bookmark}
+\usepackage[nameinlink]{cleveref} 
+\usepackage[utf8]{inputenc}
+\usepackage{rotating}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Defining style environments (e.g. question, solution etc.)
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Defining \SSpsetQ
+\mdfdefinestyle{SSqbox}
+{ 
+  linewidth = 0.5pt,
+  skipabove = 12pt,
+  frametitleaboveskip = 5pt,
+  frametitlebelowskip = 0pt,
+  skipbelow = 2pt,
+  frametitlefont = \bfseries,
+  innertopmargin = 8pt,
+  innerbottommargin = 8pt,
+  nobreak = true,
+  backgroundcolor = RedViolet!7!gray!7,
+  linecolor = Black
+}
+
+\newenvironment{SSpsetQbox}
+{
+    \enumerate
+    [
+        align = left,
+        leftmargin = 5pt,
+        label = \bfseries\sffamily{Question} \thesection.\arabic*,
+        before = \setcounter{enumi}{\value{theorem}},
+        after = \setcounter{theorem}{\value{enumi}}
+    ]
+}{\endenumerate}
+
+% Defines colours for sections, subsections, etc. as well as links / hyperlinks
+\renewcommand*{\sectionformat}{\color{RubineRed}\S\thesection\enskip}
+\renewcommand*{\subsectionformat}{\color{RubineRed}\S\thesubsection\enskip}
+\renewcommand*{\subsubsectionformat}{\color{RubineRed}\S\thesubsubsection\enskip}	
+    
+\hypersetup{
+    urlcolor = RubineRed,
+    linkcolor = RubineRed
+  }			
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Setting custom commands and environments
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\newcommand{\SSpsetQ}[1]
+{
+  \begin{mdframed}
+    [
+      style = SSqbox,
+      innertopmargin = 10pt,
+      innerbottommargin = 10pt
+    ]
+      \begin{SSpsetQbox}#1\end{SSpsetQbox}
+  \end{mdframed}
+}
+
+% Line break - used to contain problem information 
+\newcommand{\SSbreak}{\noindent\rule[0.5ex]{\linewidth}{1pt}}
+
+\newenvironment{solution}{\begin{proof}[Solution]}{\end{proof}}	
+
+% Allows for the proof environment to be used inside the solutions environment without conflicts
+\newenvironment{subproof}[1][Proof]{
+	\begin{proof}[#1]\renewcommand{\qedsymbol}{$\blacksquare$}}%
+	{\end{proof}}
+
+% Quality-of-life commands 
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\Q}{\mathbb{Q}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\abs}[1]{\left\lvert #1\right\rvert}
+\newcommand{\SSmax}[1]{\text{max}\{#1\}}
+\newcommand{\SSmin}[1]{\text{min}\{#1\}}
+\newcommand{\SSbf}{\textbf}
+\newcommand{\SSet}[1]{\{{#1}\}}
+
+% Better looking epsilon, emptyset and Phi
+\renewcommand{\epsilon}{\ensuremath{\varepsilon}}
+\renewcommand{\emptyset}{\ensuremath{\varnothing}}
+\renewcommand{\phi}{\ensuremath{\varphi}}
+
+\pgfplotsset{compat=1.16}
+\usetikzlibrary{arrows}
+
+\newcounter{theorem}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Here we define the page layout. Do not touch.
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\author{\SSauthor}
+\title{\SStitle}
+\subtitle{\SSsubtitle}
+\publishers{\SSpublishers}
+\setlength{\voffset}{-0.25in}
+\setlength{\footskip}{0.5in}
+\addtolength{\textheight}{2in}
+\setlength{\headsep}{10pt}
+\renewcommand{\headfont}{}
+\ohead{\footnotesize\bfseries\sffamily{\SStitle}}
+\cfoot{\thepage}
+\KOMAoptions{numbers = noenddot}
+\addtokomafont{subtitle}{\Large}
+\setkomafont{author}{\Large}
+\setkomafont{date}{\Large\normalsize}
+\setkomafont{publishers}{\small}
+\addtolength{\textwidth}{1.25in}
+\setlength{\hoffset}{-0.625in}
+\makeatother
+
+\newcommand{\SSbegintoc}{\tableofcontents}
+
+\def\SSfp{ 
+  \pagenumbering{roman}
+  \begin{titlepage}
+  \thispagestyle{empty} 
+    \begin{center}
+      {\Huge\bfseries\sffamily\SStitle\par}
+    \end{center}
+  \vspace{2cm}
+  \begin{figure}[h!]
+    \centering
+    \includegraphics{Sections/Files/Windmill}
+  \end{figure}
+  \vspace*{\fill} 
+  \begin{minipage}{0.55\textwidth}
+    \small{\textit{By \SSauthor, \SSauthorr, \& \SSauthorrr}}\hfil
+  \end{minipage}
+    \hfil
+  \begin{minipage}[t]{0.45\textwidth}
+    \begin{flushleft}
+      \textit{Last updated: \today}\\
+      \href{https://github.com/OpenPOTD/Solutions}{Github/OpenPOTD/Solutions}
+    \end{flushleft}
+  \end{minipage}
+  \newpage
+  \setcounter{page}{1}
+  \microtypesetup{protrusion = false} 
+    \SSbegintoc
+  \microtypesetup{protrusion = true} 
+  \end{titlepage}
+}
+\makeatletter
+\newcommand\footnoteref[1]{\protected@xdef\@thefnmark{\ref{#1}}\@footnotemark}
+\makeatother 
+
+\setlength{\parindent}{0pt}
+\setcounter{section}{0}
+\setcounter{tocdepth}{3}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Settings for question 2.2.3
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\definecolor{pagegray}{RGB}{39, 39, 39}
+\definecolor{qlorange}{RGB}{247,150,70}
+\definecolor{qlblue}{RGB}{75,172,198}
+\definecolor{qpurple}{RGB}{128,100,162}
+\definecolor{qblue}{RGB}{79,129,189}
+\definecolor{qgreen}{RGB}{155,187,89}
+\definecolor{qred}{RGB}{192,80,77}
+\definecolor{qorange}{RGB}{255,192,0}
+\definecolor{qyellow}{RGB}{255,255,0}
+
+\newcommand{\persistk}[1]{\textcolor{qlorange}{p}(\textcolor{qpurple}{#1})}
+\newcommand{\persistsetk}[1]{\textcolor{qlorange}{P}_{\textcolor{qlblue}{#1}}}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+% Commands to make referencing sources easier 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Cop{Original Problem}
+\def\Cfolk{Folklore}
+\def\Csmc{Senior Mathematical Challenge}
+\def\Csmo{Singapore Mathematical Olympiad}
+\def\Cnzsmc{New Zealand Senior Mathematics Competition}
+\def\Cbmoo{British Matematical Olympiad, Round 1}
+\def\Cbmot{British Matematical Olympiad, Round 2}
+\def\Cimom{Intermediate Mathematical Olympiad: Maclaurin}
+\def\Ccwmo{China Western Mathematical Olympiad}
+\def\Ccmo{China Mathematical Olympiad}
+\def\Cmat{Mathematics Apptitude Test}
+\def\Cstepi{Sixth Term Examination Paper I}
+\def\Cstepii{Sixth Term Examination Paper II}
+\def\Cstepiii{Sixth Term Examination Paper III}
+\def\Chmmt{Harvard-MIT Mathematics Tournament}
+\def\Como{Online Math Open}
+\def\Cimosl{International Mathematical Olympiad Shortlist}
+\def\Cimo{International Mathematical Olympiad}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+
+% Commands to make referencing contributors easier 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+\def\Ptony{Tony Wang\#1729 (541318134699786272)}
+\def\Pbrain{brainysmurfs\#2860 (281300961312374785)}
+\def\Pss{.19\#9839 (434767660182405131)}
+\def\Ppi{Charge\#3766(481250375786037258)}
+\def\Pbfan{bfan05\#5219 (692851547062665317)}
+\def\Paiya{AiYa\#2278 (675537018868072458)}
+\def\Plook{Look At Me\#8623 (234848703368658944)}
+\def\Pkee{Keegan\#9109 (116217065978724357)}
+\def\Pchris{ChristopherPi\#8528 (696497464621924394)}
+\def\Pkiesh{Kiesh\#0917 (544960202101751838)}
+\def\Pchan{Angry Any\#4319 (580933385090891797)} 
+\def\PSlas{Slaschu\#5267 (296304659059179520)}
+\def\Parjun{Arjun\#8974 (723413754800373780)}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
