@@ -70,7 +70,7 @@ Please do not use a public medium to submit a problem proposal - messaging one o
 
 ### Feature Suggestions 
 
-If you have any ideas when it comes to improving the bot or project, the best place to do that is in the `#Suggestions' channel, or any of the other methods listed in [Contact Us](#contact-us), such as using the GitHub [discussions tab](https://github.com/OpenPOTD/Solutions/discussions).
+If you have any ideas when it comes to improving the bot or project, the best place to do that is in the `#Suggestions` channel, or any of the other methods listed in [Contact Us](#contact-us), such as using the GitHub [discussions tab](https://github.com/OpenPOTD/Solutions/discussions).
 
 ## Contact Us 
 
