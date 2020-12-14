@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: HMMT (Year Unknown)}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 73}\\
+\emph{Date: 2020-01-10}\\
+\SSbreak
+
+\SSpsetQ{
+  Brainy is a weird guy. He considers a performance on a QoTD Season \textit{funny} if there's a pair of questions where $69$ aspiring mathematicians get both problems correct first try, or get them wrong first try. Find the smallest number of people who attempted at least $1$ problem such that Brainy will consider their performance \textit{funny}, no matter how they answer. Note: A QoTD Season has $14$ problems. 
+
+}\bigskip
+
+\begin{solution}[Write up by \Ppi]\hfil\medskip
+ 
+  Let one of the people answer $k$ of the $14$ prolems correctly. Then, there are $\binom{k}{2}$ pairs of problems they answered correctly, and $\binom{14-k}{2}$ pairs of problems they answered incorrectly. This equates to $k^2-14k+91$ pairs of problems they answered that are either both correct or both incorrect. 
+
+  By completing the square, we have $(k-7)^2 +42$. This means that no matter the $k$, the person will have answered at least $42$ pairs of problems either both correctly or incorrectly. 
+  
+  Note that there are a total of $2\binom{14}{2}$ "boxes" where there are $2$ ways of making each pair correct or incorrect, and $\binom{14}{2}$ ways of making a pair of problems. 
+  
+  Let there be a total of $n$ people. Then we have $42n$ "balls" to put in $182$ "boxes". So we have $42n \ge 182\cdot 68+1 \implies n\ge 295$. This gives a minimum of $\boxed{295}$ QoTD Participants. 
+
+\end{solution}\bigskip

@@ -1,0 +1,28 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 72}\\
+\emph{Date: 2020-01-09}\\
+\SSbreak
+
+\SSpsetQ{
+  People with the $5$ most common names stand in a line. These names are Liam, Noah, Olivia, Emma, and Ava (according to WolframAlpha in 2020). They are each given either $\$0.10, \$1, \$10, \$100$ or $\$1000$. If two people with the same number of letters in their name, same number of letter a's, or those with the same number of consonants in their name cannot receive the same amount of money, find the ten times the expected value of the total money they all receive.
+}\bigskip
+
+\begin{solution}[Write up by \Ppi]\hfil\medskip
+ 
+  Note that the two most restrictive restrictions are the a's and the consonants. Note that each of Liam, Noah, Olivia, and Emma have the same number of a's and consonants. Looking at the least restrictive one, we can throw it out as Liam, Noah, and Emma already cannot have the same number of a's and consonants. 
+
+So what we have reduced the original problem to is the expected value of the total money that these people get under the restriction that Liam, Noah, Olivia, and Emma must receive different amounts of money. 
+
+Since Ava is not dependent on the others, we calculate her expected value separately. It is $\frac{1111.1}{5}= \$222.22$.
+
+We then find the total number of ways to distribute the money, excluding Ava. There are $5\cdot4\cdot3\cdot2 = 120$ ways to do this.
+
+We split these ways up into the total amount of money they receive. There are $\binom{5}{4}=5$ ways to pick a total amount of money, and there are a symmetrical amount of ways to distribute it. So for each way to pick a total amount, there is a $\frac{1}{5}$ chance that it will happen.
+
+So the expected value of this is $\frac{4(1111.1)}{5}=\$888.88$.
+
+By linearity of expectation, our final expected value is simply $\$1111.1$. So our answer is $\boxed{11111}$.
+ 
+\end{solution}\bigskip

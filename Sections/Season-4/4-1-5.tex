@@ -1,0 +1,20 @@
+\SSbreak\\
+\emph{Source: HMMT 2005}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 74}\\
+\emph{Date: 2020-01-11}\\
+\SSbreak
+
+\SSpsetQ{
+  Jason and XEM3 want to color the integers $1,2,...,100$ in red, orange, yellow, green, and blue. They want to do so such that no two numbers $x,y$ with $x-y-1$ divisible by $4$ have the same color. All five colors do not have to be used. How many ways can this be done? 
+}\bigskip
+
+\begin{solution}[Write up by \Ppi]\hfil\medskip
+ 
+  This is equivalent to saying that we cannot have a number of residue $1$ the same color as a number of residue $0$, a number of residue $2$ the same color as a number of residue $1$, a number of residue $3$ the same color as a number of residue $2$, and a number of residue $0$ the same color as a number of residue $3$. 
+
+We have a few cases. We can have two of the five colors for the number of residue $0$, and spread the rest out between the other residues. This gives $\binom{5}{2} \cdot 2^{25} \cdot 3!$. The same goes for the ones residue $1,2,$ and $3$. So we have $4 \cdot \binom{5}{2} \cdot 2^{25} \cdot 3!$.
+
+This overcounts the times where all residues have one color. So we must subtract $\binom{5}{4} \cdot 4!$. This gives a final answer of $\boxed{8053063560}$ .
+
+\end{solution}\bigskip
