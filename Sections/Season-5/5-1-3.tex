@@ -1,0 +1,31 @@
+\SSbreak\\
+\emph{Source: British Mathematical Olympiad Round 1, 2009 P1}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 77}\\
+\emph{Date: 2020-12-23}\\
+\SSbreak
+
+\SSpsetQ{
+Find the sum of all integers \(x\), \(y\), and \(z\) such that 
+
+\begin{equation*}
+    x^2+y^2+z^2=2(yz+1)\ \mathrm{and}\ x+y+z=4018
+\end{equation*}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We can write the first equation as \(x^2+(y-z)^2=2\), and so since \(x^2\) and \((y-z)^2\) are both greater than or equal to 0, we must have the following cases:
+
+\begin{enumerate}
+    \item \(x^2=0\) and \((y-z)^2=2\)
+    \item \(x^2=2\) and \((y-z)^2=0\)
+    \item \(x^2=1\) and \((y-z)^2=1\)
+\end{enumerate}
+
+Clearly in cases one and two, we cannot have integer solutions, thus we consider the two possible subcases of the third: when \(x=\pm 1\). \\ \\
+
+When \(x=\pm1\), we have either \(y=1+z\) or \(y=z-1\). Substituting these values into \(x+y+z=4018\) gives us the set of \(x\)'s \(y\)'s, and \(z\)'s as \(\{-1,1,2008,2009,2010\}\)
+
+Hence our final answer is \(-1+1+2008+2009+2010=\fbox{6027}\).
+\end{solution}\bigskip
