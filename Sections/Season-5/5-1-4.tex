@@ -1,0 +1,142 @@
+\SSbreak\\
+\emph{Source: \Cop / \Cfolk\footnote{I wrote this problem after reading \Cmat 2016 Q4, however, this is obviously going to be a well known problem, and been done somewhere else}}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 78}\\
+\emph{Date: 2020-12-24}\\
+\SSbreak
+
+\SSpsetQ{
+
+  Two lines \(l_1\) and \(l_2\) intersect at an angle \(\alpha\) such that \(0<\alpha<\frac{\pi}{2}\). Given a circle \(\Gamma_n\) and radius \(r_n\), with \(n\geq0\). Define a sequence of circles with \(r_0>r_1>\cdots>r_n\) such that \(\Gamma_{n+1}\) is tangent to both lines \(l_1\), \(l_2\), as well as \(\Gamma_n\) and \(\Gamma_{n+1}\). See the given diagram below for a construction.\medskip
+
+  Let the area inscribed between lines \(l_1\), \(l_2\) and each of the circles \(\Gamma_0,\Gamma_1,\Gamma_2,\cdots,\Gamma_n\) be \(A\). As \(n\to\infty\) what is the value of \(\{1000A\}\)? Where \(\{ x \}\) is defined as the integer part of a number e.g. \(\{\pi\}=3\)\bigskip
+  
+  \begin{center}
+  \emph{(A scientific calculator may be used to calculate \(\{x\}\))}
+  \end{center}
+}\bigskip
+
+\begin{figure}[h!]
+  \centering
+  \scalebox{0.5}{
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=0.5cm,y=0.5cm,rotate=100]
+  \clip(-2.,-2.) rectangle (25.5,19.);
+  \draw [line width=0.4pt,dash pattern=on 2pt off 2pt] (1.7320508075688772,1.) circle (0.5cm);
+  \draw [line width=0.4pt,dash pattern=on 2pt off 2pt] (5.196152422706632,3.) circle (1.5cm);
+  \draw [line width=0.4pt,domain=-2.:25.5] plot(\x,{(-0.-0.*\x)/1.});
+  \draw [line width=0.4pt,domain=-2.:25.5] plot(\x,{(-0.--1.7320508075688767*\x)/1.});
+  \draw [line width=0.4pt] (15.588457268119894,9.) circle (4.5cm);
+  \begin{scriptsize}
+  \draw [fill=black] (1.7320508075688772,1.) circle (1.0pt);
+  \draw[color=black] (2.2,1.2394748167451712) node {$\Gamma_2$};
+  \draw [fill=black] (5.196152422706632,3.) circle (1.0pt);
+  \draw[color=black] (6.484383983488332,3.623021443947249) node {$\Gamma_1$};
+  \draw [fill=black] (15.588457268119894,9.) circle (1.0pt);
+  \draw[color=black] (16.85490264219205,9.644612923194602) node {$\Gamma_0$};
+  \end{scriptsize}
+  \end{tikzpicture}}
+  \end{figure}
+
+\newpage 
+
+\begin{solution}\hfil\medskip
+
+We proceed by first finding the angle \(\alpha\):
+\begin{figure}[h!]
+  \centering
+  \scalebox{0.45}{
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \clip(-1.5,-1.5) rectangle (25.5,19.);
+    \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (0.:1.292715922838546) arc (0.:60.:1.292715922838546) -- cycle;
+    \draw [shift={(5.196152422706631,3.)},line width=0.4pt] (0,0) -- (0.:1.292715922838546) arc (0.:30.:1.292715922838546) -- cycle;
+    \draw [line width=0.4pt] (5.196152422706632,3.) circle (3.cm);
+    \draw [line width=0.4pt,domain=-1.5:25.5] plot(\x,{(-0.-0.*\x)/1.});
+    \draw [line width=0.4pt,domain=-1.5:25.5] plot(\x,{(-0.--1.7320508075688767*\x)/1.});
+    \draw [line width=0.4pt] (15.588457268119894,9.) circle (9.cm);
+    \draw [line width=0.4pt] (0.,0.)-- (15.588457268119894,9.);
+    \draw [line width=0.4pt] (5.196152422706632,0.)-- (5.196152422706632,3.);
+    \draw [line width=0.4pt] (15.588457268119894,0.)-- (15.588457268119894,9.);
+    \draw [line width=0.4pt] (5.196152422706632,3.)-- (15.588457268119894,3.);
+    \draw (5.28788559959225,1.9075218693790357) node[anchor=north west] {1};
+    \draw (15.931246697629614,6.130393883984984) node[anchor=north west] {2};
+    \draw (10.889654598559282,7.552381399107395) node[anchor=north west] {3};
+    \draw (6.235877276340517,4.536044245817432) node[anchor=north west] {1};
+    \begin{scriptsize}
+    \draw [fill=black] (5.196152422706632,3.) circle (1.0pt);
+    \draw[color=black] (5,3.7173241613530132) node {$\Gamma_1$};
+    \draw [fill=black] (15.588457268119894,9.) circle (1.0pt);
+    \draw[color=black] (16,9.663817406410368) node {$\Gamma_0$};
+    \draw[color=black] (-2.6407720604841662,0.7225322734436931) node {$r$};
+    \draw[color=black] (12.914909544339674,21.750711284950864) node {$s$};
+    \draw [fill=black] (0.,0.) circle (0.5pt);
+    \draw[color=black] (-0.6155171147037775,-0.13927834178201054) node {$A$};
+    \draw [fill=black] (15.588457268119894,3.) circle (0.5pt);
+    \draw[color=black] (15.88815616686833,3.221783057598234) node {$D$};
+    \draw [fill=black] (15.588457268119894,0.) circle (0.5pt);
+    \draw[color=black] (15.500341390016766,-0.44091205711100684) node {$C$};
+    \draw [fill=black] (5.196152422706632,0.) circle (0.5pt);
+    \draw[color=black] (5.115523476547111,-0.3978215263497216) node {$B$};
+    \draw[color=black] (1,0.5501701503985523) node {$\alpha$};
+    \draw[color=black] (6.79605417623722,3.3510546498820895) node {$\dfrac{\alpha}{2}$};
+    \end{scriptsize}
+    \end{tikzpicture}}
+\end{figure}
+
+Thus we have \(\sin\frac{\alpha}{2}=\frac{2}{1+3}\), hence \(\alpha=\frac{\pi}{3}\). Now consider two general circles \(\Gamma_n\) and \(\Gamma_{n+1}\):
+
+\begin{figure}[h!]
+  \centering
+  \scalebox{0.45}{
+  \begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=1cm,y=1cm]
+    \clip(-1.5,-1.5) rectangle (25.5,19.);
+    \draw [shift={(0.,0.)},line width=0.4pt] (0,0) -- (0.:1.292715922838546) arc (0.:60.:1.292715922838546) -- cycle;
+    \draw [shift={(5.196152422706631,3.)},line width=0.4pt] (0,0) -- (0.:1.292715922838546) arc (0.:30.:1.292715922838546) -- cycle;
+    \draw [line width=0.4pt] (5.196152422706632,3.) circle (3.cm);
+    \draw [line width=0.4pt,domain=-1.5:25.5] plot(\x,{(-0.-0.*\x)/1.});
+    \draw [line width=0.4pt,domain=-1.5:25.5] plot(\x,{(-0.--1.7320508075688767*\x)/1.});
+    \draw [line width=0.4pt] (15.588457268119894,9.) circle (9.cm);
+    \draw [line width=0.4pt] (0.,0.)-- (15.588457268119894,9.);
+    \draw [line width=0.4pt] (5.196152422706632,0.)-- (5.196152422706632,3.);
+    \draw [line width=0.4pt] (15.588457268119894,0.)-- (15.588457268119894,9.);
+    \draw [line width=0.4pt] (5.196152422706632,3.)-- (15.588457268119894,3.);
+    \draw (5.28788559959225,1.9075218693790357) node[anchor=north west] {$r_{n}$};
+    \draw (15.931246697629614,6.130393883984984) node[anchor=north west] {$r_n-r_{n+1}$};
+    \draw (10.889654598559282,7.552381399107395) node[anchor=north west] {$r_{n+1}$};
+    \draw (6.235877276340517,4.536044245817432) node[anchor=north west] {$r_{n+1}$};
+    \begin{scriptsize}
+    \draw [fill=black] (5.196152422706632,3.) circle (1.0pt);
+    \draw[color=black] (5,3.7173241613530132) node {$\Gamma_n$};
+    \draw [fill=black] (15.588457268119894,9.) circle (1.0pt);
+    \draw[color=black] (16,9.663817406410368) node {$\Gamma_{n+1}$};
+    \draw[color=black] (-2.6407720604841662,0.7225322734436931) node {$r$};
+    \draw[color=black] (12.914909544339674,21.750711284950864) node {$s$};
+    \draw [fill=black] (0.,0.) circle (0.5pt);
+    \draw[color=black] (-0.6155171147037775,-0.13927834178201054) node {$A$};
+    \draw [fill=black] (15.588457268119894,3.) circle (0.5pt);
+    \draw[color=black] (15.88815616686833,3.221783057598234) node {$D$};
+    \draw [fill=black] (15.588457268119894,0.) circle (0.5pt);
+    \draw[color=black] (15.500341390016766,-0.44091205711100684) node {$C$};
+    \draw [fill=black] (5.196152422706632,0.) circle (0.5pt);
+    \draw[color=black] (5.115523476547111,-0.3978215263497216) node {$B$};
+    \draw[color=black] (1,0.5501701503985523) node {$\dfrac{\pi}{3}$};
+    \draw[color=black] (6.79605417623722,3.3510546498820895) node {$\dfrac{\pi}{6}$};
+    \end{scriptsize}
+    \end{tikzpicture}}
+\end{figure}
+
+By the sine rule again we have \(\sin\frac{\pi}{6}=\frac{r_n-r_{n+1}}{r_n+r_{n+1}}\), thus \(\frac{r_n}{r_{n+1}}=\frac{1-\frac{1}{2}}{1+\frac{1}{2}}\), and so the common ratio between the lengths of the radii is \(\frac{1}{3}\). Though this is simply something can be deduced by the given sides of \(3,1,\cdots\) Hence, the areas of the circles inscribed, including \(\Gamma_0\), will be given by the geometric series:
+
+\begin{align*}
+  \pi(3)^2+\pi\left[\frac{1}{3}(3)\right]^2+\pi\left[\frac{1}{3^2}(3)\right]^2\cdots&=9\pi\left[1+\frac{1}{3^2}+\frac{1}{3^4}+\cdots\right]\\
+  &=\frac{9\pi}{1-\frac{1}{9}}
+\end{align*}
+
+Therefore the total area inside the circles is \(\frac{81\pi}{8}\). From the diagrams, we can cleary see therefore that the inscribed area, not fully accounting for \(\Gamma_0\) is going to be given by \(2\cdot\frac{1}{2}3\cdot\frac{3}{\tan\frac{\pi}{6}}=9\sqrt{3}\). Now all that's left to consider is \(\Gamma_0\) - the full area of it has been accounted for in the total area inside the circles calculation, however, unlike the other circles, it is not fully inscribed; the segment of area \(\frac{1}{2}(3)^2\left(\frac{\pi}{3}+\pi\right)=6\pi\) has been over counted. Thus we have the total area inscribed by the circles as:
+
+\begin{align*}
+  A&=9\sqrt{3}-\frac{81\pi}{8}+6\pi\\
+  &=9\sqrt{3}-\frac{33\pi}{8}
+\end{align*}
+
+This leaves us with \(\{1000A\}=\fbox{2629}\)
+\end{solution}\bigskip
