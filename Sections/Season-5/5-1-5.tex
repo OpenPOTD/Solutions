@@ -1,0 +1,19 @@
+\SSbreak\\
+\emph{Source: AIME, 1985 P14}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID: 79}\\
+\emph{Date: 2020-12-25}\\
+\SSbreak
+
+\SSpsetQ{
+    Santa has a number of elves. He wants to select the very best for Christmas. To do so, he makes all his elves compete in a \sout{present wrapping competition} War Thunder tournament. Each elf competes against every other elf, and the winner receives one point, while the loser receives no points. If a particular match turns out to be a draw, each elf is awarded 0.5 points. \medskip
+
+    After the tournament has finished, Santa notices that exactly half of the points earned by each elf was done so when matched against the ten lowest scoring elves.\medskip
+    
+    Given that each of the ten lowest scoring elves also earned half of their points against the other nine, how many elves does Santa have to choose from?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+    Let there be $n+10$ elves. Then the bottom $10$ elves score ${10 \choose 2}$ elves from each other while the rest score ${n \choose 2}$ points from those that are not in the bottom $10$ people, and thus ${n \choose 2}$ points from the bottom $10$ elves. Thus we get $\frac{1}{2} {n+10 \choose 2} = {n \choose 2} +{10 \choose 2}$ and thus solving we get $n = 6,15$, but if $n= 6$, we get that it is expected for a player from the bottom $10$ players will win when matched  against a player from the top $6$, which is impossible. Thus, $n=15$ and there are $25$ elves Santa can choose from.
+\end{solution}\bigskip
