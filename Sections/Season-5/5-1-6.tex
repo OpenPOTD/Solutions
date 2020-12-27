@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: New Zealand Camp Selection Problems, 2016 P7}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 80}\\
+\emph{Date: 2020-12-26}\\
+\SSbreak
+
+\SSpsetQ{
+Find the sum of all positive integers \(n\) for which the equation 
+\[(x^2+y^2)^n = (xy)^{2016}\] 
+has positive integer solutions. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+\paragraph{Solution 1: Edited Official Solution}
+Note that by AM-GM, \(x^2 + y^2 \ge 2xy \ge xy\) and so \(n \le 2016\). \\
+Let \(x = ad\) and \(y = bd\) where \(d =\gcd(x, y)\). Then: \[(a^2 + b^2)^n = (ab)^{2016} d^{4032-2n}.\]
+Since \(a\) and \(b\) both divide the right-hand side but are relatively prime to the left-hand side, we get that \(a = b = 1\). Thus, we have: \[2^n = d^{4032-2n}.\]
+Conversely, \(x = y = d\) for \(d\) satisfying this equation is a solution to the original equation. So \(d = 2^k\) for some integer k, meaning that \(n = k(4032-2n) \implies n = \frac{4032k}{2k+1}\). \\
+Since \(\gcd(k, 2k+1) = 1\), we get that \(2k + 1\) is a odd divisor of \(64 \times 63\). Iterating these cases, we get that the possible values of \(n\) are 1344, 1728, 1792, 1920 and 1984, for a sum of \( \boxed{8768}\). 
+
+\end{solution}\bigskip
