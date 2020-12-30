@@ -1,0 +1,33 @@
+\SSbreak\\
+\emph{Source: Folklore}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 83}\\
+\emph{Date: 2020-12-29}\\
+\SSbreak
+
+\SSpsetQ{
+  If we write the numbers 99999 down to 1 in the following string:
+
+  \begin{center}
+    \(999999999899997\ldots10987654321\)
+  \end{center}
+
+ What is the \(42069^{th}\) digit multiplied by the \(42070^{th}\) digit?\\
+
+ \begin{center}
+   \emph{Note: In the given string, we consider the first 9 on the left to be the first digit and 1 to be the last digit.}
+ \end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+Observe that each number in the string can be split up into their respective numbers by separating them by 5 for all digits greater than 9999, 4 for all digits greater than 999, and less than 100000, and so on. 
+
+\begin{equation*}
+  \underbrace{99999}_{5}\underbrace{99998}_{5}\underbrace{99997}_{5}\ldots\underbrace{10}_2\cdots
+\end{equation*}
+
+Since there are \((99999-9999)\cdot5=450000\) digits from five-digit numbers contained within the string, we know that the \(42069^{th}\) digit will be within a five-digit number. Since 42069 is one less than a multiple of 5, we can deduce that it will be the 4th digit in a five-digit number. \\
+We note that the \(5n-4\)th to \(5n\)th digit belong to the number \(100000-n\) (by either Engineer's or mathematical induction). \\
+Thus these two digits are the fourth and fifth digits of \(91586\) respectively, meaning their product is \(8 \cdot 6 = \boxed{48}\). 
+\end{solution}\bigskip

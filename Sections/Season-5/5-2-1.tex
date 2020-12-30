@@ -1,0 +1,37 @@
+\SSbreak\\
+\emph{Source: HMMT November 2020 Guts Problem 1}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID: 82}\\
+\emph{Date: 2020-12-28}\\
+\SSbreak
+
+\SSpsetQ{
+    Two pentagons are attached to form a new polygon $P$. What is the minimum number of sides $P$ can have? \\
+
+    \begin{center}
+      \emph{Note: The two pentagons are not necessarily regular. }
+    \end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+  The answer is $\boxed{3}$ as shown in the following diagram. Anything less will result in a shape that is not a polygon.
+ 
+\begin{figure}[h!]
+  \centering
+  \begin{tikzpicture}
+    // let the vertices be (-3,0)(3,0), and (0, 5)
+    \draw[line width = 0.4pt] (-3.0,-0)--(0,5.0);
+    \draw[line width = 0.4pt] (0,5.0)--(-0.5, 3.3);
+    \draw[line width = 0.4pt] (-0.5, 3.3)--(0.5, 1.6);
+    \draw[line width = 0.4pt] (0.5,1.6)--(0.0,0.0);
+    \draw[line width = 0.4pt] (0.0,0.0)--(3.0,0.0);
+    \draw[line width = 0.4pt] (3,0,0.0)--(0.0,5.0);
+    \draw[line width = 0.4pt] (-3,0)--(0,0);
+    \end{tikzpicture}
+\end{figure}
+
+
+\end{solution}\bigskip
+
+
