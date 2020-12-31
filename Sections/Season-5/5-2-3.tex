@@ -1,0 +1,18 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pnjoy}\\
+\emph{Problem ID: 84}\\
+\emph{Date: 2020-12-30}\\
+\SSbreak
+
+\SSpsetQ{
+There are $N$ tuples of integers \(a, b, c, d\) satisfying \( 1 \le a, b, c, d \le 101\) and exactly 3 out of \(a, b, c, d\) are relatively prime to 2020. \\
+
+What is the sum of the (not necessarily distinct) prime factors of $N$?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+Note that there are 40 elements of \(\{1, 2, 3, \cdots, 101 \}\) which are relatively prime to 2020, and 61 elements which are not. We have 4 ways to choose which element out of \(a, b, c, d\) is not relatively prime to 2020, and so \(N = 4 \times 61 \times 40^3 = 2^2 \times 61 \times 2^6 \times 5^3\). \\
+Our answer is thus \(4 + 61 + 12 + 15 = \boxed{92}\). 
+\end{solution}\bigskip
