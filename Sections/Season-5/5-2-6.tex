@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: New Zealand Monthly Maths Workshop, December 2020, Problem 6}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 87}\\
+\emph{Date: 2021-1-02}\\
+\SSbreak
+
+\SSpsetQ{
+Point One Nine throws a standard pack of cards into the air such that each card is equally likely to land face up or face down and lands independently of other cards. The total value of the cards which landed face up is then calculated. \\
+
+Suppose the probability that the total is divisible by \(13\) is \(\frac mn\) with \(m,n \in \mathbb{Z}^+, \gcd(m, n) =1\). Calculate the largest integer value of \(x\) such that \(2^x \le n\). \\
+
+\begin{center}
+    \emph{Note: Values of cards are assigned as follows: \emph{Ace = 1, 2 = 2, \(\dots\), Jack = 11, Queen = 12, King = 13}.} 
+\end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+Note that we may discard the Kings, since they represent values which are \( 0 \pmod{13} \). Further, note that 2 is a generator in mod 13. In this way we establish a bijection between the values of the cards \( 1, 2, 3, \dots, 12, 1, 2, 3, \dots, 12, \dots, 12 \) (4 sets of 1 to 12) and \( 2^0, 2^1, \dots, 2^{47} \) in mod 13. \\
+Each number has a unique binary representation and since each configuration of cards is equally likely, each number from 0 to \( 2^{48} -1 \) is equally likely. By Fermat's Little Theorem, since \( 2^{12} \equiv 1 \pmod{13}\), we get \( 13\vert 2^{48} - 1\). \\
+Thus out of those binary numbers \( \frac{2^{48} - 1}{13} + 1 \) are divisible by 13, and so our probability is \[ \frac{2^{48} + 12}{13 \cdot 2^{48}} = \frac{2^{46} + 3}{13 \cdot 2^{46}} .\] \\
+But since \(2^{46} \equiv 2^{-2} \equiv -3 \pmod{13}\), we get that the numerator is divisible by 13, and so \(n = 2^{46}\). From here we get that our answer is $\boxed{46}$. 
+
+
+\end{solution}\bigskip
