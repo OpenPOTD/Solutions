@@ -1,0 +1,21 @@
+  
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pnjoy}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\SSbreak
+
+\SSpsetQ{
+NJOY has a box of 200 balls, 100 of which are blue, 98 of which are red, and 2 of which are green. \medskip
+
+At each stage he randomly selects one ball from the box. If it is blue, he wins; if it is red, he loses, and if it is green, he replaces the ball and draws another one with the same rules. \medskip 
+
+If the probability that he wins is \(\frac mn\) where \(\gcd(m, n) = 1\) and \(m, n\) are both positive integers, find \(100m + n\). 
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	Let \(P\) be the probability of a win. Note that \( P = P(\text{blue}) + P(\text{green}) * P\), since after he draws and replaces a green ball the state returns to the starting state. Solving this with the provided values, we get \[P = \frac 12 + \frac 1{100} P\] and hence \(\frac{99}{100}P = \frac 12\) and so \(P = \frac{50}{99}\), giving us \(100m+n = 5000 + 99 = \boxed{5099}. \)
+	%Put sol here
+\end{solution}\bigskip
