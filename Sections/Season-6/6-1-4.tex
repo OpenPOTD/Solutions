@@ -1,0 +1,56 @@
+\SSbreak\\
+\emph{Source: 2018 AMC 12A, Q20 of 25}\\
+\emph{Proposer: \Pchan}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\SSbreak
+
+\SSpsetQ{
+	Triangle $ABC$ is an isosceles right triangle with $AB=AC=3$. Let $M$ be the midpoint of hypotenuse $\overline{BC}$. Points $I$ and $E$ lie on sides $\overline{AC}$ and $\overline{AB}$, respectively, so that $AI>AE$ and $AIME$ is a cyclic quadrilateral. Given that triangle $EMI$ has area $2$, the length $CI$ can be written as $\frac{a-\sqrt{b}}{c}$, where $a$, $b$, and $c$ are positive integers and $b$ is not divisible by the square of any prime. What is the value of $a+b+c$? 
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Let \(IM=a\), since \(IM=EM\), we have \(a^2=4\). Further, as \(CM=\frac{1}{2}\sqrt{3^2+3^2}=\frac{3\sqrt{2}}{2}\), and given \(\bigtriangleup ABC\) being isosceles we have \(\angle BCA=\frac{\pi}{4}\). There for \(a^2=x^2+\frac{9}{2}-3x\), and so \(x^2-3x+\frac{9}{2}=4\iff x=\frac{3\pm\sqrt{7}}{2}\) (We take the negative as \(AI>AE\)). Therefore, by the problem statement we have our answer as \fbox{30702}
+
+	\begin{figure}[h!]
+		\centering
+		\begin{tikzpicture}[line cap=round,line join=round,>=triangle 45,x=3.0cm,y=3.0cm]
+			\clip(-0.5,-1.) rectangle (3.5,3.5);
+			\draw[line width=0.8pt] (1.4582928777807047,1.3732830015448425) -- (1.5850098762358622,1.3315758793255474) -- (1.6267169984551575,1.4582928777807047) -- (1.5,1.5) -- cycle; 
+			\draw [shift={(0.,0.)},line width=0.8pt] (0,0) -- (0.:0.18866203508549145) arc (0.:45.:0.18866203508549145) -- cycle;
+			\draw [shift={(3.,3.)},line width=0.8pt] (0,0) -- (-135.:0.18866203508549145) arc (-135.:-90.:0.18866203508549145) -- cycle;
+			\draw[line width=0.8pt] (3.,0.13340420436140535) -- (2.866595795638595,0.13340420436140538) -- (2.866595795638595,0.) -- (3.,0.) -- cycle; 
+			\draw [line width=1.2pt] (0.,0.)-- (3.,0.);
+			\draw [line width=1.2pt] (3.,0.)-- (3.,3.);
+			\draw [line width=1.2pt] (3.,3.)-- (0.,0.);
+			\draw [line width=1.2pt] (1.5,1.5)-- (1.0062960447955864,0.);
+			\draw [line width=1.2pt] (1.5,1.5)-- (3.,1.0062960447955864);
+			\draw [line width=1.2pt] (2.003148022397793,0.5031480223977931) circle (3.349902413389107cm);
+			\draw (0.43559377717709086,-0.05076518957247715) node[anchor=north west] {$x$};
+			\draw [line width=1.2pt,dash pattern=on 5pt off 5pt] (2.003148022397793,0.5031480223977931)-- (1.5,1.5);
+			\draw [line width=1.2pt,dash pattern=on 5pt off 5pt] (1.7375386678093592,0.9944898548459083) -- (1.7656093545884344,1.0086581675518853);
+			\draw [line width=1.2pt] (1.0062960447955864,0.)-- (2.003148022397793,0.5031480223977931);
+			\draw [line width=1.2pt] (1.4976378772437007,0.2656093545884341) -- (1.5118061899496777,0.2375386678093588);
+			\draw [line width=1.2pt] (2.003148022397793,0.5031480223977931)-- (3.,1.0062960447955864);
+			\draw [line width=1.2pt] (2.494489854845908,0.768757376986227) -- (2.5086581675518853,0.7406866902071517);
+			\begin{scriptsize}
+			\draw [fill=black] (0.,0.) circle (1.5pt);
+			\draw[color=black] (-0.12095922632510893,0.0583162316782416) node {$C$};
+			\draw [fill=black] (3.,0.) circle (1.5pt);
+			\draw[color=black] (3.077429166619697,0.03378104571243815) node {$A$};
+			\draw [fill=black] (3.,3.) circle (1.5pt);
+			\draw[color=black] (3.067429166619697,3.1335074035717505) node {$B$};
+			\draw [fill=black] (1.5,1.5) circle (1.5pt);
+			\draw[color=black] (1.3694708508502735,1.6147780211335452) node {$M$};
+			\draw [fill=black] (1.0062960447955864,0.) circle (1.5pt);
+			\draw[color=black] (0.9355481701536432,-0.11147959989870063) node {$I$};
+			\draw [fill=black,shift={(3.,1.0062960447955864)},rotate=90] (0,0) ++(0 pt,2.25pt) -- ++(1.9485571585149868pt,-3.375pt)--++(-3.8971143170299736pt,0 pt) -- ++(1.9485571585149868pt,3.375pt);
+			\draw[color=black] (3.067429166619697,1.143122933419817) node {$E$};
+			\draw [fill=black] (2.003148022397793,0.5031480223977931) circle (1.5pt);
+			\draw[color=black] (2.10525278768369,0.4545065053577734) node {$O$};
+			\end{scriptsize}
+			\end{tikzpicture}
+	\end{figure}
+\end{solution}\bigskip
