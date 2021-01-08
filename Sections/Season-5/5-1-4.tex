@@ -142,5 +142,6 @@ This leaves us with \(\{1000A\}=\fbox{2629}\)
 \end{solution}
 
 \begin{solution}[Write up by \Paiya]\hfil\medskip
+	
 	By similarity, $A\Gamma_0 = 3A\Gamma_1$, so $\Gamma_1\Gamma_0 = r_0 + r_1 = 4 = 2A\Gamma_1 \iff A\Gamma_1 = 2, A\Gamma_0 = 6$. This implies that $\alpha/2 = 30^\circ \iff \alpha = 60^\circ$. Now rotate the figure two times around $\Gamma_0$, by 120$^\circ$ each time. The outer triangle is an equilateral triangle with side length $6 \sqrt{3}$, and by symmetry, the area inside that triangle but outside the circles is $3A$. We also have $A\Gamma_{n + 1} = 2r_{n + 1} = A\Gamma_n - r_n - r_{n + 1} = r_n - r_{n + 1} \iff \frac{r_n}{r_{n + 1}} = \frac{1}{3}$, so the area of the circles is $$\left[\Gamma_0\right] + 3 \sum_{i = 1}^\infty \left[\Gamma_i\right] = 9 \pi + \pi \left(1^2 + \dfrac{1}{3^2} + \dfrac{1}{3^4} + \cdots \right) = 9 \pi + \dfrac{9 \pi}{8} = \dfrac{99 \pi}{8}$$ where $[\cdot]$ represents the area of the circle. Now subtract from the area of the triangle and divide by 3: $$A = \dfrac{1}{3}\left(\dfrac{3 \cdot 36 \sqrt{3}}{4} - \dfrac{99 \pi}{8}\right) = 9 \sqrt{3} - \dfrac{33 \pi}{8} \iff \{1000A\} = \boxed{2629}.$$
 \end{solution}\bigskip
