@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: NIMO \href{https://artofproblemsolving.com/community/q1h1182685p5731709}{AoPS Thread}}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\SSbreak
+
+\SSpsetQ{
+Let $p = 10^9 + 7$ be a prime. Find the remainder when 
+\[
+\floor{\frac{1^p}{p}} + \floor{\frac{2^p}{p}} + \floor{\frac{3^p}{p}} + \ldots + \floor{\frac{(p-3)^p}{p}} + \floor{\frac{(p-2)^p}{p}} 
+\]
+
+is divided by \(p\)
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We will prove the general case where $p$ is an odd prime.
+
+Let $p$ be an odd prime. we have $n^{p-1} \equiv 1 \pmod{p}$ and thus $n^p \equiv n \pmod{p}$ for all positive integers $n < p$. Thus $\lfloor \frac{n^p}{p}\rfloor = \frac{n^p - n}{p}$ and the required sum is equivalent to \[\frac{2^p + 3^p + ... + (p-2)^p}{p} - \frac{2 + 3 + 4+... + (p-2)}{p}\]
+
+Now we claim that $\frac{n^p + (p-n)^p}{p} \equiv 0 \pmod{p}$ for all integer $n$, which is indeed true since by the binomial theorem, all terms of $(p-n)^p$  are $0 \pmod{p^2}$ except $-n^p$. Therefore $n^p + (p-n)^p \equiv 0 \pmod{p^2}$ and $\frac{n^p + (p-n)^p}{p} \equiv 0 \pmod{p}$.
+This implies that the first sum is actually just $0 \pmod{p}$ and the desired answer stems solely from the second sum.
+
+The second sum can be grouped into $\frac{p-3}{2}$ pairs that add up to $p$, and thus the answer is $- \frac{p-3}{2} = \frac{p+3}{2} = \boxed{500000005} \pmod{10^9 +7}$.
+\end{solution}
