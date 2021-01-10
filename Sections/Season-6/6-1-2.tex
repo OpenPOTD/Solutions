@@ -19,4 +19,9 @@ If the probability that he wins is \(\frac mn\) where \(\gcd(m, n) = 1\) and \(m
 	
 	Let \(P\) be the probability of a win. Note that \( P = P(\text{blue}) + P(\text{green}) * P\), since after he draws and replaces a green ball the state returns to the starting state. Solving this with the provided values, we get \[P = \frac 12 + \frac 1{100} P\] and hence \(\frac{99}{100}P = \frac 12\) and so \(P = \frac{50}{99}\), giving us \(100m+n = 5000 + 99 = \boxed{5099}. \)
 	%Put sol here
+\end{solution}
+
+\begin{solution}[Solution by \Paiya]\hfil\medskip
+	
+The last ball NJOY picks will be blue or red, and the probability that he picks that final ball does not depend on his history of picking greens. Therefore, the green balls are irrelevant to the problem and the probability he picks a blue is \(\frac{100}{100 + 98}\) giving us our answer of $\boxed{5099}$.
 \end{solution}\bigskip
