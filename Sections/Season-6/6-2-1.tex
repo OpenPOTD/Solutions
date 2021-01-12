@@ -1,0 +1,21 @@
+  
+\SSbreak\\
+\emph{Source: Original Problem}\\
+\emph{Proposer: \Pchan}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 96}\\
+\emph{Date: 2021-01-11}\\
+\SSbreak
+
+\SSpsetQ{
+There is an ordered tuple of $n$ positive real numbers $\{ a_1, a_2, a_3, ..., a_n\}$ such that when any element is replaced by itself multiplied by $-2021$, the sum of the elements of the ordered tuple becomes negative. What is the maximum value of $n$?
+
+For example, $\{1, 3, 5, 7\}$ satisfies this property, but $\{ 1, 4000\}$ does not.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+Note that $n=2021$ is trivially possible  through the construction $\{1,1,1,1, ... ,1\}$. 
+
+Now we prove that a higher number is not possible. WLOG, let $a_1 \geq a_2 \geq ... \geq a_n$. Then, $a_1 + a_2 + a_3 + ... + a_{n-1} -2021a_n \geq (n-1)a_n -2021a_n = (n-2022)a_n$. Thus, the condition cannot hold true if $n-2022 \geq 0$ or $n \geq 2022$, which concludes the proof.
+
+\end{solution}\bigskip
