@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: British Mathematical Olympiad, Round 1, 2018 P1}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 98}\\
+\emph{Date: 2021-01-13}\\
+\SSbreak
+
+\SSpsetQ{
+
+  Tony divides 365 by each of \(1,2,3,\cdots 365\) in turn, writing down a list of the 365 remainders. Then Wang divides 366 by each of \(1,2,3,\cdots 366\) in turn writing down a list of the 366 remainders. What is the difference between the two summed lists?
+
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+ Remainder for remainder, the numbers in Wang's list will always be one greater than those in Tony's list - with exception to the cases where the remainder is 0, in which case, for a number \(n\) dividing \(366\), Tony will have a remainder of \(n-1\). Since \(366=2\cdot3\cdot61\), there are 8 remainders in Wang's list that are 0. Now we wish to find the \(n-1\) remainders. Well, we have \(n\in\left\{1,2,3,6,61,122,183\right\}\) so we must have the remainders for Tony, when Wang's remainder is 0, being \(\{0,1,2,5,60,121,182\}\). To summarise these results, we have:
+
+ \begin{align*}
+  T+\left(0+1+2+5+60+121+182\right)&=W+365-8+1\\
+  \therefore\ \fbox{13}&=W-T
+ \end{align*}
+
+\end{solution}\bigskip
