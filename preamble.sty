@@ -20,12 +20,7 @@
 \usepackage{xpatch}
 \usepackage[normalem]{ulem}
 \usepackage{booktabs}
-\usepackage{tocbasic} 
-\usepackage[
-  pdfauthor = {\SSauthor},
-	pdftitle = {\SStitle},
-	colorlinks = true
-	]{hyperref}  
+\usepackage{tocbasic}  
 \usepackage[
 	activate={true,nocompatibility},
 	final,
@@ -40,16 +35,20 @@
 \usepackage[headsepline]{scrlayer-scrpage}
 \usepackage[toc,page]{appendix}
 \usepackage{bookmark}
-\usepackage[nameinlink]{cleveref} 
 \usepackage[utf8]{inputenc}
 \usepackage{rotating}
-
 \usetikzlibrary{automata, positioning, arrows}
+\usepackage[
+  pdfauthor = {\SSauthor},
+	pdftitle = {\SStitle},
+	colorlinks = true
+  ]{hyperref}
+\usepackage[nameinlink]{cleveref} 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
-
 
 % Defining style environments (e.g. question, solution etc.)
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 % Defining \SSpsetQ
 \mdfdefinestyle{SSqbox}
 { 
@@ -259,9 +258,14 @@
 \def\Pkiesh{Kiesh\#0917 (544960202101751838)}
 \def\Pchan{Angry Any\#4319 (580933385090891797)} 
 \def\PSlas{Slaschu\#5267 (296304659059179520)}
-\def\Parjun{Arjun\#8974 (723413754800373780)}
+\def\Parjun{Bahnhofstrasse\#8974 (723413754800373780)}
 \def\Pnjoy{TaesPadhihary\#8557 (665057968194060291)}
 \def\Paops{aops\#0436 (712027036511633429)}
+\def\Phobo{HoboSas\#3200 (310725130097786880)}
+\def\Plance{Lance\#8018 (220196846922891264)}
+\def\Ptan{tanoshii\#3160 (300065144333926400)}
+\def\Pghost{GhostRaider\#5854 (779950703929982996)}
+\def\Pmatt{Matteddy\#0482 (329956567132930048)}
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \def\SSaops{Art of Problem Solving write-ups}
