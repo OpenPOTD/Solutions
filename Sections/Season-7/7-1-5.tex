@@ -1,0 +1,21 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pchris}\\
+\emph{Problem ID: 106}\\
+\emph{Date: 2021-01-22}\\
+\SSbreak
+
+\SSpsetQ{
+Find the smallest integer \(n > 1\) for which there exist positive integers \(a_1, a_2, \ldots,  a_n\)such that \[(a_1)^2 +\ldots + (a_n)^2 \big| \left[(a_1 + \cdots a_n)^2 - 1)\right]\]
+}\bigskip
+
+\begin{solution}[Solution by \Pchris]\hfil\medskip
+
+    Note that squares are congruent to themselves\(\mod 2\), so \[(a_1)^2 + \ldots + (a_n)^2 = a_1 +\ldots + a_n = (a_1 + \ldots + a_n)^2(\mod 2)\] Since \((a_1)^2 + \ldots + (a_n)^2\) divides \((a_1 +\ldots + a_n)^2 - 1\) which has a different parity, we must have the former odd and the latter even, so \((a_1 + \ldots + a_n)\) is odd. As all odd squares are \(1\mod 8\), \((a_1 +\ldots+ a_n)^2 - 1\) must be divisible by 8, and since \((a_1)^2 + \ldots+ (a_n)^2 \) is odd, we must have 
+    \begin{equation*}
+    \frac{(a_1 + \ldots + a_n)^2 - 1}{(a_1)^2 + \ldots + (a_n)^2} \geq 8
+\end{equation*}
+    Using Cauchy-Schwartz on the sequences \((a_1, \ldots, a_n)\) and \((1, 1, ..., 1)\) gives \[n((a_1)^2 + ... + (a_n)^2 \geq (a_1 + \ldots+ a_n)^2) > ((a_1 +\ldots + a_n)^2 - 1)\], which is a direct contradiction if \(n\) is less than 9. Therefore we must have \(n \geq 9\). It is easy to see \(n = 9\) works, with an example construction being \((1, 1, 1, 1, 1, 1, 1, 2, 2)\) which works as \(7*(1^2) + 2*(2^2) = 15\) and \((7*1 + 2*2)^2 - 1 = 120\), with \(120/15 = 8\) being an integer.\\
+
+    \fbox{9}
+\end{solution}\bigskip
