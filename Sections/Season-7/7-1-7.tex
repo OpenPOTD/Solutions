@@ -1,0 +1,35 @@
+  
+\SSbreak\\
+\emph{Source: Cambridge Handout}\\
+\emph{Proposer: \Ptan}\\
+\emph{Problem ID: 108}\\
+\emph{Date: 2021-01-24}\\
+\SSbreak
+
+\SSpsetQ{
+    After Brainy and Yuchan placed joint first at the IMO, both perfect scoring, they decide to take the day off before going on a journey to replace .19 and add more people to the problem solving committee. As part of the recruitment process, they ask the following question to the applicants:\\
+    
+    Given that the  maximum value of \begin{equation*}
+        \frac{x_1x_2+x_2x_3+\cdots+x_{20}x_{21}+x_{21}x_1}{x_1^2+\cdots+x^2_{21}}
+    \end{equation*}
+    is \(M\) for \(x_1+\cdots+x_{21}=0\), find  \(\floor{1000M}\)\\
+    
+    What answer should the applicants put down?\bigskip
+    
+    \begin{center}
+    \emph{(A scientific calculator may be used)}
+    \end{center}
+}\bigskip
+
+\begin{solution}[Solution by \Ptan]\hfil\medskip
+	
+We will prove it for a given $n$, here $n = 21$. \medskip
+
+Let $\omega$ be the principle $n$th root of unity. \medskip
+
+Let $$y_k = \frac1{\sqrt n} \sum_{i=1}^n x_i \omega^k. $$ \medskip
+
+Note that $$|y_1|^2 + |y_2|^2 + \cdots + |y_k|^2 = |x_1|^2 + |x_2|^2 + \cdots + |x_k|^2$$ and $$x_1 x_2 + \cdots + x_n x_1 = \frac 1 n \sum_{k=1}^n (\omega^k + \omega^{-k})y_k^2$$
+
+Since $x_1 + \cdots + x_n = 0$, we get $y_n = 0$, so the sum is maximised when $y_{n-1}$ or $y_1$ is maximal since $k=1, n-1$ are the values where $\omega^k + \omega^{-k}$ is the biggest and that gives $2 \cos(\frac{2\pi}n)$. 
+\end{solution}\bigskip

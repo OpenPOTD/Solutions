@@ -11,7 +11,7 @@ Find the smallest integer \(n > 1\) for which there exist positive integers \(a_
 
 \begin{solution}[Solution by \Pchris]\hfil\medskip
 
-    Note that squares are congruent to themselves\(\mod 2\), so \[(a_1)^2 + \ldots + (a_n)^2 = a_1 +\ldots + a_n = (a_1 + \ldots + a_n)^2(\mod 2)\] Since \((a_1)^2 + \ldots + (a_n)^2\) divides \((a_1 +\ldots + a_n)^2 - 1\) which has a different parity, we must have the former odd and the latter even, so \((a_1 + \ldots + a_n)\) is odd. As all odd squares are \(1\mod 8\), \((a_1 +\ldots+ a_n)^2 - 1\) must be divisible by 8, and since \((a_1)^2 + \ldots+ (a_n)^2 \) is odd, we must have 
+    Note that squares are congruent to themselves\(\pmod 2\), so \[(a_1)^2 + \ldots + (a_n)^2 = a_1 +\ldots + a_n = (a_1 + \ldots + a_n)^2\pmod{2}\] Since \((a_1)^2 + \ldots + (a_n)^2\) divides \((a_1 +\ldots + a_n)^2 - 1\) which has a different parity, we must have the former odd and the latter even, so \((a_1 + \ldots + a_n)\) is odd. As all odd squares are \(1\mod 8\), \((a_1 +\ldots+ a_n)^2 - 1\) must be divisible by 8, and since \((a_1)^2 + \ldots+ (a_n)^2 \) is odd, we must have 
     \begin{equation*}
     \frac{(a_1 + \ldots + a_n)^2 - 1}{(a_1)^2 + \ldots + (a_n)^2} \geq 8
 \end{equation*}
