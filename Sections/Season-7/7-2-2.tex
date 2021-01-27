@@ -1,0 +1,21 @@
+  \SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pkiesh}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 110}\\
+\emph{Date: 2021-01-26}\\
+\SSbreak
+
+\SSpsetQ{
+    Call a number unique if each of its digits are unqiue (no two are the same). How many odd integers in the interval \([3\cdot10^4,8\cdot10^4]\) are unique?\medskip
+
+    \begin{center}
+        \emph{(A four-function calculator may be used)}
+    \end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+There are 5 ways to choose the first digit. If the first digit is odd, then we must consider the final digit too. In the even cases, there are 2 numbers to choose from for the first digit, then last digit we have 5 odd digits to choose from. Then for the other 3 digits, we have 7! ways to pick digits, so there are \(2\cdot5\cdot\frac{8!}{5!}\) ways when the first digit is even. When it is odd, however, there is one less odd digit to choose from for the last digit. There are 3 ways to choose the first digit and 4 ways to choose the last digit. As before there are \(\frac{8!}{5!}\) ways to choose the middle three digits. This gives us a total of \(3\cdot4\cdot\frac{8!}{5!}\) when the first digit is odd.
+
+Thus in total, there are \(2\cdot5\cdot\frac{8!}{5!}+3\cdot4\cdot\frac{8!}{5!}=\fbox{7392}\)
+\end{solution}\bigskip
