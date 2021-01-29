@@ -14,7 +14,7 @@ Welcome to the OpenPOTD solutions booklet! Here you'll find answers & solutions 
 
 ## Introduction
 
-Solutions for season one were entirely written up by `Brainysmurfs#2860`, while `(.19#9839)` has overseen most of season two. 
+Solutions for season one were entirely written up by `Brainysmurfs#2860`, while `(sjbs#9839)` has overseen most of season two. 
 From season three onwards, Yuchan (`Angry Any#4319`) has also been contributing problem proposals and solutions. 
 
 Where possible, from season two onwards, We have tried to include the officially provided solutions to problems, 
@@ -78,7 +78,7 @@ The best way to contact us is through the [OpenPOTD Discord server](https://disc
 however, you may also contact us through the [discussions tab](https://github.com/OpenPOTD/Solutions/discussions) on Discord.
  Alternatively, you can message any of us on Discord:
 
-> .19#9839 (434767660182405131)
+> sjbs#9839 (434767660182405131)
 >
 > brainysmurfs#2860 (281300961312374785)
 >
