@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: China Mathematical Competition (Extra Test), 2003 P2}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\SSbreak
+
+\SSpsetQ{
+Find the \textbf{minimum} perimeter of a triangle having integer sides $a > b > c > 0$, such that $$\frac{3^a}{10^4}-\floor{\frac{3^a}{10^4}} = \frac{3^b}{10^4}-\floor{\frac{3^b}{10^4}} = \frac{3^c}{10^4}-\floor{\frac{3^c}{10^4}},$$ where $\floor{x}$ denotes the greatest integer less than or equal to $x$, e.g. $\floor{\pi} = 3$, and so on.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+Note that this condition implies $l \equiv m \equiv n \pmod{(\ord_{10000}(3)}$. Let us calculate $\ord_{10000}(3)$. \medskip
+
+By LTE, $\nu_2(3^n -1) = \nu_2(3-1) + \nu_2(n) + \nu_2(3+1) - 1 = \nu_2(n) + 2$, and so if $3^n \equiv 1 \pmod 2^4$ we must have $\nu_2(n) \ge 2$, implying that $n \ge 4$ and so $\ord_{2^4}(3) = 4$. \medskip
+
+By LTE again, note that $\nu_5(81^n - 1) = \nu_5(81 - 1) + \nu_5(n) \ge 4$. Hence we must have $\nu_5(n) \ge 3$ which implies $n \ge 125$. Since $81 = 3^4$ we get that $\ord_{5^4}(3) = 500$. \medskip
+
+Now $\ord_{10^4}(3) = \lcm(\ord_{2^4}(3), \ord_{5^4}(3)) = 500$. \medskip
+
+Hence for our minimum we must have $l = n + 1000, m = n + 500$. Since they are the sides of a triangle $l < m + n \implies n + 1000 < 2n + 500 \implies n > 500$. So $n = 501$ and so the smallest value of $l+m+n$ is $1501 + 1001 + 501 = \boxed{3003}$. 
+\end{solution}
