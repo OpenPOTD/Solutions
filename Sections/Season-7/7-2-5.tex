@@ -1,0 +1,50 @@
+  
+\SSbreak\\
+\emph{Source: Harvard-MIT Math Tournament, 2015 C5}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID: 116}\\
+\emph{Date: 2021-01-29}\\
+\SSbreak
+
+\SSpsetQ{
+  One night while sleeping, Brainy has a vision that the entirety of the new PSC has been found, and that they must now return to the jungle to find their mysterious advisor who will lead them out of this dimension. \medskip
+
+  The next day, Brainy picks up everybody, but is stopped at Yuchan's house by MODSbot, who plans to trap the PSC in this dimension. \medskip
+  
+  To distract it, Brainy orders MODSbot to write out every integer from $1$ to $256$ in binary, with a space between each. It takes MODSbot $1$ minute to write each unbroken block of $1$s and a negligible amount of time to write $0$s and spaces. \medskip
+  
+  How long in minutes does Brainy have to collect the rest of the PSC and escape the city?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+  Define $g(0) = 0$. Call a digit of a number represented in binary "good" if it is $1$ and the preceding digit is $0$. Then $g(0)+ g(1) + g(2) + ... + g(255)$ is $256 E(X_8)$ where $E(X_8)$ is the expected value of the number of "good" digits given that the number is less than $2^8$. 
+
+  By linearity of expectation, the expected number of good digits is $E(X_8) = E(G_1)+E(G_2) + ... + E(G_8)$ where $G_i$ is defined as 
+  \begin{equation*}
+      \begin{cases}
+      1 & \text{if the $i$th digit from the back is good}\\
+      0 & \text{otherwise}
+      \end{cases}
+  \end{equation*}
+  For example, $G_3$ for $7$ would be $1$ but $G_2$ for $7$ would be $0$ since there is already a $1$ before that. Then we can find $E(G_i) = \frac14$ for all $i = 1,2,3,4,5,6,7$ since its just $\frac 12$ chance that the $i$th digit is $1$ multiplied by $\frac 12$chance that the preceding digit is $0$. However, $E(G_8) = \frac 12$ since the preceding digit is guaranteed to be $0$, from which we can find $E(X_8) = \frac 12 + 7 \frac 14 = \frac 94$
+
+Thus $g(0)+ g(1) + g(2) + \ldots + g(255) = 256 \cdot \frac94$ and $g(1) + g(2) + \ldots + g(255) + g(256) = \fbox{577}$.
+\end{solution}\bigskip
+
+\begin{solution}[Solution by \Prishi]\hfil\medskip
+
+  Let's say the bot's done printing until $n-1$ digits. Now let us append a digit.\\
+We see that the bot will have to print all the numbers it has printed again so that one set of it can be appended with $0$ and the other with $1$. This takes exactly twice the amount of time taken for $(n-1)$ digits.\\
+
+Whenever the ending digit was a $0$ and the appended digit a $1$. The bot takes a minute more to print it. It can be seen from some combinatorics that no. of numbers of $(n-1)$ digit numbers ending with 0 is exactly ${2 \choose 1}^{n-2} \cdot 1$ and one resulting number appended with $1$ for each of those.\\
+
+Thus the recurrence is:
+$$t_n = 2t_{n-1} + 2^{n-2}$$
+$1$ to $256$ would be all 8 digit strings of 1 or 0 along with the number $100000000$.
+Thus the time Bot takes is:
+$$t_8+1$$
+It can be seen that:
+$$t_n = 2^k t_{n-k} + k\cdot 2^{n-2} \ ; \ t_1 = 1$$
+$$t_8+1 = \fbox{577}$$
+\end{solution}
