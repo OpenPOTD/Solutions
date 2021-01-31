@@ -1,0 +1,20 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pmatt}\\
+\emph{Problem ID: 114}\\
+\emph{Date: 2021-01-30}\\
+\SSbreak
+
+\SSpsetQ{
+    Having successfully gathered the PSC and escaped the scheming MODSbot, Brainy manages to lead the group to the jungle. Not far into the jungle, they meet Tan, who tells them that he is their mysterious advisor. He also says that he needs to take them to the last remaining population of wild triangles. \medskip
+
+    Some of the triangles are a deep shade of red; Tan explains that a triangle $\triangle ABC$ is red if given its incenter $I$, points $B_1$ and $C_1$ the intersections of $BI$ and $CI$ with $AC$ and $AB$ and $P$, $Q$ the intersections of line $PQ$ with $(ABC)$, $\angle PIQ$ attains the minimal possible value over all acute triangles. Each red triangle has upon its face the value of $\cos(\angle BAC)$. \medskip
+    
+    If the product of all numbers written on any triangle in the population for which $AB=AC$ can be written in the form $a - b\sqrt{c}$, where $a$, $b$, $c$ are positive integers with $c$ squarefree, find $10000a+100b+c$.
+ 
+}\bigskip
+
+\begin{solution}[Solution by \Pmatt]\hfil\medskip
+
+Let $I_b$ and $I_c$ be the excenters opposite $B$ and $C$ respectively. Since $IAI_cB$ is cyclic, we have $C_1A \cdot C_1B=C_1I \cdot C_1I_c$, which implies $C_1$ lies on the radical axis of $(ABC)$ and $(I_bII_c)$, and so does $B_1$. This means that $B_1C_1$ is the radical axis of those circles, which implies that $P$ and $Q$ are their intersection points. Since $(ABC)$ is the Feuerbach circle of $\triangle I_bII_C$, the radius of $(I_bII_C)$ is twice that of $(ABC)$ for all triangles, which means that the minimal value of $\angle PIQ$ happens when $PQ$ is maximised, so when it is a diameter, and in this case it's easy to see $\angle PIQ=150^{\circ}$. Now consider the case when $\triangle ABC$ is funky and isosceles, and let $O$ be the circumcenter, $M$ be the midpoint of arc $BC$ in $(ABC)$ and suppose the radius of $(ABC)$ is $1$. Then $2Rsin(\angle MAB)=MB=MI=R\pm OI=R(1\pm tan(15^{\circ}))$, which gives the possible values of $\cos\left(\angle BAC\right)$ to be $\sqrt{3}-1$ and $3\sqrt{3}-5$, and their product is $14-8\sqrt{3}$. This therefore gives us an answer of \(\fbox{336}\)
+\end{solution}\bigskip
