@@ -1,0 +1,25 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 121}\\
+\emph{Date: 2021-02-03}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+Define a function \(f:\{1,2,\ldots,12\}\to\{1,2,\ldots,6\}\) such that for every \(y\in \{1,2,\ldots,6\}\) there exists exactly two elements \(x_1,x_2\in \{1,2,\ldots,12\}\) such that \(f(x_1)=f(x_2)=y\). How many such functions are there which map \(\{1,2,\ldots,12\}\) to \(\{1,2,\ldots,6\}\) with the described property?
+
+\begin{center}
+  \emph{(A four-function calculator may be used)}
+\end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+This well known property can be derived simply by considering how we can choose two elements in \(\{1,2,\ldots,12\}\) and enumerating that. Let the number of such functions be \(F\), then we have:
+\begin{align*}
+  F&=\prod_{i=1}^{12}\binom{2i}{2}\\
+  &=\frac{12!}{2^6}\\
+  &=\fbox{7484400}\ \mathrm{such\ functions}
+\end{align*}
+\end{solution} 
