@@ -1,0 +1,22 @@
+  
+\SSbreak\\
+\emph{Source: New Zealand Mathematical Olympiad Round 1, 2019 Q4 (Adapted)}\\
+\emph{Proposer: \Pbrain }\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 122}\\
+\emph{Date: 2021-02-04}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+	Find the remainder when \(122^{2020} - 102^{2020} - 21^{2020}\) is divided by 2020. 
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Let \(X = 122^{2020} - 102^{2020} - 21^{2020}\). \\
+	Note that \(2020 = 20 \times 101\). In particular, considering the expression mod 20 we get \(X = 2^{2020} - 2^{2020} - 1^{2020} \equiv -1 \pmod{20}\), and considering it mod 101 we get \(X = 21^{2020} - 1^{2020} - 21^{2020} \equiv -1 \pmod{101}\). \\
+	In particular, by Chinese Remainder Theorem we get \(X \equiv -1 \pmod{2020}\) which means that the remainder on division by 2020 of \(X\) is \(\boxed{2019}\). \\
+	\emph{Note: The choice of 2020 in the exponent is not special.}
+	%Put sol here
+\end{solution}\bigskip
