@@ -1,0 +1,20 @@
+\SSbreak\\
+\emph{Source: AMO 2020 P2}\\
+\emph{Proposer: \Pchris}\\ 
+\emph{Problem ID: 123}\\
+\emph{Date: 2021-02-05}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+sjbs and Brainy are playing a game. First, they'll use a random number generator to generate three random positive integers. Then, three piles of stones will magically appear before them; the number of stones in each pile are the numbers generated previously. Then they'll take turns, with sjbs going first. On a player's turn, they can pick one pile and split it into either two or three nonempty piles, throwing the rest of the stones in the other two piles away. The game ends when a player can't make a move. Suppose both players play perfectly like the smart people they are - then if the probability that sjbs wins is \(m/n\), with \(gcd(m, n) = 1\) and \(m, n\) positive integers, find \(m + n\).
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+Call a pile \textit{perilous} if it contains a number of stones equal to $3k + 1$ where $k$ is a nonnegative integer and \textit{safe} otherwise. I claim that a player can force a win, if at their turn they have at least one safe pile in front of them, and lose otherwise. 
+Note that from a safe pile, the turn player can always give the other player either 2 or 3 perilous piles: simply consider splitting a pile of stones equal to $3k + 2$ into two piles, one of 1 stone and 1 of $3k + 1$ stones, which are both perilous, or a pile equal to $3k$ stones into three piles, two of 1 stone and 1 of $3k - 2 = 3(k - 1) + 1$ stones which are all perilous. Also note that from a perilous pile, it is impossible to leave only perilous piles behind, since two or three perilous piles imply that the original split pile was safe. \medskip
+
+So if a player has at least one safe pile in front of them on their turn, they may make two or three perilous piles; then their opponent must return them at least one safe pile and they can repeat this; noting that the total number of stones in game is strictly decreasing so the game must end and that the losing state (all piles with 1 stone) is all perilous piles shows that they will win. And clearly if a player only has perilous piles before them then they must give their opponent at least one safe pile and thus their opponent wins. 
+Thus sjbs wins if at least one of the three piles generated at the start is safe, and brainy wins if they are all perilous. The probability of brainy's win is thus $\frac{1}{3} \cdot \frac{1}{3} \cdot \frac{1}{3} = \frac{1}{27}$ so the probability sjbs wins is $1 - \frac{1}{27} = \frac{26}{27}$ and so the answer is $26 \cdot 100 + 27 = \boxed{2627}$.
+\end{solution}\bigskip
