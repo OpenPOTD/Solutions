@@ -11,7 +11,54 @@
 	%Put Problem Here
 }\bigskip
 
-\begin{solution}\hfil\medskip
+\begin{solution}[Write up by \Ptroll]\hfil\medskip
 	
-	%Put sol here
+	We solve for general $f(x) = x^n + ax^2 + b$, where $n = \equiv 1 \pmod{4}$. Let $P$ be our product, we have 
+	$$P = \prod_{i < j}\left(\alpha_i - \alpha_j\right)^2 = \prod_{i \neq j}\left(\alpha_i - \alpha_j\right)$$
+	since we flipped the signs of $\sum_{k = 1}^{n - 1}k \equiv 0 \pmod{2}$ factors. Fix $i$; our product becomes
+	$$P = \prod_{i = 1}^n \prod_{j \neq i} \left(\alpha_i - \alpha_j\right) 
+	= \prod_{i = 1}^n \dfrac{\prod_{j = 1}^n \left(\alpha_i - \alpha_j\right)}{\alpha_i - \alpha_i} 
+	= \prod_{i = 1}^n \dfrac{f\left(\alpha_i\right)}{\alpha_i - \alpha_i}$$
+	after writing $x^n + ax^2 + b = \prod_{i = 1}^n \left(x - \alpha_i\right)$. Although division by zero is undefined, since polynomials are continuous functions
+	we can use L'Hopital's Rule to write the product as a limit, then use calculus to get
+	$$P = \prod_{i = 1}^n \lim_{x \to \alpha_i} \dfrac{f(x)}{x - \alpha_i} = \prod_{i = 1}^n n\alpha_i^{n - 1} + 2a\alpha_i 
+	= -b n^n \prod_{i = 1}^n \left(\alpha_i^{n - 2} + \dfrac{2a}{n}\right).$$
+	Let $\omega$ be a primitive $(n - 2)^\text{nd}$ root of unity and $r = \left(\frac{2a}{n}\right)^{\frac{1}{n - 2}}$. The roots of 
+	$x^{n - 2} + r^{n - 2}$ are $-r\omega^k$ where $0 \leq k < n - 2$, so we can rewrite our product as
+	$$P = -bn^n \prod_{i = 1}^n \prod_{j = 0}^{n - 2} \left(\alpha_i + r \omega^j\right) = -bn^n\prod_{j = 0}^{n - 2} \prod_{i = 1}^n \left(\alpha_i + r \omega^j\right)
+	= bn^n\prod_{j = 0}^{n - 2} \prod_{i = 1}^n \left(-r \omega^j - \alpha_i\right) = bn^n \prod_{j = 0}^{n - 2} f\left(-r \omega^j\right).$$
+	The rest is just computation.
+	\begin{align*}
+		P &= bn^n \prod_{j = 0}^{n - 2} \left(- r^n \omega^{jn} + ar^2 \omega^{2j} + b\right) = bn^n \prod_{j = 0}^{n - 2} \left[r^2 \omega^j \left(-r^{n - 2} + a\right) + b\right] \\
+		&= bn^2 \prod_{j = 0}^{n - 2} \left[r^2 \omega^j a (n - 2) + bn\right] = bn^2 \left[r^{2(n - 2)} a^{n - 2} (n - 2)^{n - 2} + bn^{n - 2}\right] \\
+		&= 4a^nb(n - 2)^{n - 2} + bn^n \\
+		&\equiv \boxed{821} \pmod{10000}
+	\end{align*}
+\end{solution}\bigskip
+
+\begin{solution}[Write up by \Paiya]\hfil\medskip
+
+	Recall the fundamental theorem of symmetric polynomials: \textit{every symmetric polynomial of $n$ variables can be written as a function of the $n$-variable elementary symmetric polynomials.}
+	Since $P = \prod_{i \neq j} \left(\alpha_i - \alpha_j\right)$ is symmetric in $n$ variables and all elementary symmetric polynomials in $n$ variables
+	are zero except for $e_{n - 2}\left(\alpha\right) = -a$ and $e_n\left(\alpha\right) = -b$ (where $e_k(\alpha)$ is the $k$-th elementary symmetric sum), $P$ can be written as a sum of $(-a)^x(-b)^y$.
+	$P$ has degree $n(n - 1)$, $-a$ has degree $n - 2$, and $-b$ has degree $n$ so we solve $(n - 2)x + ny = n(n - 1)$ to find our suitable powers of $-a$ and $-b$.
+	Solving, we get $(x, y) = (n, 1); (0, n - 1)$ so $P = Qa^nb + Rb^{n - 1}$. It remains to choose easy $a, b$ to find $P, Q$; an obvious choice is $(a, b) = (0, 1)$
+	and we have $$P = \prod_{i = 1}^n n \alpha_i^{n - 1} = n^n \iff R = n^n.$$ To find $Q$, we plug in $(a, b) = (1, 1)$ and since 
+	$\alpha^n + \alpha^2 + 1 = 0 \iff \alpha^{n - 2} = - 1 - \frac{1}{\alpha^2}$ we have
+	$$P = -\prod_{i = 1}^n \left(n \alpha_i^{n - 2} + 2\right) = - \prod_{i = 1}^n \left[(2 - n) - \dfrac{n}{\alpha_i^2}\right] = - \sum_{k = 0}^n (2 - n)^{n - k}(-n)^k e_k\left(\dfrac{1}{\alpha^2}\right).$$
+	We first calculate $e_k\left(\frac{1}{\alpha}\right)$; from substituting $x \to \frac{1}{x}$ into $f(x)$ we get 
+	$e_2\left(\frac{1}{\alpha}\right) = 1, e_n\left(\frac{1}{\alpha}\right) = -1$, $e_k = 0$ otherwise except for $e_0 = 1$ as convention. We solve for $e_1\left(\frac{1}{\alpha^2}\right)$ as follows:
+	$$e_1^2\left(\dfrac{1}{\alpha}\right) = e_1\left(\dfrac{1}{\alpha^2}\right) + 2e_2\left(\dfrac{1}{\alpha}\right) \iff e_1\left(\dfrac{1}{\alpha^2}\right) = -2$$
+	and similarly
+	$$e_2^2\left(\dfrac{1}{\alpha}\right) = e_2\left(\dfrac{1}{\alpha^2}\right) + 2e_4\left(\dfrac{1}{\alpha}\right) + 2e_1\left(\dfrac{1}{\alpha^2}\right)e_2\left(\dfrac{1}{\alpha}\right) = 1.$$
+	For larger values of $k$, note that 
+	$$e_k^2\left(\dfrac{1}{\alpha}\right) = e_k\left(\dfrac{1}{\alpha^2}\right) + 2 \sum_{j = 0}^{k} e_j\left(\dfrac{1}{\alpha^2}\right)e_{2(k - j)}\left(\dfrac{1}{\alpha}\right)$$
+	so all of them evaluate to zero except for $e_n\left(\frac{1}{\alpha^2}\right) = 1$. The rest is computation.
+	\begin{align*}
+		P &= (n - 2)^n - 2n(n - 2)^{n - 1} + n^2(n - 2)^{n - 2} + n^n \\
+		&= (n - 2)^{n - 2}\left(n^2 - 4n + 4 - 2n^2 + 4n + n^2\right) + n^n \\
+		&= 4(n - 2)^{n - 2} + n^n \iff P = 4(n - 2)^{n - 2} \\
+		P &= 4a^nb(n - 2)^{n - 2} + b^{n - 1}n^n \\
+		&\equiv \boxed{821} \pmod{10000}
+	\end{align*}
 \end{solution}\bigskip
