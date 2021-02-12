@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: 2017 HMMT General \#8}\\
+\emph{Proposer: \Paiya}\\
+\emph{Problem ID: 129}\\
+\emph{Date: 2021-02-11}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+  Reimu has a collection of the $255$ nonempty subsets of $\{1, 2, 3, 4, 5, 6, 7, 8\}$. Each minute, she takes two subsets chosen uniformly at random from the collection, and replaces them with either their union or their intersection, with each being equally likely. (The collection can contain repeated sets.) After 254 minutes, she is left with one set. The expected size of this subset can be expressed in the form $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. Find $100m + n$. 
+}\bigskip
+
+\begin{solution}
+    
+  \href{https://hmmt-archive.s3.amazonaws.com/tournaments/2017/nov/gen/solutions.pdf}{Official Solutions File} \medskip
+
+  Answer: \boxed{102655} \medskip
+
+  A formulaic proof of the invariance of the expected size of all remaining subsets is as follows. Let $S_1, S_2, \cdots S_n$ be the sets in question, 
+  where a merge consists of taking two sets and replacing them with either their union or their intersection. If sets $S_i, S_j$ are merged then the 
+  resulting set would be either $S_i \cap S_j$ or $S_i \cup S_j$. Summing over all $\binom{n}{2}$ pairs of $i, j$, our expected average size of sets 
+  after merging is 
+  $$\dfrac{\binom{n}{2}2S - \sum_{i \neq j} \left(\left|S_i \cap S_j\right| + \left|S_i \cup S_j\right|\right)}{2\binom{n}{2}} = \dfrac{n(n - 1)S - (n - 1)S}{n(n - 1)} = \dfrac{S}{n}$$
+  where $S = \sum_{i = 1}^n \left|S_i\right|$. 
+
+\end{solution}\bigskip

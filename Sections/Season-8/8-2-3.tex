@@ -1,0 +1,16 @@
+\SSbreak\\
+\emph{Source: \Cbmoo, 1998 P2}\\
+\emph{Proposer: \Pbrain}\\
+\emph{Problem ID: 128}\\
+\emph{Date: 2021-02-10}\\
+\SSbreak
+
+\SSpsetQ{
+   Let \(a_1=19,\ a_2=98\). For \(n\geq 1\), define \(a_{n+2}\) to be the remainder of \(a_n+a_{n+1}\) when it is divided by 100. What is the remainder when \[a_1^2+a_2^2+\cdots+a^2_{1998}\]is divided by 8?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+   Consider the remainders of $a_i$ mod 4: the first six are $3, 2, 1, 3, 0, 3$ and it repeats every six. Since $6|1998$ it sufices to find the remainder
+   when $a_1^2 + a_2^2 + \cdots + a_6^2$ is divided by 8; since odd squares are 1 mod 8, $2^2$ is 4, and $0^2$ is 0 we have $4 \cdot 1^2 + 2^2 + 0^2 \equiv \boxed{0}\pmod{8}.$
+\end{solution}\bigskip
