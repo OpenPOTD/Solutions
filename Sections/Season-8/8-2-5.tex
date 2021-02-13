@@ -13,8 +13,9 @@ Suppose \(DE^2 - AP = (a - sqrt(b))/c\) where a, b, c are integers and b is squa
 
 \begin{solution}\hfil\medskip
   
-    \begin{figure}
+    \begin{figure}[h!]
         \centering
+        \scalebox{0.5}{
         \begin{tikzpicture}
         \def\A{(6,0)}
         \def\B{(3.75,3.3071891)} 
@@ -39,7 +40,7 @@ Suppose \(DE^2 - AP = (a - sqrt(b))/c\) where a, b, c are integers and b is squa
         \draw (3,-2.64575) circle (4);
         \draw (1,+2.645751) circle (2.82842);
         \draw \B -- \D -- \E -- \A -- \B -- \C -- \A -- \P -- \B;
-        \end{tikzpicture}
+        \end{tikzpicture}}
     \end{figure}
 
     We claim $P$ is the incenter of $\triangle ABC$. By arc lengths, $\angle{PA'B} = 2 \angle BCP$ and since $A'P = A'B$ we have $\angle A'PB = 90 - \angle BCP \iff \angle APB = 90 + \angle BCP$.
