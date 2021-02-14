@@ -1,0 +1,57 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: Constan\#6792}\\
+\emph{Problem ID: 131}\\
+\emph{Date: 2021-02-13}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+  For all pairs $ (n, q) $ where $ n $ is a positive integer, $ q $ is a rational non-integer, and $ n ^ q-q $ is an integer, find $\lfloor{n+q}\rfloor=x$. The sum of all possible values of $x$ is the answer. (For example, if we have $(1,1)$ and $(2,2)$, then the answer is $2+4=6$)
+}\bigskip
+
+\begin{solution}[Solution by Constan\#6792]\hfil\medskip
+  
+  Let's see that if $ n ^ q $ is rational and $ q $ is positive, $ n ^ q $ is integer.
+To do this, suppose it is rational and not integer where $ (a, b) = (c, d) = 1 $.
+$n^{\frac{a}{b}} = \frac{c}{d}$
+$d^b . n^a = c^b$
+Now we consider the exponent of a certain prime in the factorization of $ d, c, n $ which are $ e_d, e_c, e_n $ respectively.
+$b. e_d + a .e_n = b. e_c$
+$a.e_n \equiv 0 \; (b)$
+$e_n \equiv 0 \; (b)$ 
+So $ n $ is a $ b $ -th power.
+$d^b . k^{ab} = c^b$
+$d . k^a = c$
+$k^a = \frac{c}{d}$
+Absurd, because a perfect power must be a whole number.
+
+Now if $ q $ is positive there are no solutions because if $ n ^ q $ and $ n ^ q-q $ are integers, $ q $ would be.
+
+Then $n = -\frac{a}{b}$ with $ a $ and $ b $ co-prime positive integers and $ \frac {1} {n ^ {\frac {a}{b}}} + \frac {a}{b} $ is an integer.
+
+Now if $\frac{n_1}{d_1} + \frac{n_2}{d_2} = \frac{n_1d_2+n_2d_1}{d_1d_2}$ is an integer where $(n_1, d_1) = (n_2, d_2) = 1$ we have to:
+$d_1 | n_1d_2$ $\to$ $d_1|d_2$.
+$d_2 | n_2d_1$ $\to$ $d_2|d_1$.
+So $d_1 = d_2$.
+
+That taking this to what we have tells us that $ n ^ {\frac {a} {b}} = b $ y
+$ n ^ a = b ^ b $
+Where with a very similar reasoning as before, $ b $ is a $ a $ -th power.
+$b=k^a$
+$n^a = k^{ak^a}$
+$n=k^{k^a}$
+
+$\frac{1}{(k^{k^a})^{\frac{a}{k^a}}} + \frac{a}{k^a} = \frac{a+1}{k^a}$
+
+Where:
+$ k ^ a \leq a + 1 $
+If $ k \geq 3 $
+$ 3 ^ a \leq k ^ a \leq a + 1$ has no solutions.
+Then $ k \leq 2 $ where if $k=1$, $\frac{a}{b}$ would be an integer, so $ k = 2 $.
+$ 2 ^ a \leq a + 1 $
+Where the only solution is $a =1 $ that gives us the triple:
+$(k^{k^a}, k^a, a) = (4, 2, 1)$.
+Thus $ (n, q) = (4, - \frac {1} {2}) $ the only solution.
+So the answer is $4$.
+\end{solution}\bigskip
