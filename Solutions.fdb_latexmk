@@ -1,5 +1,5 @@
 # Fdb version 3
-["pdflatex"] 1613276295 "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.tex" "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.pdf" "Solutions" 1613276330
+["pdflatex"] 1613356842 "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.tex" "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.pdf" "Solutions" 1613356868
   "Sections/Files/SMC-2003-Q24.png" 1612273557 66755 3a83c28aaa26c305c6d2f8499d6efefe ""
   "Sections/Files/Season-4-Statement.tex" 1612111631 2403 e35a56efee1838f994dfcdb4feac43c6 ""
   "Sections/Files/Windmill.png" 1611688268 53242 8157295175f9327580806ff3cb527253 ""
@@ -99,12 +99,13 @@
   "Sections/Season-8/8-2-4.tex" 1613094963 1603 7cc04254e21cffb6920c2ecfba93e45e ""
   "Sections/Season-8/8-2-5.tex" 1613176515 2991 c10cd74d45dabe7b43ad0c9dc7859000 ""
   "Sections/Season-8/8-2-6.tex" 1613276131 2293 f021de9f1530a517b7ae069537b3b16d ""
-  "Solutions.aux" 1613276327 49589 af370a2c16730b280fe230ff10769049 "pdflatex"
-  "Solutions.pre" 1613276305 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
-  "Solutions.tex" 1613276260 16275 708f7d25c6849ab3dcdd5bada8d73b76 ""
-  "Solutions.toc" 1613276328 11394 96994f6f5ecfe02a242c86debba8b847 "pdflatex"
-  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.aux" 1613276327 49589 af370a2c16730b280fe230ff10769049 ""
-  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.tex" 1613276260 16275 708f7d25c6849ab3dcdd5bada8d73b76 ""
+  "Sections/Season-8/8-2-7.tex" 1612315362 541 c96698c27798ee76888d1241d8ac6005 ""
+  "Solutions.aux" 1613356866 50079 7f2f231436a52fcf3258ad24d26ff48e "pdflatex"
+  "Solutions.pre" 1613356849 0 d41d8cd98f00b204e9800998ecf8427e "pdflatex"
+  "Solutions.tex" 1613356787 16425 3efa59799a5ffa816a3432afc37d155e ""
+  "Solutions.toc" 1613356866 11502 ce4bff0ce3cd9a1c75fd87422629af08 "pdflatex"
+  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.aux" 1613356866 50079 7f2f231436a52fcf3258ad24d26ff48e ""
+  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.tex" 1613356787 16425 3efa59799a5ffa816a3432afc37d155e ""
   "c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc" 1606839338 2900 1537cc8184ad1792082cd229ecc269f4 ""
   "c:/texlive/2020/texmf-dist/fonts/enc/dvips/tex-gyre/q-rmm.enc" 1606846203 2434 8cf37f8d6de52317eb058102e1390ed0 ""
   "c:/texlive/2020/texmf-dist/fonts/map/fontname/texfonts.map" 1606841233 3524 cb3e574dea2d1052e39280babc910dc8 ""
@@ -424,8 +425,8 @@
   (generated)
   "Solutions.pre"
   "Solutions.toc"
+  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.log"
   "Solutions.pdf"
+  "Solutions.log"
   "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.pdf"
   "Solutions.aux"
-  "c:/Users/Allen/Documents/LaTeX/OpenPOTD/Solutions/Solutions.log"
-  "Solutions.log"
