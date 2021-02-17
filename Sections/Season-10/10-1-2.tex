@@ -1,0 +1,40 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pmatt}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+	Let $ABC$ be a triangle with $AB = AC$ and $BC = 10$. Construct $D$ and $E$ outside $ABC$ closer to $B$ and $C$ respectively such that $\triangle DAB \sim \triangle ABC \sim \triangle EAC$. \medskip
+	
+	If $DE = 45$, then what is $AB$?
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+	\begin{figure}[h!]
+			\centering
+		\begin{tikzpicture}[scale = 0.01cm]
+		\def\B{(-5,0)}
+		\def\C{(5,0)}
+		\def\A{(0,14.1421356)}
+		\def\D{(-22.5,14.1421356)}
+		\def\E{(22.5,14.1421356)}
+		\draw \B -- \A -- \C -- \B -- \D -- \E -- \C;
+		\filldraw \A circle (0.15) node[above] {$A$};
+		\filldraw \B circle (0.15) node[below left] {$B$};
+		\filldraw \C circle (0.15) node[below right] {$C$};
+		\filldraw \D circle (0.15) node[left] {$D$};
+		\filldraw \E circle (0.15) node[right] {$E$};
+		\end{tikzpicture}
+	\end{figure}
+
+
+	Note that $\angle DAB = \angle ACB = \angle ABC$ and hence $AD \parallel BC$. Similarly $AE \parallel BC$ and so $A$ is the midpoint of $DE$, and $A, D, E$ are collinear. \medskip
+	
+	So $AD = 22.5$ and hence $AB = BC * \sqrt{\frac{AD}{BC}}$ by similarity, which is $\boxed{15}$. 
+	%Put sol here
+\end{solution}\bigskip
