@@ -1,0 +1,35 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: }\\
+\emph{Date: }\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+ 
+\SSpsetQ{
+   What is the largest prime number which divides
+
+   \[0!+1!\times1+2!\times2+3!\times3+\cdots+159!\times 159 + 160!\times 160\]
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We proceed by using the identity \(n!+n!\times n = (n+1)!\) and iterating:
+\begin{align}
+    &0!+1!\times 1+\cdots\\
+    &2!+2!\times2+\cdots\\
+    &3!+3!\times3+\cdots\\
+    &\cdots\\
+    &161!
+\end{align}
+As neither 161 nor 159 are prime, the largest prime divisor of the sum is \fbox{157}
+\end{solution}\bigskip
+
+\begin{solution}\hfil\medskip
+
+    Note that $(n + 1)! - 1$ counts the non-identity permutations of $(1, 2, \cdots , n + 1)$. 
+    Consider a permutation where $(1, 2, \cdots n - k)$ are fixed points but $n - k + 1$ is not a fixed point.
+    So $n - k + 1$ can go in the $n - k + 2^{\text{nd}}$ to $n + 1^{\text{st}}$ spots, which is a total of $k$ possibilites;
+    the remainder of the $k$ terms can be permuted willy-nilly. Thus, there $k \cdot k!$ such possibilities, and summing over 
+    $k$ from $1$ to $n$ (since $k = n + 1$ gives the identity permutation) yields the identity. \fbox{157}
+\end{solution}
