@@ -1,0 +1,36 @@
+\SSbreak\\
+\emph{Source: Italian team competition}\\
+\emph{Proposer: \Phobo}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+	Brainy forgot the numerical unlock code of his Nokia once again... This time he remembers that it is 69-digits long and the leading digit is greater or equal than the sum of all the remaining digits. Find the total number of possible codes.  \medskip
+	
+	\begin{center}
+		\emph{A computational aid may be used to calculate the final answer.}
+	\end{center}
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+Let $n$ be the number of digits of the code, in our case $n=69$ and let $k$ be the leading digit, clearly $k\in\{1,2,\dots,9\}$. Let $i$ be the sum of the remaining digits, where $i\in\{1,2,\dots,k\}$. Using the stars and bars method (also called sticks and stones or Tonys and Wangs), the number of possible codes (with $k$ and $i$ fixed) is $$\binom{(n-1)-1+i}{(n-1)-1}$$ Cycling this for all possible values of $k$ and $i$ we get the following expression $$\sum_{k=1}^{9}\sum_{i=0}^{k}\binom{n-2+i}{n-2}$$ Using the Hockey-stick identity 2 times in a row we get 
+\begin{align*}
+    \sum_{k=1}^{9}\sum_{i=0}^{k}\binom{n-2+i}{n-2}&=\sum_{k=1}^{9}\binom{k+n-1}{k} \\
+    &=\binom{n+9}{9}-1
+\end{align*}
+
+Plugging in $n = 69$ we get $$\binom{78}{9} - 1 = \boxed{182364632449}.$$
+	
+	%Put sol here
+\end{solution}\bigskip
+
+\begin{solution}[Write up by \Paiya]\hfil\medskip
+
+	Let the $k^\text{th}$ digit from the left be $d_k$. Our constraints become $9 >= d_1 >= \sum_{k = 2}^{69} d_k$; let $y = 9 - d_1$ and $x = d_1 - \sum_{k = 2}^{69}d_k$.
+	Our contraints become $$9 = d_1 + y = x + y + \sum_{k = 2}^{69} d_k$$ so it suffices to count the ways to distribute 9 objects among 70 people.
+	Letting 69 "sticks" divide the 9 "stones" into 70 parts, we see that this is $\binom{78}{9}$ then subtract 1 because a string of 69 zeros is invalid. \fbox{182364632449}
+\end{solution}
