@@ -3,3 +3,5 @@
 *.toc
 *.pre
 *.gz
+*.fls
+*.fdb_latexmk
