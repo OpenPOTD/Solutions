@@ -30,7 +30,7 @@ Plugging in $n = 69$ we get $$\binom{78}{9} - 1 = \boxed{182364632449}.$$
 
 \begin{solution}[Write up by \Paiya]\hfil\medskip
 
-	Let the $k^\text{th}$ digit from the left be $d_k$. Our constraints become $9 >= d_1 >= \sum_{k = 2}^{69} d_k$; let $y = 9 - d_1$ and $x = d_1 - \sum_{k = 2}^{69}d_k$.
+	Let the $k^\text{th}$ digit from the left be $d_k$. Our constraints become $9 \leq d_1 \leq \sum_{k = 2}^{69} d_k$; let $y = 9 - d_1$ and $x = d_1 - \sum_{k = 2}^{69}d_k$.
 	Our contraints become $$9 = d_1 + y = x + y + \sum_{k = 2}^{69} d_k$$ so it suffices to count the ways to distribute 9 objects among 70 people.
 	Letting 69 "sticks" divide the 9 "stones" into 70 parts, we see that this is $\binom{78}{9}$ then subtract 1 because a string of 69 zeros is invalid. \fbox{182364632449}
 \end{solution}
