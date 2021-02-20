@@ -5,3 +5,4 @@
 *.gz
 *.fls
 *.fdb_latexmk
+.vscode/settings.json

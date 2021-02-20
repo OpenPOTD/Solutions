@@ -1,0 +1,36 @@
+\SSbreak\\
+\emph{Source: Original/Folklore}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Hard (A4)}\\
+\SSbreak
+
+\SSpsetQ{
+    Let $f: \mathbb{N} \to \mathbb{N}$ be a function defined as follows: $$f(n) = 2n + 1 - 2^{\lfloor \log_2n \rfloor + 1}$$ 
+    and let $f^a(n) = f\left(f^{a - 1}(n)\right)$. Let $t(n)$ be the smallest positive integer such that 
+    there exists a positive integer $N$ such that $f^{t(n)}(n) = f^{t(n) + N}(n)$. 
+    Determine the remainder when $\sum_{n = 2^{2020}}^{2^{2021}} f^{t(n)}(n)$ is divided by $1009$. \medskip
+    
+    \textit{(A scientific calculator can be used)}
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    Consider what $f$ does to $n$ in binary: $2n + 1$ concatenates a $1$ to the end of $n$, while 
+    $2^{\lfloor \log_2n \rfloor + 1}$ subtracts the concatenation of $0$ to the end of $n$ from $2n + 1$. 
+    This can be seen as cycling the leading $1$ of $n$ to the end of $n$; for instance $f\left(6 = 101_2\right) = 11_2 = 3$. 
+    After applying $f$ enough times, we're left with the number of ones present in $n$. We now count the number of integers $2^{2020} \leq n < 2^{2021}$
+    which have $k$ ones present in their binary representation. All these numbers are 2021 digits long, so we want to distribute $k - 1$ ones among $2020$ digits;
+    there are $\binom{2020}{k - 1}$ ways to do this and each such $n$ contributes $2^k - 1$ to the sum. 
+    Remembering that $f^{t(n)}(n) = 1$ when $n = 2^{2021}$, it remains to sum 
+    \begin{align*}
+        1 + \sum_{k = 1}^{2021} \dbinom{2020}{k - 1}\left(2^k - 1\right) &= 1 + 2\sum_{k = 1}^{2021} \dbinom{2020}{k - 1}2^{k - 1} - \sum_{k = 1}^{21} \dbinom{2020}{k - 1} \\
+        &= 1 + 2 \cdot 3^{2020} - 2^{2020} \\
+        &\equiv 1 + 2 \cdot 81 - 16 \pmod{1009}\\
+        &= \boxed{147}
+    \end{align*}
+    where we have used $(1 + 2)^n = \sum_{k = 0}^n \binom{n}{k} 2^k = 3^k$ to help simplify.
+	%Put sol here
+\end{solution}\bigskip
