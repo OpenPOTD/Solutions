@@ -3,7 +3,7 @@
 \emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
 \emph{Problem ID:}\\
 \emph{Date: }\\
-\emph{Difficulty: Hard (A4)}\\
+\emph{Difficulty: Hard (CN4)}\\
 \SSbreak
 
 \SSpsetQ{
@@ -26,7 +26,7 @@
     there are $\binom{2020}{k - 1}$ ways to do this and each such $n$ contributes $2^k - 1$ to the sum. 
     Remembering that $f^{t(n)}(n) = 1$ when $n = 2^{2021}$, it remains to sum 
     \begin{align*}
-        1 + \sum_{k = 1}^{2021} \dbinom{2020}{k - 1}\left(2^k - 1\right) &= 1 + 2\sum_{k = 1}^{2021} \dbinom{2020}{k - 1}2^{k - 1} - \sum_{k = 1}^{21} \dbinom{2020}{k - 1} \\
+        1 + \sum_{k = 1}^{2021} \dbinom{2020}{k - 1}\left(2^k - 1\right) &= 1 + 2\sum_{k = 1}^{2021} \dbinom{2020}{k - 1}2^{k - 1} - \sum_{k = 1}^{2021} \dbinom{2020}{k - 1} \\
         &= 1 + 2 \cdot 3^{2020} - 2^{2020} \\
         &\equiv 1 + 2 \cdot 81 - 16 \pmod{1009}\\
         &= \boxed{147}
