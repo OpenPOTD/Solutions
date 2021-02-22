@@ -1,0 +1,45 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Challenging (G7)}\\
+\SSbreak
+
+\SSpsetQ{
+	Let $ABC$ be a $13-14-15$ triangle, with $AC = 14$. Points $X, Y$ satisfy \[CX - BX = BX - AX = 1 = AY - BY = BY - CY.\]
+	
+	The value of $XY$ can be written in the form $\frac{a \sqrt{b}}{c}$, where $b$ is not divisible by the square of any prime and $a$ and $c$ are relatively prime positive integers.
+	Find $10000a + 100b + c$.  
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+	Let $I$ be the incenter of $\triangle ABC$. Construct three circles, each centered at one of $A$, $B$, $C$. Note that these three circles touch each other at the three intouch points of $\triangle ABC$. Thus their radii are 6, 7 and 8. WLOG assume AB = 13. Let $W$ be the center of the unique circle externally tangent to our three circles at $A$, $B$, $C$, and $Z$ the center of the unique circle internally tangent to our three circles at $A$, $B$, $C$. By definition, since the radius of the circle at $C$ is 8, the radius of the circle at $B$ is 7 and the radius of the circle at $A$ is 6, $W$ and $Z$ must be precisely $X$ and $Y$. Now consider an inversion with respect to the incircle. Let the intersection of the line $AI$ and the circle at $A$ further from $I$ be $D$, and the one closer to $I$ be $E$. Then if the radius of the circle at $A$ is $R$, and the inradius is $r$, $DI \cdot EI = (AI - R)(AI + R) = AI^2 - R^2 = R^2 + r^2 - R^2 = r^2$, so by definition $D$ and $E$ swap under our inversion. Thus the circle at (A) must map to itself under our inversion, and so do the circles at (B) and (C). Then since inversion preserves tangency, the circle at $X$ externally tangent to our three circles must swap with the circle at $Y$ internally tangent to our three circles. \medskip
+
+	Now suppose a line through $I$ meets the circle at $X$ at $M$, $N$ and the circle at $Y$ at $P$, $Q$. Then since the image of $M$ must lie on the ray $MI$, and also lie on the circle at $Y$ since $M$ lies on the circle at $X$, WLOG $M$ and $P$ swap, and then so do $N$ and $Q$. Thus $IM \cdot IP = r^2 = IN \cdot IQ$, and by power of a point $IM \cdot IN = {R_x}^2 - IX^2$ and $IN \cdot IQ = {R_y}^2 - IY^2$ where $R_x$ and $R_y$ are the radii of the circles at $X$ and $Y$. Since $IM \cdot IP$ is independent of $M$ and $P$ we find that $I$ is the insimilicenter of the circles at $X$ and $Y$ and therefore lies on the line segment $XY$.
+	Thus if we set $IX = cR_x$ and $IY = cR_y$ then $r^4 = {R_x}^2{R_y}^2(1 - c^2)^2$; by direct calculation (the inradius formula for $r$ and Descartes' Kissing Circles Theorem for $R_x$ and $R_y$) we obtain four values for $c$.
+	However, two of these values are negative and a third is greater than 1 (we know that clearly $IX$ and $IY$ are smaller than $R_x$ and $R_y$ by simply drawing the diagram in this case), so the only acceptable value of $c$ is $c = \frac{\sqrt{37}}{42}$. Then by direct calculation we obtain that $XY = IX + IY = cR_x + cR_y = \frac{672\sqrt{37}}{1727}$ so the answer is $\boxed{6725427}$ as required.
+\end{solution}\newpage
+
+\begin{solution}\hfil\medskip
+	
+	An elementary, computationally feasible analytic solution is still possible using Cartesian coordinates. From the given condition, if we let $BX = d$ then $AX = d - 1, CX = d + 1$. 
+	Consider circles $\omega_A, \omega_B, \omega_C$ centered at $A, B, C$ with radii $d - 1, d, d + 1$ respectively. 
+	Let $A = (-5, 0), B = (0, 12), C = (9, 0)$. Then the radical axis of $\omega_A$ and $\omega_C$ is given by
+	$$(x + 5)^2 + y^2 - (d - 1)^2 = (x - 9)^2 + y^2 - (d + 1)^2 \iff 7x = 14 - d$$
+	and the radical axis of $\omega_A$ and $\omega_B$ is given by
+	$$(x + 5)^2 + y^2 - (d - 1)^2 = x^2 + (y - 12)^2 - d^2 \iff 5x + 12y = 60 - d$$
+	so the radical center of $\omega_A, \omega_B, \omega_C$ satisfies $$(x, y) = \left(\dfrac{14 - d}{7}, \dfrac{350 - 2d}{84}\right).$$
+	This point must be on $\omega_B$, so plugging in and simplifying we have
+	$$\left(\dfrac{14 - d}{7}\right)^2 + \left(\dfrac{350 - 2d}{84} - 12\right)^2 = d^2 \iff \dfrac{1727}{1764}d^2 + \dfrac{25}{126}d - \dfrac{2353}{36} = 0.$$
+	Solving this quadratic would be hell, but we don't need to. Let the two roots be $r, s$ with $r$ positive and $s$ negative. Consider a point $P$ with
+	$PA = |s - 1|, PB = |s|, PC = |s + 1|$; since $s < -1$ we have $PA = -s + 1, PB = -s, PC = -s - 1$. This satisfies $AP - BP = BP - CP = 1$, so $P \equiv Y$! Thus, it remains to find
+	$$XY = \sqrt{\dfrac{(r - s)^2}{7^2} + \dfrac{(r - s)^2}{42^2}} = \dfrac{r - s}{7} \sqrt{\dfrac{37}{36}}$$
+	and now the miraculous 
+	$$(r - s)^2 = (r + s)^2 - 4rs = \dfrac{1764^2}{1727^2} \left(\dfrac{25^2}{126^2} + \dfrac{2353}{9} \cdot \dfrac{1727}{1764}\right) = 256 \cdot \dfrac{1764^2}{1727^2} \iff r - s = 16 \cdot \dfrac{1764}{1727}$$
+	so $XY = \frac{672 \sqrt{37}}{1727} \iff \boxed{6725427}.$
+	
+	%Put sol here
+\end{solution}\bigskip
