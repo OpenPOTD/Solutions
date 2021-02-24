@@ -1,0 +1,17 @@
+
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pnjoy}\\
+\emph{Problem ID: }\\
+\emph{Date: }\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+  Let $n$ be a positive integer. Find the number of positive divisors of $69420^{69}$ which are of the form $4n+1$.
+}\bigskip
+
+\begin{solution}[Solution by \Pnjoy]\hfil\medskip
+
+  Note that $69420^{69}=2^{138}\cdot 3^{69}\cdot 5^{69}\cdot 13^{69}\cdot 89^{69}$. From these, only $3$ is a prime which is equivalent to $3 \pmod{4}$ and others, i.e. $5, 13, 89$ are all $1\pmod{4}$. Therefore, the number of ways to choose a divisor of the form $4n+1$ is $35 \times 70\times 70\times 70$\footnote{$35$ ways being for the even powers of $3$ and $70$ otherwise}. But, since $n$ is positive integer, so $1$ can not be a chosen divisor. Hence, the desired answer is $35\cdot 70^3 - 1 = \boxed{12004999}$.
+\end{solution}\bigskip
