@@ -1,0 +1,22 @@
+\SSbreak\\
+\emph{Source: 2018 HMMTNov Guts 18}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Medium (C3)}\\
+\SSbreak
+
+\SSpsetQ{
+    MODSbot has trapped Brainy at the southwest entrance of a two-by-fifteen grid of cells. To escape, Brainy has to enter into the grid from the southwest cell
+    and exit through the northeast cell. However, MODSbot can fill any subset of the 20 cells with cement, effectively blocking off those cells.
+    Out of all $2^{30}$ possible grid configuations, in how many of them can Brainy escape?
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    Follow the \href{https://hmmt-archive.s3.amazonaws.com/tournaments/2018/nov/guts/solutions.pdf}{official solution} to get the recursion for $a_n$ and $b_n$.
+    Iterating 15 indices of $a$ and $b$ is inefficient; for efficient computation we let $c_n = a_n + b_n$ and note that $c_{n + 1} = 2c_n + c_{n - 1}$; either directly recursing or finding a closed form yields 
+    $c_{15} = 665857$. By inspection, we have $a_n = b_n - 1$ so $a_n = \boxed{332928}$.
+	%Put sol here
+\end{solution}\bigskip
