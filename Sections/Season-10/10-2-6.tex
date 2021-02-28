@@ -1,0 +1,29 @@
+
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: QuantumSigma\#9996}\\
+\emph{Problem ID: }\\
+\emph{Date: }\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+  Consider an integer-valued function $f(x, y)$ defined on the lattice points of the $x-y$-plane. The value of $f$ at each point is average its 4 neighbours. The difference in $f$ is less than 70000 for any pair of lattice points a distance of exactly 2021 apart. If $f(a, b + c) - f(a, b) = 1780$ for some integers $(a, b, c)$, find the sum of all possible $\abs{c}$.
+}\bigskip
+
+\begin{solution}[Solution by QuantumSigma\#9996]\hfil\medskip
+    $3738.$
+Let $F$ be the set of functions $g: Z^2 \rightarrow Z$ fulfilling the 'average of neighbours' criteria.
+\begin{enumerate}
+    \item For any $g \in F$, $g$ is either constant or unbounded (Klarijōn\#0829, modified). Proof: Assume there exist 2 adjacent points $(A, B)$ such that $g(A) < g(B)$. Then there exists point $C$ adjacent to $B$ such that $g(B) < g(C)$. Repeating ad infinitum, there exists an infinite strictly monotonic chain of points. Thus $g$ is unbounded.
+    \item Define $P$ and $Q$:
+    \begin{align*}
+        P{f}(x, y) &= f(x + 2021, y) - f(x, y)\\
+        Q{f}(x, y) &= f(x, y + 2021) - f(x, y)
+    \end{align*}
+    Then for any $g \in F, P\{g\}, Q\{g\} \in F$ (trivial)
+    \item For any $f \in F$ such that $P\{f\}, Q\{f\}$ are bounded, $f$ is linear. Proof: By $(1)$ and $(2)$, $P{f}, Q{f}$ are constant. Let $h = 2021f - P{f}x - Q{f}y$, then $h \in F$. Since $h$ is doubly periodic (trivial), it is bounded, and thus constant. Then $f = \frac{P{f}x + Q{f}y + h}{2021}$.
+\end{enumerate}
+It follows that $\abs{c}$ is a factor of 1780.
+The problem is then trivial.
+\end{solution}\bigskip
