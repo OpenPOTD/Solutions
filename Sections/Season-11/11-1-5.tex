@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan\, and \Pwen}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+    Suppose $a_0 = 0$, $a_1 = 1$ and for $n \geq 1,$ $$a_n = n\left(a_{n - 1} + 3a_{n + 1}\right).$$ If $S = \sum_{n \geq 0} a_n$ then find the 
+    2021$^\text{st}$ to 2025$^\text{th}$ digits of $S.$ (For instance, the third to fifth digits of $\pi$ is 415.)
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We let $f(x) = \sum_{n \geq 0} a_nx^n$ be a power series; our desired sum $S$ is just $f(1)$. To get something of the form $na_nx^n$ we can differentiate to get
+    $f'(x) = \sum_{n \geq 0} (n + 1)a_{n + 1}x^n$ where $a_k = 0$ if $k \leq 0$ for convenience. Now, if we can construct a function $F(x)$ using a linear combination
+    of $f(x)$ and $f'(x)$ such that the coefficient of $x^n$ in $F(x)$ is $n\left(a_{n - 1} + 3a_{n + 1}\right)$ then we know $F(x) = f(x)$. 
+    We can shift indices by multiplying or dividing by powers of $x$ accordingly; we use this to try and turn $3f'(x) = \sum_{n \geq 0} 3(n + 1)a^{n + 1}x^n$ into 
+    $\sum_{n \geq 0} 3na_{n + 1}x^n$ so we need to subtract some shifted form of $f(x)$. Indeed, $\frac{f(x)}{x} = \sum_{n \geq 0} a_{n + 1}x^n$ so 
+    $f'(x) - \frac{f(x)}{x} = \sum_{n \geq 0} na_{n + 1}x^n$; similarly we have $x^2f'(x) + xf(x) = \sum_{n \geq 0} na_{n - 1}x^n$. 
+    So, we have $$F(x) = 3f'(x) - \frac{3f(x)}{x} + x^2f'(x) + xf(x) = \sum_{n \geq 0}\left(a_{n - 1} + 3a_{n + 1}\right)x^n = \sum_{n \geq 0} a_nx^n = f(x)$$
+    which is a separable differential equation; chucking this into WolframAlpha we get $$f(x) = \dfrac{Cx}{x + 3}\,\exp\left(\dfrac{\arctan\left(\frac{x}{\sqrt 3}\right)}{\sqrt 3}\right)$$
+    and since $\sum_{n \geq 0} a_{n + 1}x^n = \frac{f(x)}{x}$ is $0$ when $x = 0$ we have $C = 3$ and 
+    $$f(1) = \dfrac{3}{4}\, \exp\left(\dfrac{\pi \sqrt 3}{18}\right)$$ and using WolframAlpha our required 5-digit number is \fbox{64744}.
+\end{solution}\bigskip

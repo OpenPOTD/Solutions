@@ -1,0 +1,19 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan\, and \Pwen}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+    $21$ people, including IcosahedralDice, each roll an icosahedral die, which have faces numbered $1$ through $20$ and each face is equally likely to land face-up. Given that IcosahedralDice rolled the (strictly) largest number, find the expected value of his roll.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let IcosahedralDice roll $r$. The probability that a person rolls between $1$ and $r - 1$ inclusive is $\frac{r - 1}{20}$ so the probability that all $20$
+    other people rolled less than $r$ is $\left(\frac{r - 1}{20}\right)^{20}$; thus the probability IcosahedralDice's roll is strictly greater than everyone else's
+    is $\sum_{r = 1}^{20} \left(\frac{r - 1}{20}\right)^{20}$. The expected value is then
+    $$E = \dfrac{\sum_{r = 1}^{20} r \cdot \left(\frac{r - 1}{20}\right)^{20}}{\sum_{r = 1}^{20} \left(\frac{r - 1}{20}\right)^{20}} \iff \left\lfloor 100000E \right\rfloor = \boxed{1952901}.$$
+\end{solution}\bigskip

@@ -1,0 +1,20 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan\, and \Pwen}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+    Let $N$ be the number of ways to put the numbers $2, 4, 8, \cdots , 2^{420}$ into a 20-by-21 grid such that the sums of rows are increasing from top to bottom
+    and the sums of columns are increasing from left to right. How many digits does $N$ have?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We solve for a general $m$-by-$n$ grid. Note that permuting rows leaves the sums of columns intact, and vice versa. For each of the $(mn)!$ 
+    ways to fill the grid, we must divide by $m!$ to correct for the ordering of the rows and $n!$ for the columns; as we established before
+    these events are indepent so our answer is $\frac{(mn)!}{m!n!}$; in the case of $(m, n) = (20, 21)$ our answer is 
+    $\left\lfloor\log_{10}\left(\frac{420!}{20!21!}\right) \right\rfloor + 1 = \boxed{883}.$
+\end{solution}\bigskip

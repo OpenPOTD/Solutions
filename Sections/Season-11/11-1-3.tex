@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan\, and \Pwen}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+    Rain is falling at an angle of 2.021 (radians) measured anticlockwise from the positive $x$-axis, with velocity 2021. A unit sphere rolls from the origin to $(2021, 0)$
+    with constant speed $v$. \medskip
+    
+    Given that $v$ minimizes the amount of rain that falls on the ball, find $\lfloor 10^2v \rfloor$, where $\lfloor x \rfloor$ is the greatest integer less than or equal tos $x$. \medskip
+    
+    \begin{center}
+    	\emph{Note that if you run too fast, you end up running \emph{into} the rain.}
+    \end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Change the frame of reference such that the rain is still relative to you; this can be done by moving the entire plane with velocity $(2021 \cos \theta, 2021 \sin \theta)$
+    where $\theta = 2.021$, the angle at which rain falls. This means that your destination point will be on the line with slope $\tan \theta$ passing through $(2021, 0$
+    and your new velocity vector is $(v + 2021 \cos \theta, 2021 \sin \theta)$. To minimize the amount of rain that falls on you, you should run through as little rain
+    as possible, which means your path should be perpendicular to the destination line; this is achieved when your velocity vector has direction $\tan \left(\theta - \frac{\pi}{2}\right).$
+    Solving, we get $$\tan \left(\theta - \dfrac{\pi}{2}\right) = \dfrac{2021 \sin \theta}{v + 2021 \cos \theta} \iff v = 4644.3870 \iff \boxed{464438}.$$
+\end{solution}\bigskip
