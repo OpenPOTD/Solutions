@@ -1,0 +1,34 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan and \Pwen}\\
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+    Let $S$ be the set of positive integers which when written in base $2021^{2021}$ have no identical consecutive digits. Find the first five digits of 
+    $$\sum_{n \in S} \dfrac{1}{n}.$$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Call an integer $\textit{distinctive}$ if it is in $S$. Let $S(d, n)$ be the set of distinctive positive integers which when written in base $b = 2021^{2021}$ are $n$ digits long and have leading digit $d$
+    and let $T(d, n)$ be the sum of the reciprocals of the integers in $S$. We will attempt to bound $T(d, n)$ as follows, since if the leading digit of an integer is $d$ then the second digit cannot be $d$:
+    $$T(d, n) = \sum_{k \in S(d, n)} \dfrac{1}{k} = \sum_{k = 1, k \neq d}^{b - 1} T(d, n - 1) = \sum_{k = 0, k \neq d}^{b - 1} \sum_{h \in S(k, n - 1)} \dfrac{1}{h}$$
+    and note that $h$ takes the form of $d \cdot b^{n - 1} + k \cdot b^{n - 2} + O\left(b^{n - 3}\right)$. 
+    An upper bound would be to let $O\left(b^{n - 3}\right) = 0$ and count $T(d, n - 1)$; since there are $(b - 1)^{n - 2}$ $n - 1$-digit distinctive numbers with a fixed leading digit this gives the bound
+    $$T(d, n) < \sum_{k = 0}^{b - 1} \dfrac{(b - 1)^{n - 2}}{d \cdot b^{n - 1} + k \cdot b^{n - 2}} = \sum_{k = 0}^{b - 1} b^{2 - n} \dfrac{(b - 1)^{n - 2}}{db + k} = \dfrac{(b - 1)^{n - 2}}{b^{n - 2}} \left(H_{db + b - 1} - H_{db}\right);$$
+    letting $T(n)$ be the sum of $T(d, n)$ over all $d$ we have $$T(n) < \dfrac{(b - 1)^{n - 2}}{b^{n - 2}} \left(H_{b^2} - H_b\right)$$
+    or $$\sum_{n \in S} \dfrac{1}{n} < \sum_{n \geq 1} \dfrac{(b - 1)^{n - 2}}{b^{n - 2}} \left(H_{b^2} - H_b\right) \approx \sum_{n \geq 1} \left(\dfrac{b - 1}{b}\right)^{n - 2} \ln b = \dfrac{b^2 \ln b}{b - 1}$$
+    whose first five digits are $54518$. \medskip
+
+    By AM-HM inequality, if two distinct positive integers $a, b$ have average $m$ then $\frac{1}{a} + \frac{1}{b} > \frac{2}{m}$; noting that $n - 1$-digit distinctive 
+    numbers that start with $d$ come in pairs where the last $n - 2$ digits of each pair add up to $b^{n - 1} - 1$ (try subtracting any four-digit base-$10$ distinctive integer from $9999$ and see what I mean)
+    we can bound $$T(d, n) > \sum_{k = 0}^{b - 1} \dfrac{2(b - 1)^{n - 2}}{2d \cdot b^{n - 1} + (2k + 1)b^{n - 1} - 1} - \dfrac{2(b - 1)^{n - 2}}{2d \cdot b^{n - 1} + d \cdot b^{n - 2}}$$
+    and since $b$ is so large we take ignore the $-1$ term and get
+    $$T(d, n) > \sum_{k = 0}^{b - 1} \dfrac{2(b - 1)^{n - 2}}{b^{n - 1}} \cdot \dfrac{1}{2bd + 2k + 1} - \dfrac{2(b - 1)^{n - 2}}{b^{n - 2}} \cdot \dfrac{1}{2bd + 1}.$$
+    Now summing over $d$, the first harmonic sum turns into $$\dfrac{1}{2b + 1} + \dfrac{1}{2b + 3} + \cdot + \dfrac{1}{2b^2 + 1} = \log\left(2b^2 + 1\right) - \log(2b) - \dfrac{1}{2}\left[\log\left(b^2\right) - \log(b + 1)\right]$$
+    and the second harmonic sum is $$\dfrac{1}{2b + 1} + \dfrac{1}{4b + 1} + \cdots + \dfrac{1}{2b^2 - b + 1} < \dfrac{1}{2b} \log(b - 1) = O\left(\dfrac{1}{b}\right)$$
+    which we can safely ignore (feel free to plug it in if you want; it's just extra terms). This is a bound sharp enough to also give $\boxed{54518}$ as its first five digits, and we are done.
+\end{solution}\bigskip
