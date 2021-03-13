@@ -1,0 +1,42 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan and \Pwen}\\
+\emph{Problem ID: 157}\\
+\emph{Date: 2021-03-11}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+    Let $n$ be a power of $10$ greater than $10^{100}.$ A regular $n$-gon is inscribed in a unit circle, and a subset $S$ is chosen uniformly at random
+    from the $2^n$ subsets of the polygon's vertices. If $A$ is the expected area of the convex hull of $S$, find $\pi - A$. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    By linearity of expectation, finding $\pi - A$ is the same as finding the expected area outside the convex hull inside the circle. So, we find the expected 
+    area of a circular segment (the little cap thingy formed when you subtract the triangle off from the circular arc). Label the points $1$ through $n$ counterclockwise.
+    Consider a circular segment that reaches from $1$ to $k$. The probability of getting such a circular segment from your point selection is $2^{-k}$, since
+    the endpoints of the segment (vertices $1$ and $k$) need to be included while the $k - 2$ middle segments must be excluded. The area of such a circular segment
+    is $\frac{(k - 1) \pi}{n} - \frac{1}{2}\sin\left(\frac{2 \pi (k - 1)}{n}\right)$ (yes, this covers segments with an obtuse angle as well - why?). Summing, we see that $k$ can range from 
+    $2$ to $n$; however we need to correct for the edge cases where we select one or zero points, which contributes an expected area of $\frac{(n + 1)\pi}{2^n}$ (the whole circle).
+    Since there are $n$ of each of the circular segments, our sum is $$n \sum_{k = 2}^{n} 2^{-k} \left[\dfrac{(k - 1)\pi}{n} - \dfrac{1}{2}\sin\left(\dfrac{2\pi(k - 1)}{n}\right)\right] + \dfrac{(n + 1)\pi}{2^n} = \dfrac{n}{2} \sum_{k = 1}^{n - 1} 2^{-k} \left[\dfrac{k\pi}{n} - \dfrac{1}{2}\sin\left(\dfrac{2k\pi}{n}\right)\right] + \dfrac{(n + 1)\pi}{2^n}$$
+    and since $n$ is huge we can approximate $n - 1$ with $\infty$ and ignore the edge case (since $2^n$ grows way faster than $n$). The first sum of $k2^{-k}$ is an arithno-geometric
+    series and evaluates to $2$; the second sum is the imaginary part of the sum of complex numbers $$\sum_{k = 1}^\infty \left(\dfrac{z}{2}\right)^k = \dfrac{z}{2} \cdot \dfrac{1}{1 - \frac{z}{2}} = \dfrac{z}{2 - z}$$
+    where $z = \cos(a) + i \sin(a)$ and $a = \frac{2 \pi k}{n}$. Simplifying further, we have $$\dfrac{z}{2 - z} = \dfrac{\cos(a) + i\sin(a)}{2 - \cos(a) - i\sin(a)} = \dfrac{2 \cos(a) + 2i \sin(a)}{5 - 4\cos(a)}$$
+    and scaling by a factor of 2 we have $$\sum_{k = 1}^\infty 2^{-k} \dfrac{1}{2}\sin\left(\dfrac{2k\pi}{n}\right) = \dfrac{\sin(a)}{5 - 4 \cos(a)}$$
+    so putting it all together the expected value of $\pi - A$ is $$\pi - \dfrac{n \sin\left(\frac{2\pi}{n}\right)}{10 - 8 \cos\left(\frac{2\pi}{n}\right)}.$$
+    Since $n$ is huge, we use the first two terms of the Taylor series to approximate our trigonometric functions; doing this we get $\boxed{\frac{26 \pi^3}{3n^2}}.$
+\end{solution}\newpage
+
+\begin{solution}[Write-up by \Pmano]\hfil\medskip
+  
+    $n$ is huge. Without loss of generality, one can assume that $S$ has at least 3 elements. We try to compute the expected area of one slice, i. e. 
+    the part of a circular slice outside the polygon. Because of linearity of expectance, $n$ times this is $\pi-A$. Assume that, on the left of this circular 
+    sector, the $k$-th vertex is the first one in $S$ and on the right, the $l$-th one. So the minimum case is when $k=l=0$ when two neighboring vertices are 
+    both in $S$. The probability of one choice of $k,l$ happening is $\frac{1}{2^{k+1}2^{l+1}}$ The whole circular sector our slice lies in consists of 
+    $k+l+1$ slices, so it has the area $\frac{\pi(k+l+1)}{n}$, the corresponding triangle has area $\frac{\sin(\frac{2\pi(k+l+1)}{n})}{2}$. As $n$ is huge, 
+    we can sum to infinity without problems and  we are interested in $$n\sum_{k=0}^\infty \sum_{l=0}^\infty\frac{\frac{\pi(k+l+1)}{n}-\frac{\sin(\frac{2\pi(k+l+1)}{n})}{2}}{2^{k+1}2^{l+1}(k+l+1)}.$$ 
+    Now, again, $n$ is huge so we can use the "fundamental theorem of engineering refined" without any concerns, i. e. that $\sin(x)=x-\frac{x^3}{6}$, 
+    so we have: $$\frac{n}{24}\sum_{k=0}^\infty \sum_{l=0}^\infty \frac{\left(\frac{2\pi(k+l+1)}{n}\right)^3}{2^{k+l+1}(k+l+1)}=\frac{\pi^3}{3n^2}\sum_{k=0}^\infty \sum_{l=0}^\infty\frac{(k+l+1)^2}{2^{k+l+1}}=$$
+    $$=\frac{\pi^3}{3n^2}\sum_{m=0}^\infty \sum_{k=0}^{m-1}\frac{m^2}{2^m}=\frac{\pi^3}{3n^2}\sum_{m=0}^\infty\frac{m^3}{2^m}.$$ So we ask WolframAlpha and we are surprised that there comes a nice answer, namely 26, a random integer. Where the 26 comes from is left to the reader. Finally, we are left with $\frac{26\pi^3}{3n^2}$. As we all know, the PSC consists of nice people, so they set $n$ and hence $n^2$ to a power of 10, so we now understand why they asked for the 2021st to 2030th significant figures, namely because this is just the 2021th to 2030th digits of $\frac{26\pi^3}{3}$, which is, according to WolframAlpha, $\boxed{8481609952}.$
+\end{solution}\bigskip

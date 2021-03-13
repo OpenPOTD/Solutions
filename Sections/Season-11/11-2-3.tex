@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan and \Pwen}\\
+\emph{Problem ID: 156}\\
+\emph{Date: 2021-03-10}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+    Find the number of digits in the smallest positive integer $x$ such that there exists a positive integer $y$ such that $$2020x^{20^{21}} = 2021y^{21^{20}}.$$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Since $2020 = 2^2 \cdot 5 \cdot 101$ and $2021 = 43 \cdot 47$ we split $x, y$ into their prime factors; for $x$ to be minimal it should only have the necessary
+    prime factors $2, 5, 43, 47, 101$. Let $x = 2^{x_1} \cdot 5^{x_2} \cdot 43^{x_3} \cdot 47^{x_4} \cdot 101^{x_5}$ and 
+    $y = = 2^{y_1} \cdot 5^{y_2} \cdot 43^{y_3} \cdot 47^{y_4} \cdot 101^{y_5}$; we now can solve for the exponent of each prime independently. 
+    Looking at the first equation we get $2 + 20^{21}x_1 = 21^{20}y_1$, or the equivalent $2 + 20^{21}x_1 \equiv 0 \pmod{21^{20}}$. 
+    Let $I(a)$ be the modular inverse of $a$ mod $21^{20}$; then we have $x_1 \equiv -2 I\left(20^{21}\right) \pmod{21^{20}}$. 
+    Solving similar equations for $x_2$ through $x_5$ we get $x_2 \equiv - I\left(20^{21}\right) \pmod{21^{20}}, x_3 = x_4 = I\left(20^{21}\right) \pmod{21^{20}}$.
+    Putting this together, the number of digits is 
+    $$\left\lfloor \left[21^{20} - 2I\left(20^{21}\right)\right] \log_{10}(2) + \left[21^{20} - I\left(20^{21}\right)\right] \log_{10}(505) + I\left(20^{21}\right) \log_{10}(2021) \right\rfloor + 1$$ $$= \boxed{835858264863808864064926340}.$$
+\end{solution}\bigskip

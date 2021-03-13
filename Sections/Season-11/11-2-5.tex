@@ -1,0 +1,37 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan and \Pwen}\\
+\emph{Problem ID: 158}\\
+\emph{Date: 2021-03-12}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+    Let $N = 20^{21}.$ You play a game, starting with \$1. At each of $N$ steps, you can bet any nonnegative amount of money, $m$, up to how much you currently have, 
+    and a computer flips a coin. If heads, you double your bet; if tails you lose it. \medskip
+
+    However, before you start, you hack the computer, and you know that it will generate exactly $\frac{N}{2} + K$ heads. \medskip
+
+    Suppose that you can guarantee yourself at least \$2021. If $K$ is minimal, find the leading five digits of $K$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let $g(h, t)$ denote the largest amount of money you can guarantee yourself if you start out with \$1. We claim that if we start out with \$$s$, then 
+    the largest amount of money you can guarantee yourself is \$$sg(h, t)$. Clearly, $sg(h, t)$ is attainable, since we can use the same betting procedures
+    when we did for \$1 and scale the bets proportionally by $s$. And if we can guarantee more than $sg(h, t)$ then dividing each of the bets by $s$ would mean
+    that we can guarantee more than \$$g(h, t)$ if we started out with \$1, contradiction. (Intuitively, the amount of money you gain or lose in a bet is homogeneous
+    with the amount of money you already have, so scalings are valid.) \medskip
+
+    On our first step, suppose our optimal bet is \$$b$. If heads, the largest amount of money we can guarantee ourselves is $(1 + b)g(h - 1, t)$; if tails it is $(1 - b)g(h, t - 1)$
+    and so $$g(h, t) = (1 + b)g(h - 1, t) = (1 - b)g(h, t - 1).$$ Noting that the sum of heads and tails decreased by 1, we seek $g(h, t)$ in terms of $g(h - 1, t)$ and $g(h, t - 1)$.
+    Indeed, $$(1 + b) + (1 - b) = \dfrac{g(h, t)}{g(h - 1, t)} + \dfrac{g(h, t)}{g(h, t - 1)} \iff \dfrac{2}{g(h, t)} = \dfrac{1}{g(h - 1, t)} + \dfrac{1}{g(h, t - 1)}$$
+    so $g(h, t)$ is the harmonic mean of $g(h - 1, t)$ and $g(h, t - 1)$. With the values $g(h, 0) = 2^h$ (go all-in every time) and $g(0, t) = 1$ (bet nothing every time)
+    we get $$g(h, t) = \dfrac{2^{h + t}}{\sum_{k = 0}^t \binom{h + t}{k}} \iff \sum_{k = 0}^t 2^{-N}\dbinom{N}{k} \leq \dfrac{1}{2021}$$ after substituting relevant values.
+    The last sum is a binomial distribution with $n = N$ and $p = q = \frac{1}{2}$; that is, think of $n$ independent events that can each take one of two outcomes:
+    pass or fail, where each event passes with probability $p$ and fails with probability $q = 1 - p$. Letting $X$ be the random variable that denotes the number of events
+    that passed, we see that our expression is equal to $\text{Pr}(X \leq t) \leq \frac{1}{2021}$; since $n$ is large we can approximate this binomial distribution
+    by the normal distribution; in particular the quantity $\frac{X}{n}$ is normally distributed with mean $\mu = np = \frac{n}{2}$ and variance $\sigma^2 = \frac{pq}{n}$. 
+    So, we want to find a $z$ such that $$\text{Pr}\left(\dfrac{X/n - \mu}{\sigma} \leq z\right) = \dfrac{1}{2021} \iff \dfrac{t}{n} = \sigma z + \mu \iff K = \abs(z)n \sigma$$
+    and plugging $\frac{1}{2021}$ as our $p$-value into a $p$-value calculator we get that $K = \boxed{\left\lfloor 3.2946 \sqrt{0.25 \cdot 20^{21}} \right\rfloor}$.
+\end{solution}\bigskip
