@@ -1,0 +1,25 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Pdenial}\\
+\emph{Problem ID: 163}\\
+\emph{Date: 2021-03-31}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+	A circle of radius 1 is centred at \((1,1)\). Points \(A\) and \(B\) have co-ordinates \((a, 0)\) and \((0, b)\), with \(a,b > 2\). If \(AB\) is tangent to the circle, what is the sum of all possible integer values of \(a\) and \(b\)?
+}\bigskip
+
+\begin{solution}[Solution by \Pdenial]\hfil\medskip
+	
+	Let \(O, C, D\) and \(E\) have coordinates \((1,1), (0,0), (0,1)\) and \((1,0)\) respectively, and let the point of tangency of \(AB\) with the circle be \(F\).\\
+Note since \(O\) and \(D\) have the same \(y\) co-ordinate \(OD\) is parallel to the \(x\)-axis and hence perpendicular to the \(y\)-axis. Since \(D\) is also on the \(y\)-axis, \(BC\) is tangent to the circle at \(D\). Similarly, \(O\) and \(E\) have the same \(x\) co-ordinate, so \(OE\) is parallel to the \(y\)-axis and hence perpendicular to the \(x\)-axis. Since \(E\) is also on the \(x\)-axis, \(AC\) is tangent to the circle at \(E\).\\
+Since the tangents to a circle from a point have equal length, \(BF = BD\) and \(FA = AE\). Summing, \(BF + FA = BD + AE\), so \(BA = (BC - CD) + (AC - CE) = (b-1) + (a-1) = a + b - 2\), giving \(AB^2 = (a+b-2)^2\). However, since \(\angle ACB = 90^{\circ}\), by Pythagoras' theorem, \(AB^2 = a^2 + b^2\), and so we have
+\begin{equation*}a^2 + b^2 = (a+b-2)^2\end{equation*}
+\begin{equation*}a^2 + b^2 = a^2 + b^2 + 4 + 2ab - 4a - 4b\end{equation*}
+\begin{equation*}0 = 2ab - 4a - 4b + 4\end{equation*}
+\begin{equation*}ab - 2a - 2b + 2 = 0\end{equation*}
+\begin{equation*}ab - 2a - 2b + 4 = 2\end{equation*}
+\begin{equation*}(a-2)(b-2) = 2\end{equation*}
+However, \(a,b > 2\), so if \(a\) and \(b\) are integers, then \(a-2\) and \(b-2\) are positive integers and hence must both be positive factors of \(2\). Since 2 is primes, its only factorisation is as \(2 = 2 \times 1\), so either \(a-2 = 2\) and \(b-2 = 1\) or \(a-2 = 1\) and \(b-2 = 2\). Hence the possible integer values of \(a\) and \(b\) are \((a,b) = (3,4)\) or \((4,3)\). Giving a final answer of \fbox{14}
+\end{solution}\bigskip
