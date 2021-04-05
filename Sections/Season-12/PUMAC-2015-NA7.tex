@@ -1,0 +1,57 @@
+\SSbreak\\
+\emph{Source: 2015 PUMAC Number Theory A7}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 167}\\
+\emph{Date: 2021-04-04}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+	For positive integers $n$, let $s(n)$ be the sum of the $n$-th powers of the primitive roots mod 1601. Find the number of positive integers $n \leq 2021$ such that $s(n)$ is divisible by 1601.
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	First, some lemmas about orders and generators (skip if you think people should know this already): \medskip
+	
+	\textit{Lemma 1.} The order of $g^n$, where $g$ is a generator mod prime $p$, is $d = \frac{p - 1}{(n, p - 1)}$ where $(a, b)$ is the greatest common divisor function. 
+	
+	\textbf{Proof.} Since $g^{nd} \equiv 1 \pmod{p}$ we have $p - 1 | nd$ so $\frac{p - 1}{(n, p - 1)} | d$. Since $d$ is defined to be minimal we have $d = \frac{p - 1}{(n, p - 1)}$. \medskip
+	
+	\textit{Lemma 2.} The number of residues mod $p$ with order $d$ is $\varphi(d)$, where $\varphi$ is Euler's totient function. 
+	
+	\textbf{Proof.} We want to find the number of positive integers $k$ such that $d$ is the least positive integer for which $\left(g^{k\frac{p - 1}{d}}\right)^d \equiv 1 \pmod{p}$. For that to be satisfied, $k$ and $d$ cannot share any common factors; otherwise $\left(g^{k\frac{p - 1}{d}}\right)^{\frac{d}{(k, d)}} \equiv 1 \pmod{p}$. Also, since $d$ is the order only $k < d$ generate unique residues. The number of positive integers $k$ less than $d$ such that $(d, k) = 1$ is $\varphi(d)$.\medskip
+	
+	Let $p = 1601$ since 1601 is prime. The order of $g^n$ mod $p$ is $d = \frac{p - 1}{(n, p - 1)}$; also each of the $\varphi(p - 1)$ terms in $s(n)$ can take only one of $\varphi\left(\frac{p - 1}{(n, p - 1)}\right)$ residues with order $d$ mod $p$. By symmetry, each residue of order $d$ is represented the same amount of times in $s(n)$. Now let $r(d)$ be the sum of the residues with order $d$ mod $p$, so $$s(n) = \dfrac{\varphi(p - 1)}{\varphi\left(\frac{p - 1}{(n, p - 1)}\right)} r(d).$$ Notice that the ratio of totient functions is less than $p$, so if $p | s(n)$ then $p | r(d)$. 
+	
+	Consider a residue $a$ with order $d$; then $p| a^d - 1 = (a - 1)\left(a^{d - 1} + a^{d - 2} + \cdots + 1\right)$ and since $a < p$ we have $a^{d - 1} + a^{d - 2} + \cdots + 1 \equiv 0 \pmod{p}$. Remembering $\sum_{d|n} \varphi(d) = n$ we conjecture that that sum is $\sum_{e|d} r(e) \equiv 0 \pmod{p}$; indeed we can treat $a$ like the ""generator"" of the residue class of order $d$ mod $p$ and follow the steps of Lemma 2. \medskip
+	
+	\textit{Claim.} $r(d) \equiv 0 \pmod{p}$ if and only if $d$ is not squarefree. \medskip
+	
+	As with any divisor sum, we try products of primes: $r(1) = 1$, $r(p) = -1, r(pq) + r(p) + r(q) + 1 \equiv 0 \iff r(pq) = 1$ and induct on $k$ to get $r\left(p_1p_2 \cdots p_k\right) = (-1)^k$. Notice $r\left(p^2\right) + r(p) + r(1) \equiv 0 \iff r\left(p^2\right) \equiv 0$; a similar induction argument yields $r(d) \equiv 0$ if $d$ is not squarefree. 
+	
+	We are homeward-bound: for $d = \frac{p - 1}{(n, p - 1)} = \frac{1600}{(n, 1600)}$ to be squarefree we must have $2^5 \cdot 5 = 160 | n$. We have $2021 - \left\lfloor \frac{2021}{160} \right\rfloor = \boxed{2009}$ such $n$.
+	%Put sol here
+\end{solution}\newpage
+
+\begin{solution}[Solution by \Pmano]\hfil\medskip
+	
+	$n$-th powers of roots is something that polynomials can handle very well. The definition of order, $g^{p - 1} \equiv 1 \pmod{p} \iff g^{p - 1} - 1 \equiv 0 \pmod{p}$,
+	motivates us to look at the polynomial $x^{p - 1} - 1$. Which integers $g$ satisfy $g^{p - 1} - 1 \equiv 0 \pmod{p}$ but not $g^d - 1 \equiv 0 \pmod{p}$ for all 
+	$d < p$? We claim that the polynomial in question is $\Phi_{p - 1}(x)$, the $p - 1$-th cyclotomic polynomial. (If you don't know what a cyclotomic polynomial is, google.)
+	While it is easy to compute $\Phi_p(x)$, computing $\Phi_{p - 1}(x) = \Phi_{1600}(x)$ will be harder. Using $\Phi_n(x) = \prod_{d|n} \Phi_d(x)$ we can 
+	get $$x^{p^k} - 1 = \left(x^{p^{k - 1}} - 1\right) \Phi_{p^k}(x) = \left[\left(x^{p^{k - 1}}\right)^p - 1\right] \iff \Phi_{p^k}(x) = \sum_{h = 0}^{p - 1} x^{hp^{k - 1}}.$$
+	We now turn our attention to $\Phi_{p^kn}(x)$ for $(p, n) = 1$. Note that $\Phi_n\left(x^{p^k}\right)$ has roots of unity $\exp\left(\frac{\tau m}{p^kn}\right)$
+	where $\left(m, p^kn\right) = 1, p, \cdots , p^k$. However, we want only $\left(m, p^kn\right) = 1$; note then, that $\Phi_n\left(x^{p^{k - 1}}\right)$ has roots of unity
+	$\exp\left(\frac{\tau m}{p^{k - 1}n}\right) = \exp\left(\frac{\tau pm}{p^kn}\right)$ where $\left(m, p^{k - 1}n\right) = 1, p, \cdots , p^{k - 1}$ so $\left(pm, p^kn\right) = p, p^2, \cdots , p^k$
+	and so $$\Phi_{p^kn}(x) = \dfrac{\Phi_n\left(x^{p^k}\right)}{\Phi_n\left(x^{p^{k - 1}}\right)}.$$
+	Thus, we have $\Phi_{25}(x) = 1 + x^5 + x^{10} + x^{15} + x^{20} = \frac{x^{25} - 1}{x^5 - 1}$ and so 
+	$$\Phi_{1600}(x) = \Phi_{2^6 \cdot 25}(x) = \dfrac{\Phi_{25}\left(x^{64}\right)}{\Phi_{25}\left(x^{32}\right)} = \dfrac{x^{800} + 1}{x^{160} + 1} = 1 - x^{160} + x^{320} - x^{480} + x^{640}$$
+	where we have omitted two difference of squares factorizations since $2^6 = 2^5 \cdot 2$ and so $x^{2^6} = \left(x^{2^5}\right)^2$. \medskip
+
+	\textit{Newton's Sums.} Let $r_1, r_2, \cdots , r_n$ be the roots of polynomial $a_nx^n + a_{n - 1}x^{n - 1} + \cdots + a_0x^0$, and let $s_k = \sum_{i = 1}^n r_i^k$.
+	Then $\sum_{i = 0}^n a_{n - i}s_{k - i} = 0$ if $k \geq n$ and $(-1)^kka_{n - k} + \sum_{i = 0}^{k - 1} (-1)^ia_{n - i}s_{k - i} = 0$ if $k < n$. \medskip
+
+	Using Newton's sums, it becomes clear that the only nonzero terms of $s(n)$ happen when $160|n$; our answer is thus \fbox{2009}.
+\end{solution}\bigskip
