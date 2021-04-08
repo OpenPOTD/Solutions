@@ -54,4 +54,15 @@
 	Then $\sum_{i = 0}^n a_{n - i}s_{k - i} = 0$ if $k \geq n$ and $(-1)^kka_{n - k} + \sum_{i = 0}^{k - 1} (-1)^ia_{n - i}s_{k - i} = 0$ if $k < n$. \medskip
 
 	Using Newton's sums, it becomes clear that the only nonzero terms of $s(n)$ happen when $160|n$; our answer is thus \fbox{2009}.
+\end{solution}\newpage
+
+\begin{solution}[Solution by \Pmonke]\hfil\medskip
+	
+	Let $g$ be a known generator mod $p$. Note that if $(k, p - 1) = 1$ then $g^k$ is also a generator mod $p$. We have $p - 1 = 1600 = 2^6 \cdot 5^2$; 
+	the integers not coprime to $p - 1$ are either multiples of $2$, multiples of $5$, or multiples of $10$. Now observe that $$\sum_{a = 1}^{1600} g^a$$
+	sums over all powers of $g$; however since we only want coprime powers we need to subtract off powers that are multiples of $2$ or $5$. Using inclusion-exclusion, 
+	this is $$s(n) = \sum_{a = 1}^{1600} g^{an} - \sum_{b = 1}^{800} g^{bn} - \sum_{c = 1}^{320} g^{cn} + \sum_{d = 1}^{160} g^{dn}$$
+	which can be rewritten and re-summed as $$\dfrac{g^{1601n} - 1}{g^n - 1} - \dfrac{g^{1602n} - 1}{g^{2n} - 1} - \dfrac{g^{1605n} - 1}{g^{5n} - 1} + \dfrac{g^{1610n} - 1}{g^{10n} - 1} \equiv 0 \pmod{p}$$
+	with a small catch: if any of $g^n, g^{2n}, g^{5n}, g^{10n}$ is $1$ the geometric series sum represntation fails, and it is easy to see that $s(n)$ will not be $0$ mod $p$ 
+	in that case. Thus, the cases where $s(n) \not\equiv 0 \pmod{p}$ is when $160|n$; our answer is then \fbox{2009}.
 \end{solution}\bigskip
