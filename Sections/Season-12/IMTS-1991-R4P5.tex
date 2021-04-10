@@ -13,7 +13,20 @@
 
 \begin{solution}\hfil\medskip
 	
-	\href{https://artofproblemsolving.com/community/q2h54423p339658}{AoPS Solution} \medskip
+	\href{https://artofproblemsolving.com/community/q2h54423p339658}{AoPS Solution using Pythagorean Theorem} \medskip
+
+	We will prove that in an isosceles tetrahedron (opposite edges have the same length) with edge lengths $a, b, c$, the volume of such a tetrahedron is 
+	$$V = \sqrt{\dfrac{\left(a^2 + b^2 - c^2\right)\left(a^2 - b^2 + c^2\right)\left(-a^2 + b^2 + c^2\right)}{72}}.$$
+	First, note that every "acute" tetrahedron can be inscribed in a parallepiped prism, with each edge being a diagonal of each face (see \href{https://www.cut-the-knot.org/triangle/TetrahedronInParallelepiped.shtml}{here} for a picture). 
+	This is because there is exactly one pair of parallel planes that pass through each pair of opposite edges 
+	(since opposite edges are skew lines, so you can't just rotate the planes wrt the axis of one edge). 
+	Also note that since opposite edges are skew, this means that the opposite edges take up the two different diagonals of their inscribed parallelogram face.
+	Since opposite edges are equal in an isosceles tetrahedron, this implies that the parallelogram has equal diagonals, implying that it's a rectangle,
+	and the circumscribed parallepiped is actually a rectangular prism. Letting $x, y, z$ represent the edges of the prism, we have
+	$$x^2 + y^2 = a^2, y^2 + z^2 = b^2, z^2 + x^2 = c^2 \iff \left(x^2, y^2, z^2\right) = \left(\dfrac{-a^2 + b^2 + c^2}{2}, \dfrac{a^2 - b^2 + c^2}{2}, \dfrac{a^2 + b^2 - c^2}{2}\right)$$
+	and now we claim that the volume of the prism is three times the volume of the tetrahedron; indeed the space outside the inscribed tetrahedron but inside the prism
+	is composed of three congruent right-angle-cornered tetrahedra, each with volume $\frac{xyz}{6}$. 
+	Thus $$V = \dfrac{xyz}{3} = \sqrt{\dfrac{\left(a^2 + b^2 - c^2\right)\left(a^2 - b^2 + c^2\right)\left(-a^2 + b^2 + c^2\right)}{72}}.$$
 	
 	Answer: \(\boxed{7605}\)
 	%Put sol here

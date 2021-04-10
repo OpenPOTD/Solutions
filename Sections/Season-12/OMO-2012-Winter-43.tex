@@ -1,0 +1,18 @@
+\SSbreak\\
+\emph{Source: 2012 Winter OMO 43}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+	Let $p = 2017$. An integer $n$ is uniformly and randomly selected between 1 and $\left(p^p - 1\right)!$ inclusive. The probability that $n^n - 1$ is divisible by $p$ can be written in the form $\frac{m}{n},$ where $m$ and $n$ are relatively prime positive integers. Find $100m + n$. 
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Fix an order $d$; we find the probability that $d|n$ and $n$ has order $d$ mod $p$. Since the first probability involves $n$'s behavior mod $d$ and the second $n$'s behavior mod $p$ and $\gcd(d, p - 1) = 1$, these events are independent. Since our interval is from $1$ to $\left(p^p - 1\right)!$, each residue mod $p$ and mod $p - 1$ (and thus mod $d$) appears the same amount of times. Thus, our first event happens with probability $\frac{1}{d}$ and our second with probability $\frac{\varphi(d)}{p}$, where we have used the fact that there are exactly $\varphi(d)$ residues with order $d$ mod $p$. It remains to sum this probability over all possible values of $d$, or, $$P = \dfrac{1}{p} \sum_{d|p - 1} \dfrac{\varphi(d)}{d} = \dfrac{1}{p} s(p - 1),$$ where $s(n) = \sum_{d|n} \frac{\varphi(d)}{d}$. As with all divisor sums, we test with $n = p, p^2, pq$: $s(p) = 1 + \frac{p - 1}{p} = 2 - \frac{1}{p}$, $s\left(p^2\right) = s(p) + \frac{p(p - 1)}{p^2} = 3 - \frac{2}{p}$, $s(pq) = 1 + \frac{p - 1}{p} + \frac{q - 1}{q} + \frac{(p - 1)(q - 1)}{pq} = \left(2 - \frac{1}{p}\right)\left(2 - \frac{1}{q}\right)$; we conjecture that $s(n)$ is multiplicative. Indeed, letting $n = p_1^{e_1}p_2^{e_2} \cdots p_k^{e_k}$, two induction arguments, one on $k$ and one on $e$, yields $$s(n) = \prod_{i = 1}^k e_i + 1 - \dfrac{e_i}{p_i}$$ so $s(p - 1) = s(2016) = \left(6 - \frac{5}{2}\right)\left(3 - \frac{2}{3}\right)\left(2 - \frac{1}{7}\right) = \frac{91}{6}$ so $P = \frac{91}{6p} \iff \boxed{21202}$. 
+	%Put sol here
+\end{solution}\bigskip
