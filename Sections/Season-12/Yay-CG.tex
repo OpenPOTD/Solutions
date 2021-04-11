@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: Unknown}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID:}\\
+\emph{Date: }\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+    2021 coplanar lines intersect at $2021 \cdot 1010$ distinct points $K_1, K_2, \cdots K_{2021 \cdot 1010}$. Let $P$ be a point in the plane not on any of the lines.
+    We call an intersection point $K$ $k$\textit{-reachable} if segment $PK$ intersects at most $k$ lines, excluding the intersection point at $K$.
+    If $1999420$ points are $k$-reachable, find the largest possible value of $k$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+    
+    First note that no two of these 2021 lines are parallel and no three of them are concurrent, otherwise the number of intersection points
+    would be less than $2021 \cdot 1010$. After some playing around with small cases of $n$, we claim that the minimal number of $k$-reachable points among $n$ such lines is $\binom{k + 2}{2}$. 
+    The base case $k = 0$ for arbitrary $n$ is trivial. Assume the condition holds for $k - 1$ and $n - 1$. 
+    Consider the line with minimal distance to $P$. Label its intersection points $P_1, P_2, \cdots , P_n$ where $KP_1 < KP_2 < \cdots < KP_n$. 
+    Among these $n$ points, at least $k$ of them are $k$-reachable (consider the worst-case scenario where $P$ is on the left of all the intersection points).
+    Now remove this line; among the remaining points there are at least $\binom{k + 1}{2}$ $(k - 1)$-reachable points. 
+    When we add the line back, those $(k - 1)$-reachable points become $k$-reachable points (any point $Q$ in that set either had $PQ$ cross that deleted line or not).
+    It remains to bound $\binom{k + 2}{2} \approx (k + 2)^2/2$. Noticing $1999420 \approx 1999200 = 1400 \cdot 1428 \approx 1414^2$ and $\sqrt{2} = 1.414$, we have
+    $2 \cdot 1414^2 \approx 2000^2 \iff 1999420 > \binom{2000}{2}$. Our answer is $\boxed{1998}$. 
+\end{solution}\bigskip
