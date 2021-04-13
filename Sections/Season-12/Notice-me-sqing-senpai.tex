@@ -1,0 +1,41 @@
+\SSbreak\\
+\emph{Source: 2019 China Mathematical Olympiad P1, Modified}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 174}\\
+\emph{Date: 202-04-11}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+	Let $\left(a_1, a_2, a_3, a_4, a_5, a_6\right)$ be reals no less than $-2020$ that sum to $2021$. 
+    Let $M$ and $m$ be the maximum and minimum, respectively, of the function 
+    $$f\left(a_1, a_2, a_3, a_4, a_5, a_6\right) = \prod_{k = 1}^6 \left(a_k + a_{k + 1}\right),$$ where indices are taken modulo $6$,
+    and let $N$ and $n$ be the number of ordered pairs which maximize and minimize $f$, respectively.
+    Find $\left\lfloor \ln(-Mm) \right\rfloor + N + n$. \medskip
+
+    \begin{center}
+        \textit{(A scientific calculator may be used.)}
+    \end{center}
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	We switch variables to $(a, b, c, d, e, f)$ for sake of legibility. WLOG $a$ is maximal; therefore $a + b, f + a \geq 0$. 
+    We solve for the minimum first, as that is less painful. Negative values are possible, which correspond to either one or three negative factors.
+    If there is only one negative factor, then there are at least two positive variables less than $2021$; flipping their signs and increasing
+    the value of the greatest two variables accordinaly produces a product greater in absolute value, so we want three negative factors.
+    Let $a + b, b + c, c + a < 0$ (the factor adjacency really does matter as we'll see in a bit). Applying AM-GM twice, once to the positive factors and once to the negative, we have
+    $$f \leq \left(\dfrac{-a - 2b - 2c - d}{3}\right)^3\left(\dfrac{d + 2e + 2f + a}{3}\right)^3$$
+    and since $d + 2e + 2f + a = 2 \cdot 2021 - (a + 2b + 2c + d)$ we see that the maximum occurrs when $a + 2b + 2c + d$ is minimized;
+    this happens at $a = b = c = d = -2020$ and $e = f = \frac{10101}{2}$. Note that the variables with coefficient $2$ must be different variables; in other words, the three factors we chose to be negative matters.
+    In esssence, the two positive terms have to be next to each other, so $n = 6$.\medskip
+
+    Now for the maximum. By the same argument, having all positive factors does not yield a maximal configuration; therefore there are either two or four negative factors.
+    Applying AM-GM in the same fashion (once to the positive factors and once to the negative factors) we get that the equality case is one of four
+    and that the maximal configuration happens when all the variables in the negative terms are equal to $-2020$. Thus, four negative factors is optimal;
+    this happens at $a = b = c = d = e = -2020$ and $f = 12121$ and $N = 6$.\medskip
+
+    Our answer is $$\left\lfloor \ln\left(2^5 \cdot 2020^6 \cdot 6061^2 \cdot 10101^3\right) \right\rfloor + 6 + 6 = \boxed{113}.$$
+	%Put sol here
+\end{solution}\bigskip
