@@ -1,0 +1,24 @@
+
+\SSbreak\\
+\emph{Source: CMC Mock ARML 2019 P10}\\
+\emph{Proposer: \Pnjoy}\\
+\emph{Problem ID: 179}\\
+\emph{Date: 2021-04-23}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+  Tony and Wang play a game in which Tony chooses a list of $6$ real numbers and Wang devises $6$ questions, each of the form ``What is the sum of the $x^{\text{th}}$ and $y^{\text{th}}$ number in your list?'' where $1\leq x<y\leq 6.$ Without regard to order, compute the number of ways Wang can choose his questions so that he can determine Tony's numbers.
+}\bigskip
+
+\begin{solution}[Solution by \Pnjoy]\hfil\medskip
+
+    We can consider the the game as a graph with 6 vertices, representing Tony’s numbers, and 6 edges,representing Wang’s questions.  Note that we can’t have a cycle with even length since then the corresponding system of equations wouldn’t be linearly independent.  For example, the system of equations $x+y=c_1$, $y+z=c_2$, $z+w=c_3$, $w+x=c_4$ is not linearly independent, since the sum of the 1\textsuperscript{st} and 3\textsuperscript{rd} equations is equal to the sum of the 2\textsuperscript{nd} and 4\textsuperscript{th}; hence one equation is wasted, yet 6 independent equations are required to find 6 variables. Since the largest tree in a graph with 6 vertices consists of 5 edges, a cycle must exist.  We distinguish three cases, depending on the length of the largest cycle:
+    \begin{enumerate}
+    \item We have a 5-cycle.  There are 6 ways to choose which number is left out of the 5-cycle, 12 ways to order the elements of the 5-cycle, and 5 ways to connect the number left out to the cycle, for a total of 360 possibilities.
+    \item There are two 3-cycles.  As the cycles are disjoint, there are \(\frac{\binom{6}{3}}{2}= 10\) such possibilities.
+    \item There is only one 3-cycle.  We choose the cycle $C$ in \(\binom{6}{3}= 20\) ways, and then choose the paths to connect the other three vertices $(X, Y, Z)$to $C$, where each of these points must have exactly 1 path.  If $X \rightarrow C$, $Y \rightarrow C$ and $Z \rightarrow C$,there are $3^3= 27$ ways; if$X \rightarrow Y \rightarrow C$,and$Z \rightarrow C$(and permutations), there are $6 \times 3^2= 54$ ways; if $X \rightarrow Z, Y \rightarrow Z$and \(Z\rightarrow C\)(and permutations), there are \(3\cdot3 = 9\) ways; finally, if \(X\rightarrow Y\rightarrow Z\rightarrow C\) (and permutations), there are \(6\rightarrow3 = 18\) ways, for a total of \(20\rightarrow(27 + 54 + 9 + 18) = 2160\) possibilities.Thus, Wang has a total of \(360 + 10 + 2160 = 2530\)
+    \item Case 3: there is only one 3-cycle.  We choose the cycle \(C\in(63)= 20\) ways, and then choose the paths to connect the other three vertices \(X, Y, Z\rightarrow C\),where each of these points must have exactly 1 path. If \(X→C, Y\rightarrow C\) and \(Z\rightarrow C\),there are 33 = 27 ways; if \(X\rightarrow Y\rightarrow C\) and \(Z\Rightarrow C\) (and permutations), there are \(6\cdot32= 54\) ways; if \(X\rightarrow Z, Y\rightarrow Z\) and \(Z\rightarrow C\)(and permutations), there are \(3\cdot3 = 9\) ways; finally, if \(X\rightarrow Y\rightarrow Z\rightarrow C\)(and permutations), there are \(6\cdot3 = 18\) ways, for a total of \(20\cdot(27 + 54 + 9 + 18) = 2160\) possibilities. Thus, Wang has a total of \(360 + 10 + 2160 =2530\)
+    \end{enumerate}
+
+\end{solution}\bigskip
