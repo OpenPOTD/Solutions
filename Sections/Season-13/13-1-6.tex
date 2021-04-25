@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: old italian contest}\\
+\emph{Proposer: \Pmatt}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 180}\\
+\emph{Date: 2021-04-24}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+ 
+\SSpsetQ{
+    There are $2021$ people working in a $2021$-floor building, one on each floor. On day zero, each worker writes a zero on their sheet of paper. On day $k > 0$,
+    the worker on floor $f > 1$ writes on their sheet of paper the sum of the numbers of the worker on floor $j - 1$ had written in the days up to $k - 1$. The worker
+    on floor $1$, meanwhile, writes $k^2$. If $N$ is the number the worker on floor $2021$ writes on day $10000$, find the number of digits in $\nu_2(N) + \nu_3(N) + \nu_5(N)$.
+    \begin{center}
+        \textit{(A scientific calculator may be used.)}
+    \end{center}
+    %Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    We denote worker $f$ as the worker who works on floor $f$. It's clear that on day $k$, worker $2$ writes $$1^2 + 2^2 + \cdots + (k - 1)^2 = \dfrac{k(k - 1)(2k - 1)}{6}$$
+    using the well-known sum of squares formula, but it's hard to see where it goes from here. Instead, write $k^2$ as a sum of binomial coefficients. We know that $2\binom{k}{2} = k(k - 1) = k^2 - k$
+    and $\binom{k}{1} = k$, so we have $$k^2 = 2\dbinom{k}{2} + \dbinom{k}{1} \iff 1^2 + 2^2 + \cdots + (k - 1)^2 = 2\left[\dbinom{2}{2} + \dbinom{3}{2} + \cdots + \dbinom{k - 1}{2}\right] + \left[\dbinom{1}{1} + \dbinom{2}{1} + \cdots + \dbinom{k - 1}{1}\right]$$
+    which sums to $2\binom{k}{3} + \binom{k}{2}$ after applying the hockey stick identity. Use the hockey stick identity again and again to show that on day $k$, 
+    worker $f$ writes down the number $$2\dbinom{k}{f + 1} + \dbinom{k}{f} = \dbinom{k + 1}{f + 1} + \dbinom{k}{f + 1} = \dbinom{k}{f + 1} \cdot \dfrac{2k - f + 1}{k - f}.$$ Substituting $f = 2021, k = 10000$ (and doing either Legendre or Krummer's) yields \fbox{25}.
+    %Put sol here
+\end{solution}\bigskip
