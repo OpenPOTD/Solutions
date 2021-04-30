@@ -1,0 +1,20 @@
+\SSbreak\\
+\emph{Source: Baltic Way [Unknown]}\\
+\emph{Proposer: \Ptroll}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 185}\\
+\emph{Date: 2021-04-29}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+ 
+\SSpsetQ{
+    Find the smallest prime factor of $712! + 1$.
+    %Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    Unfortunately, $713$ is not prime; neither is $715$ nor $717$. $719$ is prime, so by Wilson's Theorem we know that $718! \equiv 1 \pmod{719}$. Now we 
+    rewrite $718!$ as follows: $$718! = 718 \cdot 717 \cdot 716 \cdot 715 \cdot 714 \cdot 713 \cdot 712! \equiv (-1)(-2)(-3)(-4)(-5)(-6) \cdot 712! \equiv 712! \equiv 1 \pmod{719}$$
+    so $\boxed{719} | 712! + 1.$
+    %Put sol here
+\end{solution}\bigskip
