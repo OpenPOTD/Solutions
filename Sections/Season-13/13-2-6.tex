@@ -1,0 +1,21 @@
+\SSbreak\\
+\emph{Source: Original (?)}\\
+\emph{Proposer: \Pchris}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 187}\\
+\emph{Date: 2021-05-01}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+ 
+\SSpsetQ{
+    Points $A, B, C, D$ are located at $(-3, 0), (1, 0), (6, 0), (7, 0)$ in the coordinate plane. If the locus of points $P$ such that 
+    the circumcircles of $\triangle ABP$ and $\triangle CDP$ are tangent has perimeter $p$, find $\lfloor 100p \rfloor$.
+    %Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    Let $X$ have coordinates $(x, y)$, and $Y$ be the intersection of the radical axis of the two circumcircles and segment $\overline{BC}$.
+    Let $BY = b$; then $CY = 5 - b$. By Power of a Point, we have $$XY^2 = BY \cdot AY = CY \cdot DY = b(4 + b) = (5 - b)(6 - b) \iff b = 2, XY^2 = 12$$
+    so $X$ is always a distance of $\sqrt{12}$ from the point $Y = (3, 0)$; this is a circle with radius $\sqrt{12}$ and so our answer is \fbox{2176}.
+    %Put sol here
+\end{solution}\bigskip
