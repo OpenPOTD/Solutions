@@ -1,0 +1,28 @@
+\SSbreak\\
+\emph{Source: IZhO 2021/5}\\
+\emph{Proposer: \Phyper}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 188}\\
+\emph{Date: 2021-05-02}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+On a party with $102$ guests, hosts Tony and Wang play a game (the hosts are not regarded as guests). There are $102$ chairs arranged in a circle; initially, all guests hang around those chairs. The hosts take turns alternately. By a turn, a host orders any standing guest to sit on an unoccupied chair $c$. If some chair adjacent to $c$ is already occupied, the same host orders one guest on such chair to stand up (if both chairs adjacent to $c$ are occupied, the host chooses exactly one of them). All orders are carried out immediately. Tony makes the first move; her goal is to fulfill, after some move of hers, that at least $k$ chairs are occupied. Determine the largest $k$ for which Tony can reach the goal, regardless of Wang's play.
+
+%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+ 
+We claim the answer is \fbox{35}. Note the number of chairs does not decrease, given that every empty chair must be next to a full chair, we have at least 34 chairs. In addition, when there are 33 chairs, every third chair is occupied.
+ 
+ If Wang forces Tony into such a configuration, say Tony placed a guest on chair $x$ and Wang on $y$. However, if $y$ is adjacent to $x$, Tony could have easily have chosen $y$ instead and wins. Otherwise, she could have placed it on $x\pm 1$, as there were no guests there, and now not every third chair is occupied. Thus, Wang never reaches a position with 34 chairs such that no more guests can be placed for Tony, and Tony can happily place her last guest.
+ 
+ To show that Wang can win otherwise, we show inductively that Wang can hold a strategic position:\\
+ \textbf{Claim.} Wang can make sure that in the sets $S_2,S_3,\ldots,S_{34}$ where $S_k=\{3k+1,3k+2,3k+3\}$, none of $3k+1$ and $3k+3$ is occupied. Furthermore, there is at most two occupied chairs in $S_1$.\\
+ \textbf{Proof.} The proof is by induction.\\
+ \textit{Base Case.} No moves are made, in which case the claim holds.\\
+ \textit{Induction Hypothesis.} Assume that Wang holds such a position. We claim after 2 moves, Wang can hold this position again.
+ \textit{Induction Step.} If Alice's move holds the position, Wang can simply put a person somewhere in $S_1$ (as chairs 4 and 102 are unoccupied, we can once again only have at most 2 people in $S_1$). If it doesn't, she could not have operated on $S_1$, and thus placed a guest in some of $S_2,\ldots,S_{99}$. However, if she operates on $S_k$, Wang places a person in the middle of $S_k$ and removes the mischief caused by Alice. Thus Wang can hold his position.
+%Put sol here
+\end{solution}\bigskip
