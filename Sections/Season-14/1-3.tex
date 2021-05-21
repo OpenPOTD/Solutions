@@ -1,0 +1,50 @@
+\SSbreak\\
+\emph{Source: Sixth Term Examination Paper I, 2013 Q3}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 191}\\
+\emph{Date: 2021-05-19}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+ 
+\SSpsetQ{Given for any two points $X$ and $Y$, with position vectors
+$\textbf x$ and $\textbf y$ respectively, $X*Y$ is defined
+to be the point $Z$ along the line $\overleftrightarrow{XY}$ such that $$\dfrac{XZ}{ZY} = \dfrac{\lambda}{1 - \lambda},$$
+where $\lambda$ is a fixed number. \medskip
+
+The points $P_1$, $P_2$, $\ldots$
+are defined by $P_1 = X*Y$ and, for $n \ge2$, $P_n= P_{n-1}*Y\,.$ Given that $X$ and $Y$ are distinct and that $0<\lambda<1$, the ratio in which $P_n$ divides the line segment $XY$ can be expressed in the form \(1:A\). 
+If $\lambda = 0.75$ and $n = 69$, find $\left \lfloor 10^{12} A \right \rfloor$.
+  
+\begin{center}
+\textit{(A scientific calculator may be used.)}
+\end{center}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+ We have
+\begin{align*}
+    P_1&=X*Y\\
+    P_2&=(X*Y)*Y\\
+    \cdots&\\
+    P_n&=(X*Y)*Y)*Y)...*Y
+\end{align*}
+Where \(P_n\) has \(n\) \(Y\)'s. Substituting \(X*Y=\lambda\textbf{x}+(1-\lambda)\textbf{y}\) and going through a number of iterations of \(*Y\), we guess \(P_n=\lambda^n+(1-\lambda^n)\textbf{y}\).\\
+
+We now proceed by induction on \(n\). Given we have already verified the case of \(n=1\), let \(n=k,\ k\in\N\) and assume \(P_k=\lambda^k\textbf{x}+(1-\lambda^k)\textbf{y}\). Then for \(n=k+1\), we have \(P_{k+1}=P_k*Y\), and so we have \(P_{k+1}=\lambda^{k+1}\textbf{x}+\lambda(1-\lambda^k)\textbf{y}+(1-\lambda)\textbf{y}\). This simplifies to \(P_{k+1}=\lambda^{k+1}\textbf{x}+(1-\lambda^{k+1})\textbf{y}\), as required. Therefore:
+
+\begin{equation*}
+    P_n=\begin{pmatrix}
+        \lambda^n \\ 1-\lambda^n
+    \end{pmatrix}
+\end{equation*}
+Now it's simply a case of
+\begin{equation*}
+    XY:P_n=\begin{pmatrix}
+        1\\ 1
+    \end{pmatrix} : \begin{pmatrix}
+        \lambda^n \\ 1-\lambda^n
+    \end{pmatrix}\Rightarrow XY:P_n=1:\frac{\lambda^n}{1-\lambda^n}
+\end{equation*}
+Hence when \(\lambda=0.75\) and \(n=69\), we have \(\{10^{12}\cdot A\}=\fbox{2394}\)
+\end{solution}

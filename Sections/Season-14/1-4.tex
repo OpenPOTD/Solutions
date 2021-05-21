@@ -1,0 +1,33 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ppi}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 192}\\
+\emph{Date: 2021-05-20}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+	On a QoTD, the PSC has a probability $\frac{m}{n}$ that they need to decide how to make people submit. Sjbs thinks that people should submit $m+n$. Brainy however, thinks that the people should submit $100m+n$. The rest of the PSC come up with an even better idea of people submitting $420m+69n$. 
+
+If the PSC decides every single answer will be $420$ in a season, the number of possible ways they can choose $m$ and $n$ and a way of formatting their answer ( $420m+69n$, $100m+n$, or $m+n$ ) in a $14$ day season can be written as $a^b$ where $a$ and $b$ are positive integers and $b$ is maximized. Compute $420a+69b$.
+
+(The PSC can use a specific $\frac{m}{n}$ more than once.)
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    We can do some casework.
+
+Case $1$: The PSC choose to use the $420m+69n = 420$ system
+Clearly only $m=1, n=0$ works, however this will not fit into the constraints. \medskip
+
+Case $2$: The PSC choose to use the $100m+n = 420$ system
+Only $(0,420), (1,320), (2,220), (3,120), (4,20)$ work, and of these, only $(1, 320)$ works. \medskip
+
+Case $3$: The PSC choose to use the $m+n=420$ system. 
+For this to work we must have $\gcd(m, n) = \gcd(m, 420-m) = \gcd(m, 420) = 1$. So to calculate the number of $m$ possible, we do $\phi(420) = 420 \cdot \frac{1}{2} \frac{2}{3} \frac{4}{5} \frac{6}{7} = 96$. Since $m$ must also be greater than $n$ we divide by $2$ to get $48$ ways. \medskip
+
+So our answer is $49^{14} = 7^{28} \iff \boxed{4872}.$
+	%Put sol here
+\end{solution}\bigskip

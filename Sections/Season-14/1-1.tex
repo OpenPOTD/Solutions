@@ -1,0 +1,30 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Prandom}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 189}\\
+\emph{Date: 2021-05-17}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+    A 35-by-42 rectangle is rotated around one of its vertices. If $A$ is the area the rectangle sweeps out, find $\lfloor 100A \rfloor.$
+
+    \begin{center}
+        \textit{(A scientific calculator may be used.)}
+    \end{center}
+    %Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Noticably after a rectangle is rotated around one of its vertex, it will then form a circle. \\
+The radius of the circle is a diagonal because the furthest point from one of its vertex is a diagonal and in a few rotation, it will cover an area of circle with the radius of the diagonal length. \\
+Firstly, calculate the radius of the circle by calculating the rectangle diagonal \\
+$ r = \sqrt{a^2 + b^2} $ \\
+$ r = \sqrt{35^2 + 42^2} $ \\
+$ r = \sqrt{2989} $ \\
+so the area of the circle of $2989\pi \iff \boxed{939022}$. \medskip
+
+\textit{Remark.} $3.1415926$ and $\frac{355}{113}$ are the least "precise" approximations of $\pi$ needed to get the correct answer.
+	%Put sol here
+\end{solution}\bigskip
