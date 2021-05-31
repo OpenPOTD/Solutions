@@ -1,0 +1,54 @@
+\SSbreak\\
+\emph{Source: 2021 Bundeswettbewerb Mathematik R1P4, Modified}\\
+\emph{Proposer: \Pmano}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 202}\\
+\emph{Date: 2021-05-23}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+    Consider a pyramid with a regular $n$-gon as a base. Draw a line segment in either blue or red between any two points among the n vertices of the base and the apex, except for the edges of the base, which are not drawn at all. Find the smallest integer $n$ with the following property: There exist 4 points among the aforementioned $n+1$ points such that all six segments connecting those four points are drawn in the same color.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    The solution is $n=\boxed{33}$.
+    We first show that $n=32$ does not work, i. e. that we can draw the pyramid with a 32-gon as a base such that there is no complete quadrilateral in a single color. By $R(4,4)=18$, there exists a complete graph $G$ with 17 vertices, the edges drawn in red and blue that contains no $K_4$ (the complete graph with four vertices) drawn in only one color. Now, organise the 32 vertices of the base into pairs, each pair consisting of two neighboring vertices. We have 17 \emph{units} now, 16 pairs of neighboring base vertices and one apex. Now, match every unit with one vertex of $G$ and connect two units in the color in which the edge connecting the correcpoding vertices of $G$ is drawn. Connect two vertices of the pyramid in the color in which the units they are in are connected. As there are no edges drawn within units (because those are neighboring vertices of the base), our construction will indeed work.
+    Now show that for $n=33$, there indeed is a $K_4$ as a subgraph drawn in a single color. So consider the pyramid with the regular 33-gon as a base. WLOG, 17 vertices are connected with the apex in red. But among those 17 vertices, there are 9 from which any two are connected. But $R(4,3)=9$, so those 9 vertices contain either a red $K_3$ or a blue $K_4$, where in the first case the pyramid contains a red $K_4$, as desired. \medskip
+
+    This problem is almost impossible without the knowledge of Ramsey numbers, but it can be done; the theory required to discover isn't all that much and 
+    you can always search up $R(3, 4)$ and $R(4, 4)$. \medskip
+
+    \textit{2-colour Ramsey numbers.} $R(b, w)$ is the smallest positive integer $n$ such that any edge colouring in black and white of the complete graph on $n$ vertices
+    $K_n$ will always contain either an induced subgraph $K_b$ of all black edges or an induced subgraph $K_w$ of all white edges. For example, $R(3, 3) = 6$. 
+    To see this, fix one vertex $v$; by pigeonhole at least three of its edges will be of one color, WLOG black. Let the other vertices of those black edges
+    be $x, y, z$ respectively. If none of the edges formed by connecting any of $x, y, z$ together are black, then $x, y, z$ is $K_3$; if any of them are then $v$
+    and those two vertices forming the other black edge is $K_3$. To prove $R(3, 3) \neq 5$ we can construct a counterexample: take $K_5$ as a pentagon; the perimeter
+    of the pentagon is coloured black while all the interior diagonals are coloured white. Convince yourself that this works. \medskip
+
+    \textit{Ramsey's Theorem.} $R(b, w) \leq R(b, w - 1) + R(b - 1, w).$ We proceed by induction on $b + w$. First, convince yourself that $R(b, 2) = b$; 
+    this is our base case. Now consider the complete graph on $R(b, w - 1) + R(b - 1, w)$ vertices with edges coloured in black or white. Fix one vertex $v$, and let $B$ be the set of all vertices whose
+    edges with $v$ are black, and $W$ the set of all vertices whose edges with $b$ are white. Since $R(b, w - 1) + R(b - 1, w) = |B| + |W| + 1$ we have either
+    $|B| \geq R(b - 1, w)$ or $|W| \geq R(b, w - 1)$; WLOG the first case is true. If we have $K_w$ with edges all white we're done; otherwise we have $K_{b - 1}$
+    with edges all black; the add in vertex $v$ and all the black edges connected to $v$, which are all from $B$; thus we have $K_b$ all black edges and we're done. 
+    If both $R(b, w - 1)$ and $R(b - 1, w)$ are even, the inequality strengthens to $R(b, w) < R(b, w - 1) + R(b - 1, w)$. Consider the complete graph on
+    $R(b, w - 1) + R(b - 1, w) - 1$ vertices with edges coloured in black or white. Order the vertices, and let $b_i$ be the \textit{black-degree} of vertex $v_i$; 
+    that is, the number of black edges emananting from $v_i$. By handshaking lemma there are an even number of vertices with odd degree; since $R(b, w - 1) + R(b - 1, w) - 1$
+    is odd there must exist at least one vertex with even degree; WLOG it's $v_1$. Then $|B| = b_i, |W| = R(b, w - 1) + R(b - 1, w) - 2 - b_i$ are both even, so
+    by parity it is impossible for both $|B| < R(b - 1, w) - 1$ and $|W| < R(b, w - 1)$ and we are done.
+
+    \textit{R(3, 4) is 9.} Since $R(3, 3) = 6$ and $R(2, 4) = 4$ are both even we conclude $R(3, 4) < 10$. We can colour a regularly octoganal $K_8$ as follows:
+    all perimeter edges are black, and all edges connecting diametrically opposite vertices (vertices 4 apart from another) are black; everything else is white.
+    This way, the only way to get from vertex to vertex along black edges is by moving along by $1$ or $4$ vertices; no combination of three ones and fours will be 
+    zero mod 8, so there is no black $K_3$; similarly, the only way to get from vertex to vertex along white edges is by moving along by $2$ or $3$ vertices, and the 
+    only 4-tuplet of twos and threes that is zero mod 8 are $(2, 2, 2, 2)$ which clearly doesn't work since edges joining antipodeal vertices are coloured black. \medskip
+
+    \textit{R(4, 4) is 18.} We know that $R(4, 4) \leq 2R(3, 4) = 18$. We can colour a regularly 17-gonal $K_{17}$ as follows:
+    all edges that connect vertices that are a power of two apart are black and everything else is white. The only combination of $\{1, 2, 4, 8\}$ that is zero mod 17
+    is $(8, 4, 4, 1)$ and that doesn't work because a pair of vertices are a distance of twelve apart, and that edge would be coloured white.
+    Similarly, the only combination of $\{3, 5, 6, 7\}$ that is zero mod 17 is $(3, 3, 5, 6)$ and that doesn't work be a pair of vertices are a distance 
+    of eight apart, and that edge would be coloured black. \medskip
+
+    \textit{Remark.} Mityushikha Bay was the testing site for AN602 (nicknamed the Tsar Bomba), along with many other Russian nukes. 
+\end{solution}\bigskip

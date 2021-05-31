@@ -1,0 +1,24 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pcooked}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 197}\\
+\emph{Date: 2021-05-25}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+	A QoTD season, lasting 14 days, has 3 alg, 3 combi, 3 geo and 3 NT problems, as well as 2 other problems in any of alg, combi, geo or NT, If $N$ is the number of distinct possible QoTD topic sequences, find $\nu_2(N) + \nu_3(N) + \nu_5(N).$ (Each question belongs to exactly one subject, so no CG or anything.)
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Without loss of generality, we can consider two cases- the case that both problems are the same topic and the case that both problems are in different topics.
+
+Consider the case the 2 problems are in the same topic. Without loss of generality, let us call the 4 topics A, B, C and D, and let us assume the 2 problems are in topic A, so that there are 5 A problems, 3 B problems, 3 C problems and 3 D problems. Now, since this is permutations of like objects, we can see the number of topic sequences using A, B, C and D is $$\frac{14!}{5! \times 3! \times 3! \times 3!}$$, which is 3363360. We can also see that there are 4! ways to map Alg, Combi, Geo and NT to the topics A, B, C and D, so there are actually 3363360 $$\times$$ 4! topic sequences, which is 80720640.
+
+Now consider the case the two problems are in different topics. Without loss of generality, let us call the 4 topics A, B, C and D, and let us assume the two problems are in topic A and B respectively, so that there are 4 A problems, 4 B problems, 3 C problems and 3 D problems. Like before, we can see the number of topic sequences using A, B, C and D is $$\frac{14!}{4! \times 4! \times 3! \times 3!}$$ is 4204200. Like before, there are 4! ways to map Alg, Combi, Geo and NT to the topics A, B, C, and D, so there are actually 4204200 $$\times$$ 4! topic sequences, which is 100900800.
+
+Add to get $$\dfrac{14! \cdot 4!}{3!^3 \cdot 4!} \left(\dfrac{1}{5} + \dfrac{1}{4}\right) = 2^6 \cdot 3^4 \cdot \cdot 5 \cdot 7^2 \cdot 11 \cdot 13 \iff \boxed{11}.$$
+	%Put sol here
+\end{solution}\bigskip

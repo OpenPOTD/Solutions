@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Prandom}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 198}\\
+\emph{Date: 2021-05-26}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+There exist a square $ ABCD $ with its side length 5 and there also exist a random point $ P $ on the same plane such that $ AP = 1 $ . \\
+Let $ M $ be the longest distance possible between P and C . Let $ m $ be the shortest distance possible between P and C. \\
+Find $\lfloor 1000M + 1000m \rfloor.$
+
+\begin{center}
+    \textit{(A scientific calculator may be used.)}
+\end{center}
+%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We notice that the distance $ CP $ could be maximum and minimum if $ C , A , $ and $ P $ are collinear. This can be proved by drawing a circle around A. Then , we continue by finding M and m \\
+M = $ \sqrt{5^2 + 5^2} + 1 $ = $ 5 \sqrt{2} + 1 $ \\
+m = $ \sqrt{5^2 + 5^2} - 1 $ = $ 5 \sqrt{2} - 1 $ \\
+Hence, $ M + m $ = $ 5 \sqrt{2} + 1 $ + $ 5 \sqrt{2} - 1 $ = $ 10 \sqrt{2} $ = $ \sqrt{200}  \iff \boxed{14142}.$ \\
+%Put sol here
+\end{solution}\bigskip

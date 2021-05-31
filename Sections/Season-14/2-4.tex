@@ -1,0 +1,44 @@
+\SSbreak\\
+\emph{Source: \Chmmt 2012 February A6}\\
+\emph{Proposer: \Pchan}\\
+\emph{Problem ID: 199}\\
+\emph{Date: 2021-05-27}\\
+\emph{Difficulty: Medium}
+\SSbreak
+ 
+\SSpsetQ{Let $a_0 = -2$, $b_0 = 1$, and for $n \geq 0$, let 
+\[
+a_{n+1} = a_n + b_n + \sqrt{a_n^2 + b_n^2}
+\]
+\[
+b_{n+1} = a_n + b_n - \sqrt{a_n^2+b_n^2}
+\]
+
+If $a_{2020}$ can be represented in the form $a^x\sqrt{b}- c^y$, where $a,b,c$ are integers such that $a,c$ are minimized and $c$ is square free. Find $x+y$.
+}
+
+\begin{solution}\hfil\medskip
+By adding the two equations and multiplying them respectively, we get 
+\[
+a_{n+1} + b_{n+1} = 2(a_n+b_n)
+\]
+\[
+a_{n+1}b_{n+1} = (a_n+b_n)^2 - (a_n^2 + b_n^2) = 2 a_nb_n
+\]
+Thus, we get that 
+\[
+a_{2020} + b_{2020} = -2^{2020}
+\]
+\[
+a_{2020}b_{2020} = -2^{2021}
+\]
+Either by vieta's or substitution, we get $a_{2020}, b_{2020}$ are the roots of  the quadratic
+\[
+x^2 +2^{2020}x - 2^{2021}
+\]
+where $a_{2020}$ is the larger root since the positive sqrt was added. Solving the quadratic gives that 
+\[
+a_{2020} = 2^{1010}\sqrt{2^{2018} + 2} - 2^{2019}
+\]
+Thus, the answer is $\boxed{3029}$
+\end{solution}

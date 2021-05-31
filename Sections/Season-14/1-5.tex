@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: Baltic Way 2020 Problem 18}\\
+\emph{Proposer: \Phyper}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 193}\\
+\emph{Date: 2021-05-21}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+Let $n\geq 1$ be a positive integer. We say that an integer $k$ is a \emph{fan} of $n$ if $0\leq k\leq n-1$ and there exist integers $x,y,z\in\mathbb{Z}$ such that
+\begin{align*}
+	x^2+y^2+z^2 &\equiv 0 \pmod n;\\
+	xyz &\equiv k \pmod n.
+\end{align*}Let $f(n)$ be the number of fans of $n$. Determine $f(2020)$.
+%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We note that if $4\mid x^2+y^2+z^2$, then clearly $x\equiv y\equiv z\equiv 0\pmod 2$, so $xyz\equiv 0\pmod 4$. Similarly, if $5\mid x^2+y^2+z^2$, then as $x^2\in\{0,1,4\}$, one of $x,y,z$ is divisible by $5$. Now, we claim we can find $x,y,z$ such that $x^2+y^2+z^2\equiv 0\pmod{101}$ and $xyz\not\equiv 0\pmod{101}$. We can let $\alpha=\sqrt{-1}\pmod{101}$ which has to exist as $101\equiv 1\pmod 4$. Thus if $101\nmid z$,
+\[(x-\alpha y)(x+\alpha y)=x^2-(\alpha y)^2=-z^2\]
+We have $101-1=100$ choices for $x+\alpha y$, and only two values of $x+\alpha y$ force $x+\alpha y=\pm (x-\alpha y)$, implying that we have a solution such that $0\nmid x,y,z$ and
+\[101\mid x^2+y^2+z^2\]
+Note that $3\nmid 101-1$, so thus taking this solution and multiplying by an arbitrary number $w$, we see that $(xw,yw,zw)$ works and thus spans all possible values of $k\pmod{101}$. Thus, there are 101 \emph{fans} of 101, but only 1 of \emph{20}, so there are \boxed{101} of 2020.
+%Put sol here
+\end{solution}\bigskip

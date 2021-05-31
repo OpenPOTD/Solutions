@@ -1,0 +1,29 @@
+\SSbreak\\
+\emph{Source: Probably Not Original}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 200}\\
+\emph{Date: 2021-05-28}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+Let $S$ denote the set $\{0, 1, \cdots , 2026\}^2 \setminus {(0, 0)}$; that is, the set of all pairs of residues mod $2027$ excluding $(0, 0)$.
+Let $R(x)$ be the remainder when $$\prod_{(a, b) \in S} (ax + b)$$ is divided by $x^{11} - 1$. Find the remainder when $R(2)$ is divided by $2027$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We solve for general primes, replacing $2027$ with $p$ and $11$ with $q$ such that $q | p - 3$. 
+We claim $$x(x + 1)(x + 2) \cdots (x + p - 1) \equiv x^p - x \pmod{p}.$$ 
+Indeed, both sides have degree $p$ and roots $0, 1, \cdots p - 1$ mod $p$, so they are equivalent.
+When $a = 0$, the product is $(p - 1)!$; we focus on evaluating $ax(ax + 1) \cdots (ax + p - 1)$. 
+Note that since $(a, p) = 1$, $\left\{a, 2a, \cdots (p - 1)a\right\}$ is a permutation of $\{1, 2, \cdots p - 1\}$ so our product reduces down to
+$$ax(ax + a)(ax + 2a) \cdots \left(ax + (p - 1)a\right) = a^px(x + 1) \cdots (x + p - 1) \equiv a\left(x^p - x\right);$$ multiplying over all $a$ we get
+$(p - 1)!^2\left(x^p - x\right)^{p - 1}$. Now, we have $q | p - 3 \iff x^{p - 3} \equiv 1 \pmod{x^q - 1}$ so reducing our product mod $x^q - 1$ yields
+$$\left(x^3 - x\right)^{p - 1} \equiv x^{p - 1}\left(x^2 - 1\right)^{p - 1} \equiv x^2\left(x^2 - 1\right)^{p - 1}$$ where we have used $(p - 1)! \equiv -1 \pmod{p}$.
+Notice $(-1)^k\binom{p - 1}{k} \equiv (-1)^k \cdot \frac{(-1)(-2) \cdots (-k)}{k!} \equiv 1 \pmod{p}$ so using binomial expansion our product is 
+$x^2 + x^4 + \cdots + x^{2p}$. Observe that the $q$ numbers $2, 4, \cdots 2q$ forms a complete residue class mod $q$; this means that 
+$$x^2 + x^4 + \cdots x^{2q} \equiv 1 + x + \cdots x^{q - 1} \pmod{x^q - 1}.$$
+Letting $p = qk + 3$ we have $p$ terms to sum, so there are $k$ copies of $1 + \cdots + x^{q - 1}$ to sum and an extra $x^2 + x^4 + x^6$ left over. 
+Plugging in $x = 2, p = 2027, q = 11, k = 184$ our sum is $$184 \left(2^{11} - 1\right) + 84 \equiv 184 \cdot 20 + 84 \equiv \boxed{1737} \pmod{2027}.$$
+\end{solution}\bigskip
