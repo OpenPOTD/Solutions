@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: 2019 Pui Ching Contest}\\
+\emph{Proposer: \Pqs}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 206}\\
+\emph{Date: 2021-06-09}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+
+    $$\frac{69}{420} + \frac{69\cdot 70}{420\cdot 421} + \frac{69\cdot 70\cdot 71}{420\cdot 421\cdot 422} + \cdots = \frac{m}{n},$$ where $m, n$ are relatively prime
+    positive integers. Find $100m + n$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    \begin{align} \begin{split}
+        &\frac{69}{420} + \frac{69\cdot 70}{420\cdot 421} + \frac{69\cdot 70\cdot 71}{420\cdot 421\cdot 422} + ... \\
+        =& \frac{1}{350} \left[ \frac{69\cdot (420-70)}{420} + \frac{69\cdot 70\cdot (421-71)}{420\cdot 421} \right. \\
+        &+ \left. \frac{69\cdot 70\cdot 71\cdot (422-72)}{420\cdot 421\cdot 422} + ... \right] \\
+        =& \frac{1}{350} \left[ \frac{69\cdot 420}{420} - \frac{69\cdot 70}{420} + \frac{69\cdot 70\cdot 421}{420\cdot 421} - \frac{69\cdot 70\cdot 71}{420\cdot 421} \right. \\
+        &+ \left. \frac{69\cdot 70\cdot 71\cdot 422}{420\cdot 421\cdot 422} - \frac{69\cdot 70\cdot 71\cdot 72}{420\cdot 421\cdot 422} + ... \right] \\
+        =& \frac{69}{350}
+    \end{split} \end{align}
+        Thus, the answer is \fbox{7250}.
+\end{solution}\bigskip
