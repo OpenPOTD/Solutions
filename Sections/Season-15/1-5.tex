@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: David Patrick}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 208}\\
+\emph{Date: 2021-06-11}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+	We play a game. The pot starts at \$0. On every turn, you flip a fair coin. If you flip heads, I add \$100 to the pot. If you flip tails, I take all of the money out of the pot, and you are assessed a “strike.” You can stop the game before any flip and collect the contents of the pot, but if you get 3 strikes, the game is over and you win nothing. Find, with proof,the expected value of your winnings if you follow an optimal strategy.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We work backwards. If we have only one strike left, when is it advantageous to flip again? Suppose there are $d$ dollars in the pot. Then, the expected 
+	pot value of our next flip is $\frac{1}{2}(d + 100)$, so we want to solve $\frac{1}{2}(d + 100) > d \iff d < 100$. However, the only value for which $d < 100$
+	is $d = 0$, so, with only one strike remaining, the best strategy is to flip once and end the game, no matter what the result; our expected earnings is \$50. \medskip
+
+	What about with two strikes? Suppose there are $d$ dollars in the pot. This time, the expected pot value is $\frac{1}{2}(d + 100) + \frac{1}{2} \cdot 50$,
+	since if it's heads we add \$100 and if we lose we play as if we have one strike left, which optimal expected earnings is \$50 as covered before.
+	Solving $d + 100 + 50 > 2d$ we have $d < 150$. Now, we can split into cases: the result of our first coin, and the result of our second (if the first coin is heads).
+	Our expected earnings are then $\frac{1}{2} \cdot 50 + \frac{1}{2}\left(\frac{1}{2} \cdot 200 + \frac{1}{2} \cdot 50\right) = 87.5$. \medskip
+	
+	For three strikes, it's exactly the same: solve $\frac{1}{2}(d + 100) + \frac{1}{2} \cdot 87.5 > d \iff d < 187.5$; then our expected earnings are 
+	$\frac{1}{2} \cdot 87.5 + \frac{1}{2}\left(\frac{1}{2} \cdot 200 + \frac{1}{2} \cdot 87.5 \right) = 115.625 \iff \boxed{11562}.$
+\end{solution}\bigskip

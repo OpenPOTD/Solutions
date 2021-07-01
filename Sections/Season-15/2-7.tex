@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: chinese guy}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 217}\\
+\emph{Date: 2021-06-20}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+    Let $f: \mathbb{R}^{2020} \to \mathbb{R}$ be the function 
+    $$f\left(a_1, a_2, \cdots , a_{2020}\right) = \dfrac{a_1^2 + a_2^2 + \cdots + a_{2020}^2 + \left(a_1 + a_2 + \cdots + a_{2020}\right)^2}{\sqrt{a_1^4 + a_2^4 + \cdots + a_{2020}^4 + \left(a_1 + a_2 + \cdots + a_{2020}\right)^4}}.$$
+    Then the maximum of $f$ is $M$, and the minimum of $f$ is $m$. Find $\lfloor 10^9M + 10^6m \rfloor.$ \calculator
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    In fact, $f$ has the range $$\left[\sqrt{\dfrac{m(m-1)}{m^2-3m+3}}, \sqrt{\dfrac{m\left(m^2-1\right)}{m^2+3}}\,\right]$$ where $m = n + 1$, giving us an answer of \fbox{44956512067}. 
+    The condition is equivalent to $a_1 + \cdots + a_m = 0$, where $m$ is odd. To find the minimum, WLOG $a_m$ be the largest term in absolute value (positive or negative) 
+    then use C-S on $$a_1^2 + \cdots + a_{m-1}^2 = \left(a_1 + \cdots + a_{m-1}\right)^2 - 2 \sum_{i < j} a_ia_j = a_m^2 - 2 \sum_{i < j} a_ia_j$$ to arrive at 
+    an answer. The end result is that we should maximize $a_m^2$ while minimizing $a_1^2 + \cdots a_{m-1}^2$. \medskip
+
+    Unfortunately, the maximum is not so easy. Intuitively from QM-AM, the maximum should happen when the $a$'s are close together; in fact, the equality 
+    case happens when there are $\lfloor m/2 \rfloor$ equal terms of one sign and $\lceil m/2 \rceil$ equal terms of the other. The proof of this is absolute 
+    hell and involves 4 different inequalities (one that you have to make up yourself) and smoothing/mixing variables, so just trust that the fakesolve works.
+\end{solution}\bigskip

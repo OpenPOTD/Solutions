@@ -1,0 +1,17 @@
+\SSbreak\\
+\emph{Source: \Cop}\\
+\emph{Proposer: \Plot}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 213}\\
+\emph{Date: 2021-06-16}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+
+    There is a circle that goes through the points $(2+\sqrt{2}, 1-\sqrt{7})$ and $(5,1)$ with radius $3$. Let $(a,b)$ be the circle's center. Given $a+b$ is a positive integer, find $a^b+b^a$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Notice that $\sqrt{2}^2+\sqrt{7}^2=3^2$, so we try and see that a circle centered at $(2,1)$ does go through $(2+\sqrt{2}, 1-\sqrt{7})$. Using the distance formula, we see it also goes through $(5,1)$. The other and only possible circle has its center reflected across the midpoint of the two given points. Since one point has lattice coordinates and the other is irrational, the midpoint must have irrational coordinates. Therefore, this other circle's center has irrational coordinates. Since $2$ and $7$ are relatively prime, it is impossible for the sum of the this center's coordinates to be an integer. Therefore the circle centered at $(2,1)$ is the only possible circle, giving us the answer of $2^1+1^2=\boxed{3}.\square$
+\end{solution}\bigskip

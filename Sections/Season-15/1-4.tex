@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: HMMT-Feb-2018-AN4}\\
+\emph{Proposer: \Pchan}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 207}\\
+\emph{Date: 2021-06-10}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+ 
+\SSpsetQ{
+Distinct prime numbers $p, q, r$ satisfy the equation 
+\[
+2pqr + 50 pq = 7pqr + 55pr = 8pqr + 12qr = A
+\]
+for some positive integer $A$. What is $A$?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+Comparing the first two equations, we get 
+\begin{align*}
+    50pq - 55pr &= 5pqr \iff \\
+    10q - 11r &= qr \iff \\
+    (q+11)(r-10) &= -110 
+\end{align*}
+Since $q,r$ are positive integers, $(r-10)$ must be negative and $(11+q)$ must be a divisor of $110$ larger than $11$. A quick check gives that $q$ must be $11$, which gives that $r = 5$. Plugging these values into the original equation gives $p = 3$ and thus $A = \boxed{1980}$.
+
+\end{solution}\bigskip

@@ -1,0 +1,22 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pbrain}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 212}\\
+\emph{Date: 2021-06-15}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+	There are 100 prisoners numbered 1 to 100, and 100 boxes also labelled 1 to 100. The boxes are kept inside a room and the numbers 1 to 100 are randomly placed inside each box (one number in each box, and each number appears exactly once). In sequence, each prisoner enters the room and is allowed to look inside 50 boxes. If they find their number, they are released and allowed to communicate with the next prisoners. Otherwise, all the prisoners are executed. 
+If the prisoners play optimally, the probability they are all released is $p$. Find $\floor{1000p}$. \calculator
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Suppose Brainy is the first prisoner. He clearly has no better strategy than random guessing, getting his number with probability $\frac{1}{2}$. 
+	If he does get his number, then he should remember the numbers in the remaining 49 boxes that he opened and tell that to the remaining 99 prisoners.
+	Then, each prisoner will either know which box to open (because Brainy opened the box with their number in it) or they will know 50 boxes that don't contain
+	their number (Brainy doesn't mention their number, so of the 50 boxes he opened none of them contain their number). But this means that they can all
+	successfully escape! Our answer is \fbox{500}.
+	%Put sol here
+\end{solution}\bigskip
