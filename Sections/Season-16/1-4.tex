@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 221}\\
+\emph{Date: 2021-07-01}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+    A real number $a$ is selected uniformly at random between $-50$ and $50$ inclusive. 
+    The probability that $20x - \left|21x - \left|x + \frac{20a}{21}\right|\right| = 42|x - 1|$ has real solutions
+    can be expressed in the form $\frac{m}{n}$, where $m$ and $n$ are relatively prime positive integers. 
+    Find $100m + n$.
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+    Let the LHS be $f(x)$. The graph of $f$ looks like a bunch of lines, and $f$ is continuous (why?). 
+    The maximum absolute value of the slope of a line that's part of $f$ can be is $42$, which means that if $f$ crosses 
+    the RHS then $f(1) \geq 0$, since $x = 1$ is where the minimum of $42|x-1|$ is attained; 
+    if $f(1) < 0$ then $f$ will never cross $42|x-1|$. This is because for $f$ to cross $42|x-1|$ for $x < 1$ when $f(1) < 0$, 
+    $f$ would have to somehow go from being above the V-shaped absolute value graph of $42|x-1|$ to below it at $x = 1$, impossible 
+    since no part of $f$ has slope of absolute value greater than $42$; analogously we see that $f$ cannot cross $42|x-1|$ when $x > 1$. Solve to get 
+    $-\frac{441}{10} \leq a \leq -\frac{21}{10}$ and $0 \leq a \leq 42$. Our probability is $\frac{21}{25} \iff \boxed{2125}.$
+	%Put sol here
+\end{solution}\bigskip

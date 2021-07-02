@@ -1,0 +1,27 @@
+\SSbreak\\
+\emph{Source: 2017 Fall OMO \#4}\\
+\emph{Proposer: \Pnjoy}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 219}\\
+\emph{Date: 2021-06-29}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+
+	Chris draws a line segment between each of the points
+	$$A(4, 4), B(-4, 4), C(-4, -4), D(4, -4), E(2, 0), F(0, 2), G(-2, 0), H(0, -2)$$
+	on a sheet of paper large enough so that none of the line segments touch the edge of the paper. 
+	He wants to separate all the regions obtained by the line segments and later on eat them. \medskip
+
+	What is the maximum number of regions of paper that Chris can eat?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+	Note that the diagram is diagonally symmetric, so we need only to look at the intersections 
+	in the interior of $\triangle AOB$, where $O$ is the origin. Count that there are 15 intersections, 
+	then multiply by 4 to get 60. However, the troll is that Chris is cutting out sections on a piece of paper, 
+	so the outside of square $ABCD$ is also a region and our answer is \fbox{61}.
+
+	\begin{center}\includegraphics[width=7cm,height=7cm]{Sections/Files/16-1-2.png}\end{center}
+\end{solution}\bigskip
