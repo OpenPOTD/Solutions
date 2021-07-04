@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: AoPS Mock AIME}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 222}\\
+\emph{Date: 2021-07-02}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+$p, q, r$ are reals such that the following system holds:
+\begin{align*}
+    (p + q)(q + r) &= -1 \\
+    (p - q)^2\left(1 + (p + q)^2\right) &= 20 \\
+    (q - r)^2\left(1 + (q + r)^2\right) &= 21 \\
+\end{align*}
+Find $(r - p)^2\left(1 + (r + p)^2\right).$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Consider the three points $P = \left(p, p^2\right), Q = \left(q, q^2\right), R = \left(r, r^2\right).$ Then $\overleftrightarrow{PQ}$ has slope $p + q$ 
+	and $\overleftrightarrow{QR}$ has slope $q + r$, so $\overleftrightarrow{PQ} \perp \overleftrightarrow{QR}.$ Then, using distance formula, 
+	we have $PQ = (p-q)^2 + \left(p^2 - q^2\right)^2 = 20$ and likewise for $QR$, so $(r - p)^2\left(1 + (r + p)^2\right)^2 = RP^2 = PQ^2 + QR^2$ from 
+	Pythagorean Theorem. Our answer is \fbox{41}.
+\end{solution}\bigskip

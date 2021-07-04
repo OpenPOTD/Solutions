@@ -1,0 +1,46 @@
+\SSbreak\\
+\emph{Source: National High School Math League (China) 2004 Test 2 Question 3, altered greatly}\\
+\emph{Proposer: \Ptaiga}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 223}\\
+\emph{Date: 2021-07-03}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+	Let $m$ and $n\geq4$ be positive integers. If any $k$-element subset of $\{m,m+1,\dotsb,m+n-1\}$ has at least $3$ mutually coprime elements, and the minimum value of $k$ is $2021$, calculate the sum of all possible values of $n$.
+	%Put Problem Here
+}\bigskip
+
+\begin{solution}\hfil\medskip
+	
+	Let $f(n)$ defined for integers $n\geq4$ be the minimum value required such that any $f(n)$-element subset of $\{m,m+1,\dotsb,m+n-1\}$ has at least $3$ mutually coprime elements. We wish to solve for $f(n)=2021$. 
+
+First, it is trivial that the number of elements in $\{2,3,4,\dotsb,n+1\}$ which are either a multiple of $2$ or $3$ is given by $\lfloor\frac{n+1}2\rfloor+\lfloor\frac{n+1}3\rfloor-\lfloor\frac{n+1}6\rfloor$, where $\lfloor x\rfloor$ is the greatest integer less than or equal to $x$. Therefore $f(n)\geq\lfloor\frac{n+1}2\rfloor+\lfloor\frac{n+1}3\rfloor-\lfloor\frac{n+1}6\rfloor+1$. We show that the RHS is indeed equal to $f(n)$.
+
+We will show that $f(4)=4$, $f(5)=5$, $f(6)=5$, $f(7)=6$, $f(8)=7$, $f(9)=8$ and then proceed with induction.
+
+Step 1. When $n=4$, let the set be $\{m,m+1,m+2,m+3\}$. One of the triples $(m,m+1,m+2)$ and $(m+1,m+2,m+3)$ must all be mutually coprime. Therefore it is true for $n=4$. It follows that this is also true for $n=5$.
+
+When $n=6$, let the set be $\{m,m+1,m+2,m+3,m+4,m+5\}$. Let us choose three numbers from $x_1$, $x_2$, $x_3$, $x_4$, $x_5$. If three of them are odd, then they are mutually coprime. Else there are three even numbers, let them be $x_1$, $x_2$ and $x_3$. Since $|x_i-x_j|\in\{2,4\}(1\leq i<j\leq3)$, therefore at most one is divisible by $3$, at most one is divisible by $5$, so there must exist one that is neither divisible by $3$ nor $5$, WLOG let it be $x_3$. Then $x_3$, $x_4$, $x_5$ are coprime. It follows that this is true for $n=7$, $n=8$ and $n=9$.
+
+Step 2. If the proposition is true for $n=t(t\geq4)$, then when $n=t+6$, we have $f(t+6)-f(t)=4$. Note that $\{m,m+1,\dotsb,m+t+5\}=\{m,m+1,m+2,m+3,m+4,m+5\}\cup\{m+6,m+7,\dotsb,m+t+5\}$. We choose $f(t+6)=f(t)+4$ elements from it.
+
+If we choose at least $5$ elements from $\{m,m+1,\dotsb,m+5\}$, then from the conclusion of $n=6$, we are done. Otherwise we must have chosen $f(t)$ elements from $\{m+6,m+7,\dotsb,m+t+5\}$, which is true from the induction hypothesis.
+
+Therefore the proposition is true for $n=t+6$.
+
+Therefore, $f(n)=\lfloor\frac{n+1}2\rfloor+\lfloor\frac{n+1}3\rfloor-\lfloor\frac{n+1}6\rfloor+1$. Note that this can be rewritten as:
+$$
+f(n)=
+\begin{cases}
+4t+1,&(n=6t,t\in\mathbb{Z}^+),\\
+4t+2,&(n=6t+1,t\in\mathbb{Z}^+),\\
+4t+3,&(n=6t+2,t\in\mathbb{Z}^+),\\
+4t+4,&(n=6t+3,t\in\mathbb{Z}^+),\\
+4t+4,&(n=6t+4,t\in\mathbb{Z}^+),\\
+4t+5,&(n=6t+5,t\in\mathbb{Z}^+)\end{cases}
+$$
+
+Finally we solve $f(n)=2021$ to get $n=3029$ or $3030$. Therefore the answer is $3029+3030=\boxed{6059}$.
+	%Put sol here
+\end{solution}\bigskip
