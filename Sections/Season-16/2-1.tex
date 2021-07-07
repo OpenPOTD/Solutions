@@ -1,0 +1,19 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 225}\\
+\emph{Date: 2021-07-05}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+  Find the sum of all integers \(x\) such that 
+  \begin{equation*}
+    3^{2x}+5^{2x}=34\cdot15^{x-1}
+  \end{equation*}
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+We have a quadratic in \(3^x\) and also \(5^x\). Taking it as a quadratic in \(3^x\) gives \(\left(3^x-\frac{17}{15}\cdot5^x\right)^2-\left(\frac{15^2-17^2}{15^2}\right)5^{2x}=0\), this gives \(3^x=\frac{1}{3}\cdot 5^{x+1}\) or \(3^x=3\cdot5^{x-1}\). Thus we see the only possible values of \(x\) are \(\pm 1\). So the answer is \fbox{0}
+\end{solution}\bigskip
