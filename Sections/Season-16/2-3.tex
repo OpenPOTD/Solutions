@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: Mandelbrot (Year Unknown)}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 227}\\
+\emph{Date: 2020-07-07}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+  Points $B'$ and $C'$ are chosen on side $\overline{BC}$ of $\triangle ABC$ such that 
+  $BB' = 1$, $B'C' = 24$, and $CC' = 3$. Given that the circle with diameter $\overline{B'C'}$ 
+  is tangent to $\overline{AB}$ and $\overline{AC}$, the perimeter of $\triangle ABC$ is $p$. 
+  Find $\lfloor 100p \rfloor$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+  Let the circle touch $\overline{AB}$ at $P$ and $\overline{AC}$ at $Q$. Then, by Power of Point 
+  we have $BP^2 = BB' \cdot BC' \iff BP = 5$ and similarly $CQ = 9$. Then let $AP = d = AQ$ and the 
+  midpoint of $\overline{B'C'}$ be $M$; by angle bisector theorem we have 
+  $$\dfrac{5 + d}{9 + d} = \dfrac{13}{15} \iff d = 21$$
+  so our perimeter is \fbox{84}.
+\end{solution}\bigskip
