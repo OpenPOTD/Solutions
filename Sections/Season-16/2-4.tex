@@ -1,0 +1,23 @@
+\SSbreak\\
+\emph{Source: 2020 STEMS AP1}\\
+\emph{Proposer: \Pnjoy}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 228}\\
+\emph{Date: 2021-07-08}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+
+    Given four positive reals $b_1,b_2,b_3,b_4$ such that $b_1^2 + b_3^2 = b_2^2 + b_4^2$. Positive reals $a_1,a_2,a_3,a_4$ satisfy $a_i^2 + a_{i+1}^2 = b_i^2$ for $i=1,2,3,4$ where indices are taken mod $4$ (in particular, $a_5 = a_1$). Express the maximum value that $(a_1+a_3)(a_2+a_4)$ can take in terms of $b_1,b_2,b_3,b_4$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We claim the answer is $b_1b_3 + b_2b_4 \iff \boxed{1584}$. \medskip
+
+    Consider quadrilateral $ABCD$ such that $\overline{AC} \perp \overline{BD}$, $\overline{AB} \perp \overline{DA}$, and $\overline{BC} \perp \overline{CD}$; let $AB = b_1, BC = b_2, CD = b_3, DA = b_4$. 
+    Then let $\overline{AC}$ intersect $\overline{BD}$ at $E$, and let $AE = a_1, BE = a_2, CE = a_3, DE = a_4$; the problem constraints are now satisfied and it 
+    suffices to maximize $AC \cdot BD$. But this is precisely Ptolemy's Inequality, with $AB \cdot CD + BC \cdot AD = b_1b_3 + b_2b_4 \geq AC \cdot BD$ with equality iff $ABCD$ is cyclic. \medskip
+    
+    \textit{Remark.} Can you figure out what role the constraint $b_1^2 + b_3^2 = b_2^2 + b_4^2$ plays here?
+\end{solution}\bigskip
