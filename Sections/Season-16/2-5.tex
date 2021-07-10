@@ -1,0 +1,35 @@
+\SSbreak\\
+\emph{Source: 2021 Mathcamp Application Problem 2e}\\
+\emph{Proposer: \Pchan}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 229}\\
+\emph{Date: 2021-07-09}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+IcosahedralDice has a shapeshifting die. It originally has $N$ sides; however, when rolled, it changes shape to have a number of sides equal to the number rolled.
+(For example, if he originally has an icosahedral dice and rolls a 12, his die will shapeshift into having 12 sides.) \medskip
+
+Brainy and IcosahedralDice are playing a game: the first person to roll one of the numbers $1, 2, \cdots , k$ loses. If IcosahedralDice rolls first, what is the 
+probability he loses?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let $p_n$ denote the probability that person to roll loses when rolling an $n > k$-sided die. 
+    IcosahedralDice rolls anything in the range $[1, k]$ with probability $\frac{k}{n}$, instantly losing. 
+    He rolls $h$, where $k < h \leq n$, with probability $\frac{1}{n}$; in this case Brainy will lose with probability 
+    $p_h$, so IcosahedralDice loses with probability $1 - p_h$. Our recursion is then 
+    $$p_n = 1 - \dfrac{1}{n}\left(p_{k + 1} + p_{k + 2} + \cdots + p_n\right)$$
+    which rearranges to $$(n + 1)p_n + \left(p_{k + 1} + p_{k + 2} + \cdots + p_{n - 1}\right) = n.$$
+    Shifting $n \to n + 1$ and subtracting the two recursions we get 
+    $$(n + 2)p_{n + 1} - np_n = 1.$$
+    This is almost a telescoping product, except the RHS is 1 and not 0. Noticing that the 
+    coefficients of $p$ differ by 2, and wanting to get rid of the 1, we shift the opposite of $p$ by $\frac{1}{2}$; 
+    that is, let $q_n = \frac{1}{2} - p_n$. Our recursion becomes 
+    $$1 + nq_n - (n + 2)q_{n + 1} = 1 \iff q_{n + 1} = \dfrac{n}{n + 2}q_n \iff q_n = \dfrac{n - 1}{n + 1}q_{n - 1}$$
+    and since $$p_{k + 1} = \dfrac{k}{k + 1} + \dfrac{1}{k + 1}\left(1 - p_{k + 1}\right) \iff q_{k + 1} = \dfrac{1}{2} - \dfrac{k + 1}{k + 2} = -\dfrac{k}{2(k + 2)}$$
+    we have $$q_{n} = -\dfrac{(n - 1)(n - 2) \cdots k}{(n + 1)n \cdots (k + 3) \cdot 2(k + 2)} = -\dfrac{k(k + 1)}{2n(n + 1)}$$
+    so our answer is $$p_N = \dfrac{1}{2} + \dfrac{k(k + 1)}{2N(N + 1)} \iff \boxed{622}.$$
+\end{solution}\bigskip
