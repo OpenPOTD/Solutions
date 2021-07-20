@@ -1,0 +1,16 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Paiya}\\
+\emph{Problem ID: 231}\\
+\emph{Date: 2021-07-10}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+For all nonnegative integers, $n,$ the integer $$p(n) = \sum_{k = 0}^{3n+1} \dbinom{6n + 2}{2k}3^k$$ can be written in the form $q(n) \cdot 2^{3n+2} + r(n)$, where $q(n)$ is an integer and $r(n)$ is a \textbf{positive integer} between 1 and $2^{3n + 2}$ inclusive. Find the last three digits of $\sum_{n = 0}^{100} r(n)$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+Rewrite our sum as $p(n) = \sum_{k = 0}^{3n + 1}\binom{6n + 2}{2k}\sqrt{3}^{2k}$. This looks like a binomial expansion, with the caveat that only the even binomial coefficients are summed. Using the Binomial Theorem, we see that $\left(1 + \sqrt{3}\right)^{6n + 2} = \sum_{j = 0}^{6n + 2}\binom{6n + 2}{j}\sqrt{3}^j$ and $\left(1 - \sqrt{3}\right)^{6n + 2} = \sum_{j = 0}^{6n + 2}\binom{6n + 2}{j}(-1)^j\sqrt{3}^j$; adding the two gives us $$p(n) = \dfrac{\left(1 + \sqrt3\right)^{6n + 2} + \left(1 - \sqrt3\right)^{6n + 2}}{2}.$$ Seeing a sum of non-integral terms, LTE fails; we seek a recursion for $p(n)$. Let $x^2 + bx + c$ be the monic polynomial with roots $\left(1 \pm \sqrt3\right)^{6}$. By Vieta, this polynomial is $x^2 - 416x + 64$. Let $r, s$ be the roots; we have $$r^2 - 416r + 64 = 0 \iff r^{n + 2} = 416r^{n + 1} - 64r^n$$ which implies $$r^{n + 2} + s^{n + 2} = 416\left(r^{n + 1} + s^{n + 1}\right) - 64\left(r^n + s^n\right)$$ so $$p(n) = 416p(n - 1) - 64p(n - 2) = 32\left[13p(n - 1) - 2p(n - 2)\right].$$ After calculating $p(0) = 4, p(1) = 1552 = 2^4 \cdot 97$ we recurse, finding $p(2) = 2^8 \cdot a, p(3) = 2^{10} \cdot a$ where $a$ is a varying odd integer. A quick induction proves that $p(n) = 2^{3n + 2} \cdot a$ if $n$ is even and $2^{3n + 1} \cdot a$ if $n$ is odd. Now we sum: $$\sum_{n = 0}^{100} r(n) = \sum_{j = 0}^{50}2^{6j + 2} + \sum_{k = 0}^{49}2^{6k + 4} = \dfrac{2^{308} + 2^{304} - 2^{4} - 2^2}{63}$$. That is $4$ mod $8$; using $\varphi(125) = 100$ and Euler's Theorem we get that the numerator is $2^8 + 2^4 - 2^{4} - 2^2 \equiv 2 \pmod{125}$. To find the inverse of $63$ mod $125$, note that $125 - 2 \cdot 63 = -1 \iff 1/63 \equiv 2 \pmod{125}$ so our sum is $4 \pmod{125}$. Our answer is $\boxed{4}$.
+\end{solution}\bigskip
