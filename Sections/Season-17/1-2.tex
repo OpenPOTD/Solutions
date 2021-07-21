@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: Turtle Mock AMC}\\
+\emph{Proposer: \Pflame}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 233}\\
+\emph{Date: 2021-07-20}\\
+\emph{Difficulty: Beginner}\\
+\SSbreak
+
+\SSpsetQ{
+
+	$\triangle ABC$ has circumcenter $O$ and an area of 360. If $[AOB] = 72, [COA] = 192$, 
+	find $[BOC]$. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+	The trick is that $\triangle ABC$ is obtuse, so $O$ lies outside the triangle. 
+	This is because in an acute triangle $\triangle XYZ$, $O$ will always be on one side of a median, 
+	so the maximum of $[XOY]$ is $[XYZ]/2$. We also know that $\triangle BOC$ cannot be the 
+	triangle completely outside $\triangle ABC$ since then $[AOB] + [COA] = [BOCA] > [ABC]$, 
+	contradiction. If $\triangle COA$ were the one outside, then we would have 
+	$[AOB] + [BOC] - [COA] = [ABC] \iff [BOC] = 480$. But this is impossible, since 
+	the area of the portion of $\triangle BOC$ that's outside of $\triangle ABC$ would be 
+	strictly greater than $[BOC] - [ABC] = 120 > [COA]$, contradiction since that portion 
+	is only part of $\triangle COA$. Thus, we have $[BOC] + [COA] - [AOB] = [ABC] \iff [BOC] = \boxed{240}.$
+\end{solution}\bigskip
