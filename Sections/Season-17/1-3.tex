@@ -1,0 +1,39 @@
+\SSbreak\\
+\emph{Source: \Cfolk}\\
+\emph{Proposer: \Pss}\\
+\emph{Problem ID: 234}\\
+\emph{Date: 2021-07-21}\\
+\Easy
+\SSbreak
+
+\SSpsetQ{
+Find the sum of all integers \(n\) for which the function \(f:\R\to\R\), such that 
+
+\begin{equation*}
+  f(x)=\cos(nx)\sin\left(\frac{5x}{n}\right)
+\end{equation*}
+for \(x\in\R\) is periodic with minimal period \(3\pi\)
+}\bigskip
+
+\begin{solution}\hfil\medskip
+
+We require \(f(x+3\pi)=f(x)\). Observe:
+
+\begin{align*}
+  f(x+3\pi)&=\cos(nx+3n\pi)\sin\left(\frac{5x}{n}+\frac{15\pi}{n}\right)\\
+  &=(-1)^n\cos(nx)\sin\left(\frac{5x}{n}+\frac{15\pi}{n}\right)\\
+  \sin\left(\frac{5x}{n}\right)&=(-1)^n\sin\left(\frac{5x}{n}+\frac{15\pi}{n}\right)
+\end{align*}
+Clearly, for equality to hold, \(n\) cannot be even. Thus we consider the case when \(n\) is odd.
+
+\begin{align*}
+  \sin\left(\frac{5x}{n}+\frac{15\pi}{n}\right)-\sin\left(\frac{5x}{n}\right)&=0\\
+  2\sin\left(\frac{\frac{5x}{n}+\frac{15\pi}{n}+\frac{5x}{n}}{2}\right)\cos\left(\frac{\frac{5x}{n}+\frac{15\pi}{n}-\frac{5x}{n}}{2}\right)&=0\\
+  \sin\left(\frac{5x}{n}+\frac{15\pi}{n}\right)\cos\left(\frac{15\pi}{2n}\right)=0
+\end{align*}
+So, the possible values of $n$ are $1, 3, 5, 15$. However, if $n = 1, 5$ then 
+$f(x) = \cos(5x)\sin(x)$ or $\cos(x)\sin(5x)$, both of which have periods $\pi$. 
+To see this, note $$\sin(5x)\cos(x) = \dfrac{1}{2}\left[\sin(5x + x) + \sin(5x - x)\right] = \dfrac{\sin(6x) + \sin(4x)}{2}$$
+and the periods of $\sin(6x)$ and $\sin(4x)$ are $\frac{\pi}{3}$ and $\frac{\pi}{2}$, respectively, 
+and $\left[\frac{\pi}{3}, \frac{\pi}{2}\right] = \pi$. Our answer is \fbox{18}.
+\end{solution}
