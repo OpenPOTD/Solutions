@@ -1,0 +1,28 @@
+\SSbreak\\
+\emph{Source: 2011 Purple Comet High School 28}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 235}\\
+\emph{Date: 2021-07-22}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+
+A chain of three circles, each with radius $3$, are each externally tangent to their neighbors in the chain and internally tangent to a circle of radius $30$.
+Two circles, each with radius $2$, are each externally tangent to two circles in the chain. The distance between the two circles with radius $2$ can be expressed in the form
+$\frac{p\sqrt{q} - r}{s}$, where $q$ is squarefree, $p, q, r, s$ are positive integers, and $\gcd(p, r, s) = 1$. Find $1000p + 100q + 10r + s.$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let $O$ be the centre of the large circle, $A$ be the centre of the central cicle of radius 3, 
+    $B$ be the centre of the right circle of radius 3, and $C$ the centre of the circle of radius 2 
+    tangent to $A, B$. The midpoint $M$ of $\overline{AB}$ is also the point of tangency 
+    of the two circles since they're congruent. Let $H$ be the foot of the perpendicular from $C$ to 
+    $\overline{OA}$. Then from right triangles, our desired length is $10 \sin \angle CAO$. 
+    But from right $\triangle OAM$ and $\triangle CAH$ and angle subtraction identity we have 
+    \begin{align*}
+        \sin \angle CAO &= \sin \left(\angle OAM - \angle CAM\right) = \dfrac{4\sqrt{5}}{9} \cdot \dfrac{3}{5} - \dfrac{1}{9} \cdot \dfrac{4}{5} \\
+        10 \sin \angle CAO &= \dfrac{2\left(12\sqrt{5} - 4\right)}{9} = \dfrac{24\sqrt{5} - 8}{9} \iff \boxed{24589}.
+    \end{align*}
+\end{solution}\bigskip
