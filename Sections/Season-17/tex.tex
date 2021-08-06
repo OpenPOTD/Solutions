@@ -1,0 +1,65 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Ptan}\\
+\emph{Problem ID: 244}\\
+\emph{Date: 2021-07-31}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+	2021 distinct rooms are arranged in a circle, each with 4 doorways, 2 leading to neighboring rooms, 
+	1 leading inside the circle, 1 leading outside. Each doorway can only be passed through in one direction. 
+	Find the last 10 digits of the number of ways to arrange their directions so that one can access any area 
+	(a room, inside the circle, or outside) from any other area.
+}\bigskip
+
+\begin{solution}[Write up by \Pqs]\hfil\medskip
+
+    The regions and doorways can be modelled as faces and directed edges of a prism, 
+	where one can go from region $A$ to $B$ if the corresponding edge points clockwise w.r. to face $A$. \\ \\
+	Suppose there is a directed cycle, then one can only cross from one side of it to the other, 
+	thus not fulfilling the criteria of being able to reach any region from any other region. On the contrary, 
+	if there are no cycles, then for any nonempty strict subset $S$ of faces, one can always find a face $\notin S$ 
+	reachable from some face $\in S$. By selecting a set $\{F\}$ of any face and continuously adding reachable faces to it, 
+	one can conclude that any face can be reached from any other face. Thus the answer is the number of ways to 
+	direct the edges of a 2021-sided prism to form an acyclic graph. \\ \\
+	Let $f(G)$ be the number of ways to direct the edges of an undirected graph $G$ to form an acyclic graph. 
+	Let $G\backslash e$ and $G/e$ denote the removal and contraction (removal of edge and merging of 2 vertices) of edge $e$ 
+	respectively. Note that $f(G) = 0$ if $G$ contains a loop (edge connecting vertex to itself), 
+	and the removal of an edge doesn't change the value of $f$ if there is another edge connecting the same 2 vertices. 
+	For some directed graph $G$ with non-loop edge $e$, suppose reversing the direction of $e$ changes whether $G$ is acyclic, 
+	then $G\backslash e$ is acyclic and $G/e$ is cyclic. Suppose $G$ is acyclic/cyclic regardless of the orientation of $e$, 
+	then both $G/e$ and $G\backslash e$ are acyclic/cyclic. Thus we have $f(G) = f(G/e) + f(G\backslash e)$. \\ \\
+	Let $Q_s$ denote an undirected graph in the shape of an $s-1$ by 1 grid of squares,
+	containing vertices $(x, y)$ for all pairs of integers $1 \leq x \leq s$, $0 \leq y \leq 1$.
+	Let $G+e$ denote the addition of edge $e$ and $G[A,B]$ the merging of vertices $A,B$. Observe $f(Q_1) = 2$ and 
+	\begin{align*}
+	f(Q_{n+1}) &= f\left(Q_{n+1}\backslash\overline{(n+1,0)(n+1,1)}\right) + f\left(Q_{n+1}/\overline{(n+1,0)(n+1,1)}\right)\\
+	&= 4f(Q_n) + (2f(Q_n) + f(Q_n))\\
+	&= 7f(Q_n)
+	\end{align*}
+	Therefore, $f(Q_n) = 2\cdot 7^{n-1}$. Notice $f(Q_2[(1,0),(n,0)]) = 0$, $f(Q_2[(1,0),(n,1)]) = 4$, and
+	\begin{align*}
+	&\ f(Q_{n+1}[(1,0),(n+1,0)])\\
+	=&\ f\left(Q_n+\overline{(1,0)(n,0)}+\overline{(n,1)(n+1,1)}\right) + f\left(Q_n+\overline{(1,0)(n,0)}+\overline{(1,0)(n,1)}\right)\\
+	=&\ 3f\left(Q_n+\overline{(1,0)(n,0)}\right) + f(Q_n[(1,0),(n,1)])\\
+	=&\ 6\cdot 7^{n-1} + 3f(Q_n[(1,0),(n,0)]) + f(Q_n[(1,0),(n,1)])
+	\end{align*}
+	\begin{align*}
+	&\ f(Q_{n+1}[(1,0),(n+1,1)])\\
+	=&\ f\left(Q_n+\overline{(1,0)(n,1)}+\overline{(n,0)(n+1,0)}\right) + f\left(Q_n+\overline{(1,0)(n,0)}+\overline{(1,0)(n,1)}\right)\\
+	=&\ 3f\left(Q_n+\overline{(1,0)(n,1)}\right) + f(Q_n[(1,0),(n,0)])\\
+	=&\ 6\cdot 7^{n-1} + 3f(Q_n[(1,0),(n,1)]) + f(Q_n[(1,0),(n,0)])
+	\end{align*}
+	Thus, $f(Q_n[(1,0),(n,0)]) = \frac{1}{28} (8\cdot 7^n - 7\cdot 2^n (3\cdot 2^n + 2))$.
+	Finally, $f\left(Q_2+\overline{(1,0)(2,0)}+\overline{(1,1)(2,1)}\right) = 14$ and
+	\begin{align*}
+	&\ f\left(Q_n+\overline{(1,0)(n,0)}+\overline{(1,1)(n,1)}\right)\\
+	=&\ f\left(Q_n+\overline{(1,0)(n,0)}\right) + f\left(Q_n+\overline{(1,0)(n,0)}[(1,1),(n,1)]\right)\\
+	=&\ f(Q_n) + 2f(Q_n[(1,0),(n,0)]) + f\left(Q_{n-1}+\overline{(1,0)(n-1,0)}+\overline{(1,1)(n-1,1)}\right)\\
+	=&\ 2\cdot 7^{n-1} + \frac{1}{14} (8\cdot 7^n - 7\cdot 2^n (3\cdot 2^n + 2)) + f\left(Q_{n-1}+\overline{(1,0)(n-1,0)}+\overline{(1,1)(n-1,1)}\right)
+	\end{align*}
+	Therefore, $f\left(Q_n+\overline{(1,0)(n,0)}+\overline{(1,1)(n,1)}\right) = 7^n - 2^{2n+1} - 2^{n+1} + 5$. 
+	It follows that the answer is the last 10 digits of $7^2021 - 2^{4043} - 2^{2022} + 5$, which is \fbox{7972067500}.
+\end{solution}\bigskip
