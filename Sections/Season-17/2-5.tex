@@ -1,0 +1,56 @@
+\SSbreak\\
+\emph{Source: 2021 OTIE \#15}\\
+\emph{Proposer: \Pnjoy}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 243}\\
+\emph{Date: 2021-07-30}\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+How many positive integers $1 \leq n \leq 2020^4 - 17 \cdot 2020^2 + 17$ satisfy 
+$n^{2n} \equiv 1 \pmod{2021}$, and of those, how many satisfy $n^n \equiv -1 \pmod{2021}?$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Note that modulo 2021 has period 2021, and by Euler's Theorem modular exponentiation has 
+    period $\varphi(2021) = 1932$; in other words, the sequence $n^n \pmod{2021}$ has 
+    period $2021 \cdot 1932$ (or at least the $n$ coprime to $2021$, which is what really matters).
+    That upper bound has a nice form. Replacing $2020$ with $x$, that factors to 
+    $$x^4 - 17x^2 + 17 = x^4 - 17x^2 + 16 + 1 = (x + 1)(x - 1)(x + 4)(x - 4) + 1;$$
+    it's not hard to see that those four factors are divisible by $2021 \cdot 1932.$ \medskip
+
+    \textit{Lemma.} For a given prime $p$ and multiplicative order $d$, there are exactly 
+    $\varphi(d)$ residues with order $d$. This can be seen by writing residues in the form of 
+    $g^k$, where $g$ is a generator mod $p$; then $d$ is the smallest positive integer such that 
+    $g^{kd} \equiv 1 \pmod{p} \iff (p - 1)|kd \iff h(p - 1) = kd$ for some integer $h$. 
+    Note that $(h, d) = 1$; otherwise dividing through by $(h, d)$ would yield a smaller 
+    $d' = d/(h, d)$ such that $(p - 1)|kd'.$ We have $k = \frac{h(p - 1)}{d}$, and since $(h, d)$ 
+    and $h \geq d$ (since $k < p$), there are $\varphi(h)$ such pairs in total. \medskip
+
+    We work mod $p$, where $p$ is one of $43, 47 \equiv 3 \pmod{4}$. Fix an order $d$; we find the probability that $d|2n$ and $\ord_p(n) = d$. Since the first concerns 
+    $n$'s behavior mod $p - 1$ (since $d|(p - 1)$) and the second concerns $n$'s behavior mod $p$ and 
+    $(p, p - 1) = 1$ these events are independent. The second is much easier to deal with: there are 
+    $\varphi(d)$ residues with order $d$, and $p$ total residues for a probability of $\frac{\varphi(d)}{p}$. 
+    We now case on the parity of $d$. If $d$ is odd, then $d|2n \iff d|n$ which happens with probability $\frac1d$; 
+    if $d$ is even then write $d = 2d'$ and $d|2n \iff d'|n$ which happens with probability $\frac{1}{d'}$. 
+    Since $(43, 47) = 1$ the behavior of $n^n$ mod each of those are independent. With $(x - 1)(x + 1)(x - 4)(x + 4)$ 
+    evaluating out to $2021 \cdot 1932 \cdot 2019 \cdot 2112$ and $1^n \equiv 1 \pmod{2021}$ 
+    our total number of $n$ such that $n^{2n} \equiv 1 \pmod{2021}$ is 
+    $$2019 \cdot 2112 \cdot 1932 \left(\sum_{d|46, 2\nmid d} \dfrac{2\varphi(d)}{d}\right)\left(\sum_{d|42, 2\nmid d} \dfrac{2\varphi(d)}{d}\right) + 1 = \boxed{199561190401}.$$ \medskip
+
+    Now we claim that there is an $8-1$ correspondence between integers $n$ such that $n^{2n} \equiv 1 \pmod{2021}$ 
+    and $n$ such that $n^n \equiv -1 \pmod{2021}$. We must have $d|2n$ but $d\nmid n$, implying 
+    that $d$ is even and $n$ is odd. Now, as we have shown earlier, there are an equal amount of 
+    $n$ such that $n^{2n} \equiv 1 \pmod{2021}$ with even and odd orders. We claim that for any given order $d$ 
+    there are equally many odd and even $n$ such that $n^{2n} \equiv 1 \pmod{2021}$. Consider a 
+    residue $r$ with order $d$. We case on the parity of $d$: if $d$ is odd then the all such 
+    $n$ such that both $n \equiv r \pmod{p}$ (guaranteeing the same order) and $d|n$ (guaranteeing $n^{2n} \equiv 1 \pmod{p}$) 
+    are of the form $n \equiv r \pmod{\lcm[p, d]}$. But $\lcm[p, d]$ is clearly odd so $\frac{2021 \cdot 1932}{\lcm[p,d]}$ 
+    is even, meaning that there are the same amount of even and odd such $n$. If $d$ is even 
+    then write it as $d = 2d'$; note that we only need $d|2n \iff d'|n$ and the proof proceeds as above. 
+    Thus, there are three conditions: $2|\ord_{43}(n), 2|\ord_{47}(n), 2|n$. Thus, there are 
+    $\frac{199561190400}{8} = \boxed{24945148800}$ such $n$. 
+
+\end{solution}\bigskip

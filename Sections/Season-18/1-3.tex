@@ -1,0 +1,26 @@
+\SSbreak\\
+\emph{Source: Mandelbrot (Year Unknown)}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 248}\\
+\emph{Date: 2021-08-04}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+  In the MODS Lottery, $50$ balls are drawn at random from $n > 100$ balls numbered $1$ through $n$. If the probability that no pair of consecutive numbers is drawn is equal to the probability that exactly $1$ pair is drawn, find $n$. 
+}\bigskip
+
+\begin{solution}[Write up by \Ppi]\hfil\medskip
+ 
+  Since the probabilities are equal, we have that the number of ways each is possible to be equal.
+
+  We first count the number of drawings that no pair of consecutive numbers are drawn. We can add $0$ and $n+1$ to the list for ease. So we have some $a_0+a_1+\cdots+a_{50} = n-50$ where the plus signs represent the numbers drawn. But since all $a_1$ to $a_{49}$ need to be positive, we subtract $49$ from $n-50$. So we are left with $a_0+a_1'+\cdots+a_{49}'+a_{50} = n-49-50$. There are $\binom{n-49}{50}$ ways to do this. 
+  
+  For the second case, there are $n-49$ "slots" that we can put our numbers in. We can choose one of these "slots" and put $2$ of our $50$ balls in them. Then we have $n-50$ "slots" remaining for our $48$ balls. So we have $(n-49) \cdot \binom{n-50}{48}$.
+  
+  Then setting the two equal we have 
+  $$\frac{(n-49)!}{50!(n-99)!} = \frac{(n-49)!}{48!(n-98)!}$$
+  $$50\cdot49 = n-98$$
+  $$n = \boxed{2548}$$
+
+\end{solution}\bigskip

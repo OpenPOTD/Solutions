@@ -1,0 +1,56 @@
+\SSbreak\\
+\emph{Source: italian team competition}\\
+\emph{Proposer: \Pmatt}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: }\\
+\emph{Date: }\\
+\emph{Difficulty: Hard}\\
+\SSbreak
+
+\SSpsetQ{
+
+Big Brainy Chess is played on a four-dimensional $n$-by-$n$-by-$n$-by-$n$ board. A Brainy Knight moves as follows: it moves two cells in any of the eight 
+cardinal directions, then moves one cell in a direction perpendicular to the first one. What is the probability that a pair of randomly chosen cells can have a knight placed
+in one of them which can reach the other in a single move?
+\begin{center}
+    \textit{(A scientific calculator may be used.)}
+\end{center}
+}\bigskip
+
+\begin{solution}[Write-up by \Pqs]\hfil\medskip
+  
+    A Brainy Knight, just like a regular knight, moves to a square that is distance $\sqrt5$ 
+    away from its current position, consisting of two translations of $\pm 1, \pm 2$ in two different directions. If board boundaries are not considered, there are $48$ 
+    moves a Brainy Knight can make, corresponding to the number of 4-tuples of integers with 
+    two zeros, one of them either $\pm 1$ and the last one either $\pm 2$. Each Brainy Knight 
+    will have coordinates $(w, x, y, z) \in \{0, 1, \cdots , n - 1\}^4$. Let $a$ be the number 
+    of $w, x, y, z$ that are either $0$ or $n - 1$, and $b$ the number of $w, x, y, z$ that are 
+    either $1$ or $n - 2$. There are a number of illegal moves a Brainy Knight can make with these restrictions: 
+    \begin{enumerate}[noitemsep]
+        \item one translation illegally affects an $a-$coordinate while the other is normal 
+        \item one translation illegally affects a $b-$coordinate while the other is normal
+        \item both an $a-$ and a $b-$coordinate are illegally affected
+        \item two $a-$coordinates are illegally affected.
+    \end{enumerate}
+    (Think why two $b-$coordinates getting illegally affected is not a case here.) In the first case, 
+    there are $a$ possible illegal coordinates that cannot have a translation of $-1$ or $-2$, 
+    while the $4 - a - b$ normal coordinates can have any translation; on the other hand if the 
+    other translation affects a $b-$coordinate then the pairs $(a, b): (-2, -1); (-2, 1); (-1, 2)$ are 
+    all fine; lastly if the other translation affects an $a-$coordinate then the pairs 
+    $\left(a_1, a_2\right): (-1, 2); (-2, 1)$ are fine too, for a total of 
+    $a\left[16 - 4a - 4b + 3b + 2(a - 1)\right] = a(14 - 2a - b)$ pairs. 
+    Similarly, in the second case there are $b$ possible illegal coordinates that 
+    cannot have a translaiton of $-2$, while the $3 - a$ normal coordinates can have $\pm 1$ 
+    and the $a-$-coordinates can have the pair $(a, b): (1, -2)$ for a total of $b(6 - a)$ pairs. 
+    The third count is simple, with only the pair $(a, b): (-1, -2)$ illegally affecting both 
+    for a total of $ab$. The fourth count is $a(a - 1)$, since both translations must be negative. 
+    In total, there are 
+    \begin{align*}
+        14a - 2a^2 - ab + 6b - ab + ab + a^2 - a &= 12a - 2a(a - 1) - ab + 6b + a(a - 1) \\
+        &\iff 48 - 12a - 6b + ab + a(a - 1)
+    \end{align*}
+    squares a Brainy Knight can go to. On the other hand, there are two choices for the value of 
+    $a-$ and $b-$coordinates, $n - 4$ choices for the value of the normal coordinates, and $\binom{4}{a}\binom{4 - a}{b}$ 
+    ways to choose in which dimensions the $a-$ and $b-$coordinates go. So there are a total of 
+    $$\sum_{a + b \leq 4} 2^{a + b}(n - 4)^{4 - a - b}\dbinom{4}{a}\dbinom{4 - a}{b}\left[48 - 12a - 6a + a(a + b - 1)\right]$$ 
+    pairs a Brainy Knight's jump away from each other. 
+\end{solution}\bigskip

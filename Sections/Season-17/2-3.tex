@@ -1,0 +1,21 @@
+\SSbreak\\
+\emph{Source: Mandelbrot (Year Unknown)}\\
+\emph{Proposer: \Ppi}\\
+\emph{Problem ID: 241}\\
+\emph{Date: 2020-07-28}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+  Find the sum of all real solutions to $$\sum_{k = -30}^{14} \dfrac{4x}{(x + k)(x + k + 1)} = 9.$$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+  We proceed with partial fraction decomposition. Note that 
+  $$\dfrac{1}{x + k} - \dfrac{1}{x + k + 1} = \dfrac{1}{(x + k)(x + k + 1)}$$
+  so our sum is $$4x\left(\dfrac{1}{x - 30} - \dfrac{1}{x + 15}\right) = 9 = \dfrac{4x \cdot 45}{(x - 30)(x + 15)}$$
+  and the quadratic boils down to $$(x - 30)(x + 15) = 20x \iff x^2 - 35x - 450 = 0 = (x - 45)(x + 10)$$ 
+  but $x = -10$ makes the denominator of $\frac{4x}{(x + 10)(x + 11)}$ zero and so is not a valid solution. 
+  Our answer is \fbox{45}.
+\end{solution}\bigskip

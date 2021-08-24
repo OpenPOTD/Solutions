@@ -1,0 +1,34 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pmatt}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 238}\\
+\emph{Date: 2021-07-25}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+The new MODS logo is an infinitely extended M; that is, a non-self-intersecting polyline made of a ray, two segments, and a ray, in that order (the two outside 
+"legs" of the M extend infinitely but the two segments that make up the middle "valley" don't). What is the maximum number of regions the plane can be partitioned into by 
+200 MODS logos?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    The formula in general is $8N^2 - 7N + 1$. Answer: \fbox{318601} \medskip
+
+    We would like to convert this problem into graph form, to use Euler's characteristic formula on. 
+    To get rid of the infinite condition, we draw a circle with a sufficiently large enough radius 
+    such that the circle intersects only the infinitely long lines, "cutting off" the infinitely 
+    long lines there and letting those intersection points with the circle, as well as all other 
+    intersection points, be vertices. (For example, for $N = 1$ we have $V = E = 5$.) \medskip
+
+    Our aim is to minimize $V - E$, or, maximize $E - V$. Suppose there are already $N$ MODS 
+    logos; we now add one more. For each new intersection added, we turn two intersecting segments 
+    into four; since we added a vertex and two edges $E - V$ goes up by 1. To maximize the number of 
+    intersections, we let each of the four segments of the new logo intersect all $4N$ original 
+    segments (this is made rigorous by something something lines are continuous) for a total change of 
+    $16N$. Now, the new MODS logo itself adds four edges (each line in the M) and five vertices 
+    (three for the M's arches and two for the intersection for the big circle) for a total 
+    difference of $16N - 1$. When $N = 1$ we have a maximum of two regions; induction finishes it off. 
+\end{solution}\bigskip

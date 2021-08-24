@@ -1,0 +1,21 @@
+\SSbreak\\
+\emph{Source: 2009 Turkey TST \#1}\\
+\emph{Proposer: \Paiya}\\
+\emph{Problem ID: 249}\\
+\emph{Date: 2021-08-05}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+
+Find all functions $f: \mathbb{Q}^+ \to \mathbb{Z}$ such that $$f\left(\dfrac{1}{x}\right) = f(x)\quad\text{and}\quad (x + 1)f(x - 1) = xf(x)$$
+for all rationals $x > 1$. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We claim that the only solution is $f\left(\frac{m}{n}\right) = \frac{f(1)(m + n)}{2}$, where $m \geq n$ are 
+    relatively prime positive integers and $f(1)$ is even. We proceed by strong induction on $m + n$; 
+    it is trivial when $m + n = 2 \iff m, n = 1$. Then, rearrange to note that $f(x) = \frac{(x + 1)f(x - 1)}{x}$ 
+    and then $x - 1 = \frac{m - n}{n}$. 
+\end{solution}\bigskip

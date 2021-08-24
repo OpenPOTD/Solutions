@@ -1,0 +1,37 @@
+\SSbreak\\
+\emph{Source: old mop homework}\\
+\emph{Proposer: \Paiya}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 237}\\
+\emph{Date: 2021-07-24}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+    It is given that there exist exist $n$ pairwise coprime positive integers with the property that the remainder when 
+    any $(n-1)$ of them is divided by the lone integer is 2021. What is the minimum 
+    possible value of $n$?
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let $r$ be the common remainder. We claim that $r \leq n - 2 \iff n \geq \boxed{2023}.$ 
+    Let $a_1, a_2, \cdots , a_n$ be the integers. Our main claim is that 
+    $$\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} - \dfrac{r}{a_1a_2 \cdots a_n}$$
+    is an integer. It's given that $a_n | \left(a_1a_2 \cdots a_{n-1} - r\right)$. Now, 
+    letting $S$ represent the sum of all products of $(n-1)$ combinations of the $a$'s 
+    (in other words, the $(n-1)^\text{st}$ symmetric sum), we also have 
+    $a_n | \left(S - a_1a_2 \cdots a_{n-1}\right)$ since $a_n$ is a factor in all the 
+    other terms, implying that $a_n | (S - r)$. Repeating this proof with different $a$'s, 
+    we end up with $a_1, a_2, \cdots , a_n | (S - r)$ and since the $a$'s are pairwise coprime 
+    this means that $a_1a_2 \cdots a_n | (S - r)$; writing this in the form $\frac{S - r}{a_1a_2 \cdots a_n}$
+    and diving through gives us our desired. \medskip
+
+    Suppose $r > n - 2$ and WLOG $a_1 < a_2 < \cdots < a_n$, so $a_1 > r > n$. 
+    We now try and bound $$\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} - \dfrac{r}{a_1a_2 \cdots a_n}$$ 
+    between two integers to get our contradiction. We have 
+    $$\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} - \dfrac{a+1}{a_1a_2 \cdots a_n} = \dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} - \dfrac{1}{a_2a_3 \cdots a_n} > 0$$
+    and also $$\dfrac{1}{a_1} + \dfrac{1}{a_2} + \cdots + \dfrac{1}{a_n} - \dfrac{n}{a_1a_2 \cdots a_n} < \dfrac{1}{n} \cdot n - 0 = 1$$
+    so our desired quantity is bounded between 0 and 1, contradiction.
+
+\end{solution}\bigskip

@@ -1,0 +1,24 @@
+\SSbreak\\
+\emph{Source: Unknown}\\
+\emph{Proposer: \Pnjoy}\\ %\Pchan \Pbrain \Pss
+\emph{Problem ID: 242}\\
+\emph{Date: 2021-07-29}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+
+    $\triangle ABC$ has orthocentre $H$, circumcentre $O$, and foot of the $A$-altitude $T$. Given 
+    that $\triangle ABC$ is isosceles with area $2021, [ABC]$ can be expressed in the form $\frac{a\sqrt{b}}{c},$
+    where $a, c$ are relatively prime positive integers and $b$ is squarefree. Find $10000a + 100b + c.$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Through angle chasing, we find that $\angle BHC = 180 - A$ so the reflection $H'$ of  $H$ over $T$ 
+    lies on the circumcircle of $\triangle ABC$. Let $M$ be the midpoint of $\overline{BC}$ and $2s$ be the sidelength of $\triangle ABC$; then 
+    $TM = s\sqrt{3}, BT = BM - s\sqrt{3}, CT = BM + s\sqrt{3}$ (WLOG $BT$ is the shorter side). 
+    Using Power of a Point we have $$BT \cdot CT = H'T \cdot AT = BM^2 - 3s^2 = 2sAT.$$ From 
+    Law of Cosines on $\triangle HOA$ we have $$R^2 = BM^2 + s^2 = (AT - 2s)^2 + (2s)^2 + (2s)(AT - 2s) \iff BM^2 = AT^2 - 2sAT + 3s^2$$
+    so we are left with $$2sAT = AT^2 - 2sAT \iff AT = 4s \iff BM = s\sqrt{11} \iff [ABC] = \dfrac{8084\sqrt{33}}{3} \iff \boxed{80843303}.$$
+\end{solution}\bigskip

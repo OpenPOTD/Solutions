@@ -1,0 +1,69 @@
+\SSbreak\\
+\emph{Source: Unknown}\\
+\emph{Proposer: \Ptan}\\
+\emph{Problem ID: 244}\\
+\emph{Date: 2021-07-31}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+$2021$ distinct rooms are arranged in a circle, each with 4 doorways: two leading to adjacent 
+rooms, one leading to the courtyard, and one leading to the outside. However, these doors 
+are one-way doors (so you can go from Room A to the courtyard but not from the courtyard to Room A through the same door). 
+Find the number of ways to orient the doors such that one can get from any room to any other room. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Solve for general $n$. 
+    We convert this into graph format, with $n + 2$ vertices, representing each of $n$ rooms, 
+    the courtyard, and the outside; and $3n$ edges, representing the one-way doors; and $2n$ 
+    faces. The end result should look like the graph $G$ of a neural network with one input node, 
+    one output node, and one hidden layer containing $n$ nodes, with the addition that 
+    all $n$ hidden nodes are connected in a (undirected) cycle; another visualization is 
+    the gluing of two $n$-gonal pyramids together at their bases. Vertices $u$ and $v$ 
+    are connected by a directed edge $u \to v$ iff one can walk from $u$ to $v$ through exactly 
+    one door (again, the courtyard and the outside count as rooms). \medskip
+
+    $G$ isn't all too useful. The condition of $G$ being strongly conncted is 
+    that $G$ must have a cycle decomposition such that each cycle must be strongly connected, 
+    but that's hardly useful, either. Note that $G$ is planar (curve the edge between the topmost 
+    and bottommost hidden nodes around eithe one of the start or end nodes, then draw the rest of 
+    the edges as common sense dictates); this means it has a dual graph $G'$. We direct the edges of 
+    said dual graph as follows: let $u$ be an edge of the original graph, and $u'$ the edge of 
+    the dual graph that intersects $u$. Then, rotate $u$ counterclockwise until it coincides with the 
+    vertices of $u'$; that is the direction of $u'$. \medskip
+
+    We claim that $G$ is strongly connected iff $G'$ contains no directed cycles. Suppose that 
+    $G'$ contained a cycle; this cycle "surrounds" some subset $S$ of vertices in $G$. Now, 
+    because the edges in the cycle go either all clockwise or all counterclockwise, 
+    this means that all the edges going from $S$ to $G \setminus S$ either are directed 
+    into $S$ or out of it. Conversely, if there exists a subset $S$ of vertices in $G$ such that 
+    it is impossible to transverse from $S$ to $G \setminus S$, then all the edges from 
+    $S$ to $G \setminus S$ either point all in or all out of $S$, meaning that there is a cycle 
+    in $G'$. (The motivation here was from the board game \textit{weiqi}; think of black stones 
+    as vertices in $S$ and white stones the edges separating $S$ from $G \setminus S$.) \medskip
+
+    Let $A(G)$ be the number of ways to direct the edges of $G$ such that there are no 
+    directed cycles in $G$ afterwards. We claim that $A(G) = (-1)^V\chi(G, -1)$, where $V$ 
+    is the number of vertices in $G$ and $\chi(G, n)$ is the chromatic polynomial of $G$. 
+    ($\chi(G, n)$ counts the number of ways to colour the vertices of $G$ with $n$ colours such 
+    that no two adjacent vertices share a colour.)
+    More generally, if $A(G, n)$ is the number of ways to: 
+    \begin{enumerate}[noitemsep]
+        \item label the vertices of $G$ each with an integer between 1 and $n$ inclusive such that if 
+        $u \to v$ is a directed edge, then the label assigned to $u$ is no less than the label 
+        assigned to $v$ (akin to "ordering" the colours such that some colours are worth more than others)
+        \item direct the edges of $G$ such that $G$ is acyclic
+    \end{enumerate}
+    then $A(G, n) = (-1)^V\chi(G, -n)$. Recall that $\chi(G, n)$ satisfies the following recurrence: 
+    $\chi(G, n) = \chi(G\setminus e, n) - \chi(G/e, n),$ where $e$ is an edge, $G\setminus e$ 
+    is the graph of $G$ but with $e$ removed, and $G/e$ is the graph of $G$ with the end vertices 
+    of $e$ shrunk down into one vertex. Since the values of $A(G, n)$ and $\chi(G, -n)$ are the same 
+    at "trivial" graphs (like the one-vertex graph, and combinations of two disconnected graphs) 
+    it suffices to prove the recurrence $A(G, n) = A(G\setminus e, n) + A(G/e, n)$. 
+    Consider the graph $G\setminus e$. If this graph contains a broken cycle such that adding $e$ 
+    would complete the cycle, then adding $e$ in the opposite direction constitutes a valid 
+    orienting of $G$; however in exactly $A(G/e, n)$ of these graphs there is no broken 
+    cycle that would be completed by adding $e$, so in these graphs both directions of $e$ work. 
+\end{solution}\bigskip
