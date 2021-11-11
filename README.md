@@ -17,8 +17,8 @@ Welcome to the OpenPOTD solutions booklet! Here you'll find answers & solutions 
 Solutions for season one were entirely written up by `Brainysmurfs#2860`, while `(sjbs#9839)` has overseen most of season two. 
 From season three onwards, Yuchan (`Angry Any#4319`) has also been contributing problem proposals and solutions. 
 
-Where possible, from season two onwards, We have tried to include the officially provided solutions to problems, 
-or adapted them in line with any changes to the problem statement, and in most cases also and filled in the gaps as best I could, 
+Where possible, from season two onwards, we have tried to include the officially provided solutions to problems, 
+or adapted them in line with any changes to the problem statement, and in most cases also filled in the gaps as best we could, 
 to make solutions more approachable to beginners. 
 For the more well known questions that are featured in a season (namely problems from the International Mathematical Olympiad), 
 instead of providing our own solution, we have included the `Art of Problem Solving` forum post on the question, 
@@ -75,7 +75,7 @@ If you have any ideas when it comes to improving the bot or project, the best pl
 ## Contact Us 
 
 The best way to contact us is through the [OpenPOTD Discord server](https://discord.gg/GsPSSHdhPB), 
-however, you may also contact us through the [discussions tab](https://github.com/OpenPOTD/Solutions/discussions) on Discord.
+however, you may also contact us through the [discussions tab](https://github.com/OpenPOTD/Solutions/discussions) on Github.
  Alternatively, you can message any of us on Discord:
 
 > sjbs#9839 (434767660182405131)
