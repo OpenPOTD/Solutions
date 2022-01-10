@@ -1,0 +1,104 @@
+\SSbreak\\
+\emph{Source: Original}\\
+\emph{Proposer: \Pcryo}\\
+\emph{Problem ID: 296}\\
+\emph{Date: 2022-01-09}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+A sequence is defined to be $k$\textit{-snakelike} if it consists of integers 
+$1$ through $k$ inclusive and the absolute difference between consecutive terms is at most $1$. 
+Let $N(n, k)$ be the number of $k$-snakelike sequence of length $n$. Find 
+$$\lim_{n \to \infty} N(n, k)^{1/n}.$$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Let $N(n, k, d)$ be the number of $k$-snakelike sequences of length $n$ with first term $d$. 
+    We get the following recurrences: 
+
+    \begin{align*}
+        N(n, k, 1) &= N(n - 1, k, 1) + N(n - 1, k, 2) \\
+        N(n, k, 2) &= N(n - 1, k, 1) + N(n - 1, k, 2) + N(n - 1, k, 3) \\
+        &\cdots \\
+        N(n, k, k - 1) &= N(n - 1, k, k - 2) + N(n - 1, k, k - 1) + N(n - 1, k, k) \\
+        N(n, k, k) &= N(n - 1, k, k - 1) + N(n - 1, k, k)
+    \end{align*}
+
+    Let $\vec v_n$ represent the column vector $\left(N(n, k, 1), N(n, k, 2), \cdots , N(n, k, k)\right).$ 
+    Since this is a system of linear recurrences, we can express it in the form $\vec v_{n + 1} = M\vec v_n$ for 
+    some $k$-by-$k$ matrix $M$. In our case, the matrix is 
+    
+    $$\begin{bmatrix}
+        1 & 1 & 0 & 0 & \cdots & 0 \\
+        1 & 1 & 1 & 0 & \cdots & 0 \\
+          & \ddots \\
+        0 & \cdots & 0 & 1 & 1 & 1 \\
+        0 & \cdots & 0 & 0 & 1 & 1 \\
+    \end{bmatrix}$$
+
+    where the main diagonal and the two diagonals directly above and below it are all 1's, and 
+    zeros everywhere else. By spectral theorem, $M$ is diagonalizable. Since $N(n, k) = 
+    \sum_{j = 1}^k N(n, k, j) = \vec v_n \cdot \vec 1$ (where $\vec 1$ is the 
+    appropriately-sized all-ones vector) we have 
+    $$\lim_{n \to \infty} N(n, k)^{1/n} = \left(M^{n - 1} \vec v_1 \cdot \vec 1\right)^{1/n} 
+    = \left(PD^nP^{-1}\vec v_1 \cdot \vec 1\right)^{1/n}.$$ 
+    That last expression evaluates to some linear combination of the $n$-th powers of the 
+    eigenvalues of $M$; as the limit goes to infinity only the largest eigenvalue contributes, 
+    with all coefficients going to $1$ as $1/n$ approaches $0$. \medskip 
+
+    It remains to find the largest eigenvalue of $M$. The way we did answer extraction, using 
+    \href{https://en.wikipedia.org/wiki/Rayleigh_quotient_iteration}{an iterative algorithm} 
+    probably would've worked if we allowed programming languages. Doing a \href{https://www.win.tue.nl/~aeb/2WF02/spectra.pdf}{quick online search} 
+    also yields the complete spectrum for path graphs, as $M - I$ is the adjacency matrix for 
+    the path graph, so $M$'s eigenvalues are simply the path's plus $1$. Our answer is then 
+    $\boxed{1 + \cos\left(\frac{\pi}{k + 1}\right)}$. \medskip
+
+    For the sake of completion, and to provide some motivation for that PDF's pretty confusing explanations, 
+    we find the spectra of both $C_n$ and $P_n$, the cycle and path graphs, respectively. 
+    Observe $A\left(C_n\right)\vec v = \lambda\vec v:$ if $\vec v = \left(v_1, v_2, \cdots , v_n\right)$ 
+    then we have the following system: 
+
+    $$\left\{ \begin{aligned}
+        &v_n + v_2 &= \lambda v_1 \\
+        &v_1 + v_3 &= \lambda v_2 \\ 
+        &\quad\cdots \\
+        &v_{n - 1} + v_1 &= \lambda v_n
+    \end{aligned} \right.$$
+
+    Adding this all up gives $\lambda \vec v \cdot \vec 1 = 2\vec v \cdot \vec 1$, so either 
+    $\lambda = 2$ or $\vec v \cdot \vec 1 = 0$. The former case is boring, so we focus on 
+    the latter. Noting the symmetry of the adjacency matrix of $C_n$ and the fact that $C_n$ 
+    can be represented as a regular $n$-gon, we do a bit of wishful thinking: we conjecture 
+    that the $v_i$'s are the $n$-th 
+    roots of unity; indeed, $\vec v = \left(\omega^0, \omega^1, \cdots , \omega^{n - 1}\right)$ 
+    is an eigenvector of $C_n$ where $\omega$ is a primitive $n$-th root of unity. Multiplying 
+    through we get $\lambda = \omega + \omega^{-1}$. The remaining eigenvalues follow from 
+    replacing $\omega$ with $\omega^k, 0 < k < n$. \medskip
+
+    We did $C_n$ first because $P_n$ is $C_n$, just with the top-right and bottom-left $1$'s 
+    flipped to $0$'s. Setting up the same system of equations and adding, we get 
+    $\lambda\vec v \cdot \vec 1 = 2\vec v \cdot \vec 1 - \left(v_1 + v_n\right).$ Now, this is 
+    where we do a \textbf{lot} of wishful thinking: we wish for $v_1 + v_n = 0$, so that the $v_i$'s are 
+    some sort of roots of unity. After all, they should be; $P_n$ and $C_n$ are very similar. 
+    To that end, we try using eigenvectors of $C_m$ (for some $m \neq n$) to try and guess at 
+    an eigenvector of $P_n$. We notice that simple roots of unity won't work: after multiplying 
+    by $P_n$, the resultant vector will have one term in $v_1, v_n$ but two terms everywhere else. 
+    So, we try linear combinations of two eigenvectors of $C_m$. \medskip
+    
+    Note that $\vec v = \left(\omega^1, \cdots , \omega^{n}\right)$ and 
+    $\vec u = \left(\omega^{-1}, \cdots , \omega^{-n}\right)$ correspond to the 
+    same eigenvalue, $\omega + \omega^{-1}$, where $\omega$ is now a primitive $m$-th root of unity. 
+    A linear combination $\vec w$ of these two vectors will have two terms in $w_1, w_n$ but four 
+    everywhere else, with $\left(\lambda\vec w\right)_i = \left(\omega + \omega^{-1}\right)w_i$. 
+    To check out $w_1,$ we recall the difference of squares $\omega^2 - \omega^{-2} = \left(\omega + \omega^{-1}\right)\left(\omega - \omega^{-1}\right)$ 
+    so $\vec w = \vec v - \vec u$ seems like a good guess. Indeed, all entries except for $w_n$ check out immediately. 
+    Now $w_n = \omega^{n + 1} - \omega^{-(n + 1)} + \omega^{n - 1} - \omega^{-(n - 1)}$ and I'd like the first 
+    two terms to cancel each other out, implying $\omega^{2(n + 1)} = 1$. If $\omega^{n + 1} = 1$, 
+    we would have eigenvalues $2\cos\left(\frac{2\pi k}{n + 1}\right), k \neq 0$. However, 
+    the sum of these eigenvalues is $-2$, whereas the trace of $P_n$ (or any graph for that matter), 
+    which is also the sum of eigenvalues, is $0$, contradiction. Thus $\omega^{n + 1} = -1$ 
+    and our eigenvalues are $2\cos\left(\frac{\pi k}{n + 1}\right), 0 < k \leq n$.
+\end{solution}\bigskip

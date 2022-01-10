@@ -1,0 +1,36 @@
+\SSbreak\\
+\emph{Source: 1996 Korean Math Olympiad \#3}\\
+\emph{Proposer: \Pahkml}\\
+\emph{Problem ID: 293}\\
+\emph{Date: 2022-01-06}\\
+\emph{Difficulty: Medium}\\
+\SSbreak
+
+\SSpsetQ{
+
+$n$ is a positive integer satisfying $\left\lfloor \sqrt{n} \right\rfloor = 69.$ If 
+$$S = \sum_{k = 1}^n \left\lfloor \sqrt{k} \right\rfloor,$$ find $n$ such that the 
+last three digits of $S$ is closest (in absolute value) to 420. 
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    We separate the sum up into two parts: where $k < 69^2$ and $k \geq 69^2$. When $k^2 < 69$, 
+    the sum is fixed: 
+    $$\sum_{k = 1}^{69^2 - 1} \left\lfloor \sqrt{k} \right\rfloor = 
+    \sum_{k = 1}^{68} k\left[(k + 1)^2 - k^2\right] = \sum_{k = 1}^{68} 2k^2 + k,$$ where the 
+    second expression comes from the fact that for each $k$, there are $(k + 1)^2 - k^2$ integers $h$, 
+    namely $k^2, k^2 + 1, \cdots , (k + 1)^2 - 1$, such that $\left\lfloor \sqrt{h} \right\rfloor = k$. 
+    The last sum can be easily evaluated with well-known formulas to be $614 \pmod{1000}$. Now, suppose 
+    $n = 69^2 - 1 + m$, so there $m$ integers such that $k \geq 69^2$, so $S \equiv 69m + 614 \pmod{1000}.$ 
+    It would be real nice if $S \equiv 420 \pmod{1000}$ directly, which implies $m = 374$. However, 
+    there are only $70^2 - 69^2 = 139$ integers with floor of square root $69$, so $374$ is way too large. 
+    Instead, note that $69 \cdot 29 \equiv 1 \pmod{1000}$, so decreasing $m$ by $69$ decreases $m$ by 1. 
+    Thus, if we keep decreasing $m$ by $29$ until $m \leq 139$ we'll get a suitable $S$. Indeed, 
+    $374 - 29 \cdot 9 = 113 < 139$ is the best we can do. Our answer is then $69^2 - 1 + 113 = \boxed{4873}.$\medskip
+
+    \textit{Remark.} We found $69^{-1} \mod{1000}$, i.e. the integer $a$ such that $69a \equiv 1 \pmod{1000}.$ 
+    Why didn't we find $a$ such that $69a \equiv -1 \pmod{1000}$? Then, decrementing $m$ by $a$ would 
+    increase $S$ by 1, achieving the same result. So why not?
+
+\end{solution}\bigskip

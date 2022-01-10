@@ -1,0 +1,50 @@
+\SSbreak\\
+\emph{Source: 2010 USA TST \#8}\\
+\emph{Proposer: \Paiya}\\
+\emph{Problem ID: 295}\\
+\emph{Date: 2022-01-08}\\
+\emph{Difficulty: Challenging}\\
+\SSbreak
+
+\SSpsetQ{
+
+Let $S$ be the sum of all ordered $n$-tuples $\left(a_1, a_2, \cdots , a_n\right)$ such that 
+$a_1 + a_2 + \cdots + a_n = m$ for $m \geq n$. Find a "nice" sum (so, one simple summation) for 
+$$\sum_S \prod_{k = 1}^n k^{a_k}.$$
+}\bigskip
+
+\begin{solution}\hfil\medskip
+  
+    Consider the number of functions $f: \{1, 2, \cdots, m\} \to \{1, 2, \cdots , n\}$ such 
+    that for every $1 \leq p \leq n$ there exists a $q \in [1, m]$ such that $f(q) = p$; such 
+    functions are called \textit{surjections}. We claim our sum counts all such surjections. 
+    Let $s_k = a_1 + a_2 + \cdots + a_k$, and $\left(\sigma_1, \sigma_2, \cdots , \sigma_n\right)$ 
+    be a permutation of $(1, 2, \cdots , n)$. We impose the following restrictions: 
+    for each $1 \leq k < n$, the output of $q$ such that $s_{k - 1} < q < s_k$ must be 
+    restricted to $\left\{\sigma_1, \sigma_2, \cdots , \sigma_k\right\}$ (treat $s_0 = 1$); 
+    and for each $1 \leq k \leq n$ we must have $f\left(s_k\right) = \sigma_k$. There are 
+    a total of $\prod_{k = 1}^n k^{a_k - 1}$ such surjections; now multiply through by $n!$ 
+    to account for all possible permutations $\sigma$. Indeed, each surjection corresponds 
+    to a $n$-tuple $\left(a_1, a_2, \cdots , a_n\right)$. 
+    List out the sequence $\left(f(1), f(2), \cdots , f(m)\right)$, and read it from left 
+    to right: 
+
+    \begin{enumerate}[noitemsep]
+        \item Let $j, k = 1$.
+        \item Look at $f(k).$
+        \item If $f(k) \neq f(h)$ for all $h < k$, let $s_j = k$ and increment $j$ by 1.
+        \item Increment $k$ by 1.
+        \item If $k \leq n$ return to step 2.
+    \end{enumerate}
+
+    It remains to count the number of such surjections.
+    There are $n^m$ total functions. We count the number of functions with range of size no more than 
+    $n - 1$. There are $\binom{n}{n - 1}(n - 1)^m$ functions with a codomain of size $n - 1$. 
+    However, subtracting off just that would be overcounting functions with a codomain of size 
+    less than $n - 1$; for $1 \leq k < n$ there are $\binom{n}{n - k}(n - k)^m$ functions with 
+    a codomain of size $n - k$. Using inclusion-exclusion, our sum is 
+    $$\boxed{\sum_{k = 0}^{n - 1} (-1)^k\dbinom{n}{k}(n - k)^m}$$ 
+    \textit{Remark.} The answer extraction asked for the first and last few digits of the sum. 
+    We actually only need WolframAlpha to get the first few digits, since $n!$ is a factor of 
+    each term of the sum, so the sum will have lots of leading zeros at the end. 
+\end{solution}\bigskip

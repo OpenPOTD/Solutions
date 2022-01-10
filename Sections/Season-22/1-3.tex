@@ -1,0 +1,28 @@
+\SSbreak\\
+\emph{Source: USAMTS Y30R3P2}\\
+\emph{Proposer: \Paiya}\\
+\emph{Problem ID: 292}\\
+\emph{Date: 2022-01-05}\\
+\emph{Difficulty: Easy}\\
+\SSbreak
+
+\SSpsetQ{
+  Lizzie writes a list of fractions as follows. First, she writes $\frac{1}{1}$, 
+  the only fraction whose
+numerator and denominator add to 2. Then she writes the two fractions whose numerator
+and denominator add to 3, in increasing order of denominator. Then she writes the three
+fractions whose numerator and denominator sum to 4 in increasing order of denominator. She
+continues in this way until she has written all the fractions whose numerator and denominator
+sum to at most 1000. So Lizzie's list looks like:
+$$\dfrac{1}{1}, \dfrac{2}{1}, \dfrac{1}{2}, \dfrac{3}{1}, \dfrac{2}{2}, \dfrac{1}{3}, \cdots, \dfrac{1}{999}.$$
+Let $p_k$ be the product of the first $k$ fractions in Lizzie's list. Find, with proof, the value of
+$p_1 + p_2 + \cdots + p_{499500}$.
+}\bigskip
+
+\begin{solution}\hfil\medskip
+ 
+  \href{https://usamts.org/Solutions/Solutions_30_3.pdf}{Solution.} In general, if this list 
+  of fractions continues indefinitely, and the sum goes to $T_n$ instead of $499500$, the 
+  answer is $\boxed{2^{n + 1} - (n + 2)}$.
+
+\end{solution}\bigskip
