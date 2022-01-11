@@ -54,7 +54,7 @@ $$\lim_{n \to \infty} N(n, k)^{1/n}.$$
     probably would've worked if we allowed programming languages. Doing a \href{https://www.win.tue.nl/~aeb/2WF02/spectra.pdf}{quick online search} 
     also yields the complete spectrum for path graphs, as $M - I$ is the adjacency matrix for 
     the path graph, so $M$'s eigenvalues are simply the path's plus $1$. Our answer is then 
-    $\boxed{1 + \cos\left(\frac{\pi}{k + 1}\right)}$. \medskip
+    $\boxed{1 + 2\cos\left(\frac{\pi}{k + 1}\right)}$. \medskip
 
     For the sake of completion, and to provide some motivation for that PDF's pretty confusing explanations, 
     we find the spectra of both $C_n$ and $P_n$, the cycle and path graphs, respectively. 
@@ -100,5 +100,18 @@ $$\lim_{n \to \infty} N(n, k)^{1/n}.$$
     we would have eigenvalues $2\cos\left(\frac{2\pi k}{n + 1}\right), k \neq 0$. However, 
     the sum of these eigenvalues is $-2$, whereas the trace of $P_n$ (or any graph for that matter), 
     which is also the sum of eigenvalues, is $0$, contradiction. Thus $\omega^{n + 1} = -1$ 
-    and our eigenvalues are $2\cos\left(\frac{\pi k}{n + 1}\right), 0 < k \leq n$.
+    and our eigenvalues are $2\cos\left(\frac{\pi k}{n + 1}\right), 0 < k \leq n$. \medskip
+
+    A less guesswork-based approach to find the spectrum of $P_n$ is also possible. Simply 
+    consider the cofactor expansion of $\det\left(\lambda I - P_n\right) = p_n(\lambda)$, 
+    the characteristic polynomial of $P_n$. Doing cofactor expansion on the first row, we see 
+    that $C_{1, 1}$ is simply $p_{n - 1}(\lambda)$, while $C_{1, 2}$ is the determinant of a 
+    matrix with the first column being a pivot column (although the first entry is a $-1$ not a $1$); 
+    doing cofactor expansion on the first column gives us $p_{n - 2}$. Putting it together, we 
+    have the recurrence $$p_n(\lambda) = \lambda p_{n - 1}(\lambda) - p_{n - 2}\lambda.$$ For 
+    example, we have $p_2(\lambda) = \lambda^2 - 1$ and $p_3(\lambda) = \lambda^3 - 2\lambda$. 
+    The recurrence, and $p_2(\lambda)$ and $p_3(\lambda)$, remind us of the Chebyshev recurrence; 
+    indeed, letting $\lambda = 2x$ we obtain $p_n(\lambda) = U_n(x)$, where $U(x)$ are the 
+    Chebyshev polynomials of the second kind. Then, the roots of $p_n(\lambda)$ are two times the roots 
+    of $U_n(x)$, which are easily found. 
 \end{solution}\bigskip
